@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
 
 #include "data.h"
 
-	KalmanFilterKernel(din, dout, 0.05, 0.95);
+	KalmanFilterKernel(din, dout, 0, 0.05, 0.95);
 
 //	writeDataToFile(dout, OUTPUT_FILENAME);
 
