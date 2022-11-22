@@ -32540,15 +32540,14 @@ void matDiagInverse(T *mat_in, T *mat_out, int M)
 typedef float KF_data_t;
 
 
-__attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(float din[2048], float dout[1024], float counter, float q, float r);
+__attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(float din[2048], float dout[1024], ap_uint<32> counter, float q, float r);
 # 2 "../../src/hls_src/KF_kernel.cpp" 2
-using namespace std;
 
 
 
-__attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(float din[2048], float dout[2048], float counter, float q, float r) {_ssdm_SpecArrayDimSize(din, 2048);_ssdm_SpecArrayDimSize(dout, 2048);
+__attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(float din[2048], float dout[2048], ap_uint<32> counter, float q, float r) {_ssdm_SpecArrayDimSize(din, 2048);_ssdm_SpecArrayDimSize(dout, 2048);
 #pragma HLS TOP name=KalmanFilterKernel
-# 6 "../../src/hls_src/KF_kernel.cpp"
+# 5 "../../src/hls_src/KF_kernel.cpp"
 
 
 #pragma HLS INTERFACE ap_memory storage_type=ram_1p port=din
@@ -32556,191 +32555,202 @@ __attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(flo
 #pragma HLS INTERFACE s_axilite port=q bundle=AXI_CPU
 #pragma HLS INTERFACE s_axilite port=r bundle=AXI_CPU
 #pragma HLS INTERFACE s_axilite port=return bundle=AXI_CPU
+#pragma HLS_INTERFACE ap_none port=counter register
 
+ static unsigned int counter_sig_old;
+ unsigned int counter_sig_new = counter;
 
- float DT = counter;
+ static bool first_run = true;
+ static KF_data_t din_old[6];
+ KF_data_t din_new[6];
+ KF_data_t dout_[6];
 
+ float DT;
 
+ if(first_run){
+  counter_sig_old = counter_sig_new;
+ }
 
- static int num_calls = 0;
-  KF_data_t din_[6];
-  KF_data_t dout_[6];
+ unsigned int counter_diff;
 
-
-
- static KF_data_t u[3];
- static KF_data_t z[3];
- static KF_data_t x[6];
- static KF_data_t P[6*6];
-
- static KF_data_t x_minus[6];
- static KF_data_t P_minus[6*6];
- static KF_data_t x_plus[6];
- static KF_data_t P_plus[6*6];
-
- static KF_data_t tmp_mat_1[6*6];
- static KF_data_t tmp_mat_2[6*6];
-
- static KF_data_t tmp_mat_3[6*6];
+ counter_diff = counter_sig_new - counter_sig_old;
 
 
 
 
-  KF_data_t A[6*6] = {
-   1,0,0,DT,0,0,
-   0,1,0,0,DT,0,
-   0,0,1,0,0,DT,
-   0,0,0,1,0,0,
-   0,0,0,0,1,0,
-   0,0,0,0,0,1
+
+ DT = (float)counter_diff;
+
+
+
+
+ DT = DT / 125000000;
+
+
+
+ counter_sig_old = counter_sig_new;
+
+
+
+ KF_data_t A[6*6] = {
+  1,0,0,DT,0,0,
+  0,1,0,0,DT,0,
+  0,0,1,0,0,DT,
+  0,0,0,1,0,0,
+  0,0,0,0,1,0,
+  0,0,0,0,0,1
  };
-  KF_data_t B[6*3] = {
-   static_cast<KF_data_t>(0.5*DT*DT),0,0,
-   0,static_cast<KF_data_t>(0.5*DT*DT),0,
-   0,0,static_cast<KF_data_t>(0.5*DT*DT),
-   DT,0,0,
-   0,DT,0,
-   0,0,DT
+ KF_data_t B[6*3] = {
+  static_cast<KF_data_t>(0.5*DT*DT),0,0,
+  0,static_cast<KF_data_t>(0.5*DT*DT),0,
+  0,0,static_cast<KF_data_t>(0.5*DT*DT),
+  DT,0,0,
+  0,DT,0,
+  0,0,DT
  };
-  KF_data_t H[3*6] = {
-   1,0,0,0,0,0,
-   0,1,0,0,0,0,
-   0,0,1,0,0,0
+ KF_data_t H[3*6] = {
+  1,0,0,0,0,0,
+  0,1,0,0,0,0,
+  0,0,1,0,0,0
+ };
+ KF_data_t I[6*6] = {
+  1,0,0,0,0,0,
+  0,1,0,0,0,0,
+  0,0,1,0,0,0,
+  0,0,0,1,0,0,
+  0,0,0,0,1,0,
+  0,0,0,0,0,1
  };
 
-  KF_data_t I[6*6] = {
-   1,0,0,0,0,0,
-   0,1,0,0,0,0,
-   0,0,1,0,0,0,
-   0,0,0,1,0,0,
-   0,0,0,0,1,0,
-   0,0,0,0,0,1
+
+
+  KF_data_t Q[6*6] = {
+  q, 0, 0, 0, 0, 0,
+  0, q, 0, 0, 0, 0,
+  0, 0, q, 0, 0, 0,
+  0, 0, 0, q, 0, 0,
+  0, 0, 0, 0, q, 0,
+  0, 0, 0, 0, 0, q
+ };
+
+  KF_data_t R[3*3] = {
+  r, 0, 0,
+  0, r, 0,
+  0, 0, r
  };
 
 
+ static KF_data_t x_hat[6];
+ static KF_data_t P_hat[6*6] = {
+  1, 0, 0, 0, 0, 0,
+  0, 1, 0, 0, 0, 0,
+  0, 0, 1, 0, 0, 0,
+  0, 0, 0, 1, 0, 0,
+  0, 0, 0, 0, 1, 0,
+  0, 0, 0, 0, 0, 1
+ };
 
-    static KF_data_t Q[6*6] = {
-      q, 0, 0, 0, 0, 0,
-      0, q, 0, 0, 0, 0,
-      0, 0, q, 0, 0, 0,
-      0, 0, 0, q, 0, 0,
-      0, 0, 0, 0, q, 0,
-      0, 0, 0, 0, 0, q
-    };
-
-    static KF_data_t R[3*3] = {
-      r, 0, 0,
-      0, r, 0,
-      0, 0, r
-    };
-
-
-    static KF_data_t x_hat[6];
-    static KF_data_t P_hat[6*6] = {
-        1, 0, 0, 0, 0, 0,
-        0, 1, 0, 0, 0, 0,
-        0, 0, 1, 0, 0, 0,
-        0, 0, 0, 1, 0, 0,
-        0, 0, 0, 0, 1, 0,
-        0, 0, 0, 0, 0, 1
-      };
-
-   static KF_data_t y_bar[3];
-   static KF_data_t H_T[6*3];
-   static KF_data_t S[3*3];
-   static KF_data_t S_inv[3*3];
-   static KF_data_t K[6*3];
+ static KF_data_t y_bar[3];
+ static KF_data_t H_T[6*3];
+ static KF_data_t S[3*3];
+ static KF_data_t S_inv[3*3];
+ static KF_data_t K[6*3];
 
 
-
-
-
-  if( num_calls == 0){
-  VITIS_LOOP_113_1: for (int i = 0; i < 6; i++) {
-   din_[i] = (KF_data_t)din[i];
-
+ if( first_run){
+  VITIS_LOOP_115_1: for (int i = 0; i < 6; i++) {
+   din_old[i] = (KF_data_t)din[i];
   }
 
-  x_hat[0] = din_[0];
-  x_hat[1] = din_[1];
-  x_hat[2] = din_[2];
+  x_hat[0] = din_old[0];
+  x_hat[1] = din_old[1];
+  x_hat[2] = din_old[2];
   x_hat[3] = 0;
   x_hat[4] = 0;
   x_hat[5] = 0;
 
-
   VITIS_LOOP_126_2: for (int i = 0; i < 6; i++) dout_[i] = x_hat[i];
 
+ }
+ else{
 
+  VITIS_LOOP_131_3: for (int i = 0; i < 6; i++) {
+     din_new[i] = (KF_data_t)din[i];
+   }
+
+  KF_data_t u[3];
+  KF_data_t z[3];
+  KF_data_t x[6];
+  KF_data_t P[6*6];
+
+  KF_data_t x_minus[6];
+  KF_data_t P_minus[6*6];
+  KF_data_t x_plus[6];
+  KF_data_t P_plus[6*6];
+
+  KF_data_t tmp_mat_1[6*6];
+  KF_data_t tmp_mat_2[6*6];
+  KF_data_t tmp_mat_3[6*6];
+
+
+
+
+
+
+  VITIS_LOOP_154_4: for (int j = 0; j < 3; j++) u[j] = (din_old[3 +j]);
+  VITIS_LOOP_155_5: for (int j = 0; j < 3; j++) z[j] = (din_new[j]);
+  VITIS_LOOP_156_6: for (int j = 0; j < 6; j++) x[j] = x_hat[j];
+  VITIS_LOOP_157_7: for (int j = 0; j < 6*6; j++) P[j] = P_hat[j];
+
+
+
+
+  matMultiply<KF_data_t, 6, 6, 6>(A, x, tmp_mat_1, 6, 6, 1);
+  matMultiply<KF_data_t, 6, 6, 6>(B, u, tmp_mat_2, 6, 3, 1);
+  matAdd<KF_data_t, 6, 6>(tmp_mat_1, tmp_mat_2, x_minus, 6, 1);
+
+  matMultiply<KF_data_t, 6, 6, 6>(A, P, tmp_mat_1, 6, 6, 6);
+  matTranspose<KF_data_t, 6, 6>(A, tmp_mat_2, 6, 6);
+  matMultiply<KF_data_t, 6, 6, 6>(tmp_mat_1, tmp_mat_2, tmp_mat_3, 6, 6, 6);
+  matAdd<KF_data_t, 6, 6>(tmp_mat_3, Q, P_minus, 6, 6);
+
+  VITIS_LOOP_171_8: for (int j = 0; j < 6; j++) x_plus[j] = x_minus[j];
+  VITIS_LOOP_172_9: for (int j = 0; j < 6*6; j++) P_plus[j] = P_minus[j];
+
+
+
+
+  matTranspose<KF_data_t, 6, 6>(H, H_T, 3, 6);
+
+  matMultiply<KF_data_t, 6, 6, 6>(H, x_minus, tmp_mat_3, 3, 6, 1);
+  matSubtract<KF_data_t, 6, 6>(z, tmp_mat_3, y_bar, 3, 1);
+
+  matMultiply<KF_data_t, 6, 6, 6>(H, P_minus, tmp_mat_3, 3, 6, 6);
+  matMultiply<KF_data_t, 6, 6, 6>(tmp_mat_3, H_T, tmp_mat_2, 3, 6, 3);
+  matAdd<KF_data_t, 6, 6>(tmp_mat_2, R, S, 3, 3);
+
+  matDiagInverse<KF_data_t, 3>(S, S_inv, 3);
+  matMultiply<KF_data_t, 6, 6, 6>(P_minus, H_T, tmp_mat_3, 6, 6, 3);
+  matMultiply<KF_data_t, 6, 6, 6>(tmp_mat_3, S_inv, K, 6, 3, 3);
+
+  matMultiply<KF_data_t, 6, 6, 6>(K, y_bar, tmp_mat_3, 6, 3, 1);
+  matAdd<KF_data_t, 6, 6>(x_minus, tmp_mat_3, x_plus, 6, 1);
+
+  matMultiply<KF_data_t, 6, 6, 6>(K, H, tmp_mat_2, 6, 3, 6);
+  matSubtract<KF_data_t, 6, 6>(I, tmp_mat_2, tmp_mat_1, 6, 6);
+  matMultiply<KF_data_t, 6, 6, 6>(tmp_mat_1, P_minus, P_plus, 6, 6, 6);
+
+
+  VITIS_LOOP_198_10: for (int j = 0; j < 6; j++) x_hat[j] = x_plus[j];
+  VITIS_LOOP_199_11: for (int j = 0; j < 6*6; j++) P_hat[j] = P_plus[j];
+  VITIS_LOOP_200_12: for (int j = 0; j < 6; j++) dout_[j] = x_plus[j];
+
+  VITIS_LOOP_202_13: for (int i = 0; i < 6; i++) {
+   din_old[i] = din_new[i];
   }
-  else{
-
-   VITIS_LOOP_132_3: for (int i = 0; i < 6; i++) {
-      din_[i] = (KF_data_t)din[i];
-
-     }
-
-
-
-
-
-
-
-   VITIS_LOOP_143_4: for (int j = 0; j < 3; j++) u[j] = (din_[3 +j]);
-   VITIS_LOOP_144_5: for (int j = 0; j < 3; j++) z[j] = (din_[3 +3 +j]);
-   VITIS_LOOP_145_6: for (int j = 0; j < 6; j++) x[j] = x_hat[j];
-   VITIS_LOOP_146_7: for (int j = 0; j < 6*6; j++) P[j] = P_hat[j];
-
-
-
-
-   matMultiply<KF_data_t, 6, 6, 6>(A, x, tmp_mat_1, 6, 6, 1);
-   matMultiply<KF_data_t, 6, 6, 6>(B, u, tmp_mat_2, 6, 3, 1);
-   matAdd<KF_data_t, 6, 6>(tmp_mat_1, tmp_mat_2, x_minus, 6, 1);
-
-   matMultiply<KF_data_t, 6, 6, 6>(A, P, tmp_mat_1, 6, 6, 6);
-   matTranspose<KF_data_t, 6, 6>(A, tmp_mat_2, 6, 6);
-   matMultiply<KF_data_t, 6, 6, 6>(tmp_mat_1, tmp_mat_2, tmp_mat_3, 6, 6, 6);
-   matAdd<KF_data_t, 6, 6>(tmp_mat_3, Q, P_minus, 6, 6);
-
-   VITIS_LOOP_160_8: for (int j = 0; j < 6; j++) x_plus[j] = x_minus[j];
-   VITIS_LOOP_161_9: for (int j = 0; j < 6*6; j++) P_plus[j] = P_minus[j];
-
-
-
-
-   matTranspose<KF_data_t, 6, 6>(H, H_T, 3, 6);
-
-   matMultiply<KF_data_t, 6, 6, 6>(H, x_minus, tmp_mat_3, 3, 6, 1);
-   matSubtract<KF_data_t, 6, 6>(z, tmp_mat_3, y_bar, 3, 1);
-
-   matMultiply<KF_data_t, 6, 6, 6>(H, P_minus, tmp_mat_3, 3, 6, 6);
-   matMultiply<KF_data_t, 6, 6, 6>(tmp_mat_3, H_T, tmp_mat_2, 3, 6, 3);
-   matAdd<KF_data_t, 6, 6>(tmp_mat_2, R, S, 3, 3);
-
-   matDiagInverse<KF_data_t, 3>(S, S_inv, 3);
-   matMultiply<KF_data_t, 6, 6, 6>(P_minus, H_T, tmp_mat_3, 6, 6, 3);
-   matMultiply<KF_data_t, 6, 6, 6>(tmp_mat_3, S_inv, K, 6, 3, 3);
-
-   matMultiply<KF_data_t, 6, 6, 6>(K, y_bar, tmp_mat_3, 6, 3, 1);
-   matAdd<KF_data_t, 6, 6>(x_minus, tmp_mat_3, x_plus, 6, 1);
-
-   matMultiply<KF_data_t, 6, 6, 6>(K, H, tmp_mat_2, 6, 3, 6);
-   matSubtract<KF_data_t, 6, 6>(I, tmp_mat_2, tmp_mat_1, 6, 6);
-   matMultiply<KF_data_t, 6, 6, 6>(tmp_mat_1, P_minus, P_plus, 6, 6, 6);
-
-
-   VITIS_LOOP_187_10: for (int j = 0; j < 6; j++) x_hat[j] = x_plus[j];
-   VITIS_LOOP_188_11: for (int j = 0; j < 6*6; j++) P_hat[j] = P_plus[j];
-   VITIS_LOOP_189_12: for (int j = 0; j < 6; j++) dout_[j] = x_plus[j];
-
-  }
-  VITIS_LOOP_192_13: for (int i = 0; i < 6; i++) {
-   dout[i] = (float)dout_[i];
-
-  }
-
-
- num_calls ++;
-
+ }
+ VITIS_LOOP_206_14: for (int i = 0; i < 6; i++) {
+  dout[i] = (float)dout_[i];
+ }
+ first_run = false;
 }

@@ -3,8 +3,12 @@ source_filename = "llvm-link"
 target datalayout = "e-m:e-i64:64-i128:128-i256:256-i512:512-i1024:1024-i2048:2048-i4096:4096-n8:16:32:64-S128-v16:16-v24:32-v32:32-v48:64-v96:128-v192:256-v256:256-v512:512-v1024:1024"
 target triple = "fpga64-xilinx-none"
 
+%struct.ap_uint = type { %struct.ap_int_base }
+%struct.ap_int_base = type { %struct.ssdm_int }
+%struct.ssdm_int = type { i32 }
+
 ; Function Attrs: noinline
-define void @apatb_KalmanFilterKernel_ir(float* %din, float* %dout, float %counter, float %q, float %r) local_unnamed_addr #0 {
+define void @apatb_KalmanFilterKernel_ir(float* %din, float* %dout, %struct.ap_uint* nocapture readonly %counter, float %q, float %r) local_unnamed_addr #0 {
 entry:
   %malloccall = tail call i8* @malloc(i64 8192)
   %din_copy = bitcast i8* %malloccall to [2048 x float]*
@@ -15,7 +19,7 @@ entry:
   call fastcc void @copy_in([2048 x float]* %0, [2048 x float]* %din_copy, [2048 x float]* %1, [2048 x float]* %dout_copy)
   %2 = getelementptr inbounds [2048 x float], [2048 x float]* %din_copy, i32 0, i32 0
   %3 = getelementptr inbounds [2048 x float], [2048 x float]* %dout_copy, i32 0, i32 0
-  call void @apatb_KalmanFilterKernel_hw(float* %2, float* %3, float %counter, float %q, float %r)
+  call void @apatb_KalmanFilterKernel_hw(float* %2, float* %3, %struct.ap_uint* %counter, float %q, float %r)
   call fastcc void @copy_out([2048 x float]* %0, [2048 x float]* %din_copy, [2048 x float]* %1, [2048 x float]* %dout_copy)
   tail call void @free(i8* %malloccall)
   tail call void @free(i8* %malloccall1)
@@ -71,21 +75,21 @@ entry:
 
 declare void @free(i8*) local_unnamed_addr
 
-declare void @apatb_KalmanFilterKernel_hw(float*, float*, float, float, float)
+declare void @apatb_KalmanFilterKernel_hw(float*, float*, %struct.ap_uint*, float, float)
 
-define void @KalmanFilterKernel_hw_stub_wrapper(float*, float*, float, float, float) #5 {
+define void @KalmanFilterKernel_hw_stub_wrapper(float*, float*, %struct.ap_uint*, float, float) #5 {
 entry:
   %5 = bitcast float* %0 to [2048 x float]*
   %6 = bitcast float* %1 to [2048 x float]*
   call void @copy_out([2048 x float]* null, [2048 x float]* %5, [2048 x float]* null, [2048 x float]* %6)
   %7 = bitcast [2048 x float]* %5 to float*
   %8 = bitcast [2048 x float]* %6 to float*
-  call void @KalmanFilterKernel_hw_stub(float* %7, float* %8, float %2, float %3, float %4)
+  call void @KalmanFilterKernel_hw_stub(float* %7, float* %8, %struct.ap_uint* %2, float %3, float %4)
   call void @copy_in([2048 x float]* null, [2048 x float]* %5, [2048 x float]* null, [2048 x float]* %6)
   ret void
 }
 
-declare void @KalmanFilterKernel_hw_stub(float*, float*, float, float, float)
+declare void @KalmanFilterKernel_hw_stub(float*, float*, %struct.ap_uint*, float, float)
 
 attributes #0 = { noinline "fpga.wrapper.func"="wrapper" }
 attributes #1 = { argmemonly noinline "fpga.wrapper.func"="copyin" }

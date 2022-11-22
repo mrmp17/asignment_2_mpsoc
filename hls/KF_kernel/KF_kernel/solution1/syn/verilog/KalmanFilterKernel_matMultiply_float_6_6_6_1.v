@@ -21,10 +21,10 @@ module KalmanFilterKernel_matMultiply_float_6_6_6_1 (
         K_address0,
         K_ce0,
         K_q0,
-        grp_fu_3352_p_din0,
-        grp_fu_3352_p_din1,
-        grp_fu_3352_p_dout0,
-        grp_fu_3352_p_ce
+        grp_fu_3639_p_din0,
+        grp_fu_3639_p_din1,
+        grp_fu_3639_p_dout0,
+        grp_fu_3639_p_ce
 );
 
 parameter    ap_ST_fsm_state1 = 11'd1;
@@ -52,10 +52,10 @@ output  [31:0] mat_out_d0;
 output  [4:0] K_address0;
 output   K_ce0;
 input  [31:0] K_q0;
-output  [31:0] grp_fu_3352_p_din0;
-output  [31:0] grp_fu_3352_p_din1;
-input  [31:0] grp_fu_3352_p_dout0;
-output   grp_fu_3352_p_ce;
+output  [31:0] grp_fu_3639_p_din0;
+output  [31:0] grp_fu_3639_p_din1;
+input  [31:0] grp_fu_3639_p_dout0;
+output   grp_fu_3639_p_ce;
 
 reg ap_done;
 reg ap_idle;
@@ -75,8 +75,8 @@ wire    ap_CS_fsm_state2;
 wire   [5:0] empty_fu_175_p2;
 reg   [5:0] empty_reg_307;
 wire   [0:0] icmp_ln13_fu_149_p2;
-wire   [4:0] empty_35_fu_189_p2;
-reg   [4:0] empty_35_reg_312;
+wire   [4:0] empty_36_fu_189_p2;
+reg   [4:0] empty_36_reg_312;
 wire   [2:0] add_ln17_fu_195_p2;
 reg   [2:0] add_ln17_reg_317;
 wire    ap_CS_fsm_state3;
@@ -216,7 +216,7 @@ end
 
 always @ (posedge ap_clk) begin
     if (((icmp_ln13_fu_149_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        empty_35_reg_312 <= empty_35_fu_189_p2;
+        empty_36_reg_312 <= empty_36_fu_189_p2;
         empty_reg_307[5 : 1] <= empty_fu_175_p2[5 : 1];
     end
 end
@@ -235,7 +235,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state8)) begin
-        mul_reg_368 <= grp_fu_3352_p_dout0;
+        mul_reg_368 <= grp_fu_3639_p_dout0;
     end
 end
 
@@ -374,7 +374,7 @@ assign add_ln23_fu_225_p2 = (j_reg_110 + 2'd1);
 
 assign add_ln27_6_fu_277_p2 = (sub_ln27_fu_271_p2 + zext_ln17_reg_322);
 
-assign add_ln27_fu_241_p2 = (zext_ln23_fu_231_p1 + empty_35_reg_312);
+assign add_ln27_fu_241_p2 = (zext_ln23_fu_231_p1 + empty_36_reg_312);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -392,7 +392,7 @@ assign ap_CS_fsm_state8 = ap_CS_fsm[32'd7];
 
 assign ap_CS_fsm_state9 = ap_CS_fsm[32'd8];
 
-assign empty_35_fu_189_p2 = (p_shl_fu_181_p3 - zext_ln13_fu_145_p1);
+assign empty_36_fu_189_p2 = (p_shl_fu_181_p3 - zext_ln13_fu_145_p1);
 
 assign empty_fu_175_p2 = (p_shl1_fu_155_p3 - p_shl2_cast_fu_171_p1);
 
@@ -402,13 +402,13 @@ assign grp_fu_133_p0 = K_q0;
 
 assign grp_fu_133_p1 = H_q0;
 
-assign grp_fu_133_p2 = grp_fu_3352_p_dout0;
+assign grp_fu_133_p2 = grp_fu_3639_p_dout0;
 
-assign grp_fu_3352_p_ce = 1'b1;
+assign grp_fu_3639_p_ce = 1'b1;
 
-assign grp_fu_3352_p_din0 = K_q0;
+assign grp_fu_3639_p_din0 = K_q0;
 
-assign grp_fu_3352_p_din1 = H_q0;
+assign grp_fu_3639_p_din1 = H_q0;
 
 assign icmp_ln13_fu_149_p2 = ((i_reg_88 == 3'd6) ? 1'b1 : 1'b0);
 

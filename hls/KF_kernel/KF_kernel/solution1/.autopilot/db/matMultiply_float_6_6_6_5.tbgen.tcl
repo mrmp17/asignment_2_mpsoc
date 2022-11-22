@@ -39,10 +39,10 @@ set portList {
 	{ mat_out_ce0 sc_out sc_logic 1 signal 2 } 
 	{ mat_out_we0 sc_out sc_logic 1 signal 2 } 
 	{ mat_out_d0 sc_out sc_lv 32 signal 2 } 
-	{ grp_fu_3352_p_din0 sc_out sc_lv 32 signal -1 } 
-	{ grp_fu_3352_p_din1 sc_out sc_lv 32 signal -1 } 
-	{ grp_fu_3352_p_dout0 sc_in sc_lv 32 signal -1 } 
-	{ grp_fu_3352_p_ce sc_out sc_logic 1 signal -1 } 
+	{ grp_fu_3639_p_din0 sc_out sc_lv 32 signal -1 } 
+	{ grp_fu_3639_p_din1 sc_out sc_lv 32 signal -1 } 
+	{ grp_fu_3639_p_dout0 sc_in sc_lv 32 signal -1 } 
+	{ grp_fu_3639_p_ce sc_out sc_logic 1 signal -1 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -61,10 +61,10 @@ set NewPortList {[
  	{ "name": "mat_out_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mat_out", "role": "ce0" }} , 
  	{ "name": "mat_out_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mat_out", "role": "we0" }} , 
  	{ "name": "mat_out_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "mat_out", "role": "d0" }} , 
- 	{ "name": "grp_fu_3352_p_din0", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "grp_fu_3352_p_din0", "role": "default" }} , 
- 	{ "name": "grp_fu_3352_p_din1", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "grp_fu_3352_p_din1", "role": "default" }} , 
- 	{ "name": "grp_fu_3352_p_dout0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "grp_fu_3352_p_dout0", "role": "default" }} , 
- 	{ "name": "grp_fu_3352_p_ce", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "grp_fu_3352_p_ce", "role": "default" }}  ]}
+ 	{ "name": "grp_fu_3639_p_din0", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "grp_fu_3639_p_din0", "role": "default" }} , 
+ 	{ "name": "grp_fu_3639_p_din1", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "grp_fu_3639_p_din1", "role": "default" }} , 
+ 	{ "name": "grp_fu_3639_p_dout0", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "grp_fu_3639_p_dout0", "role": "default" }} , 
+ 	{ "name": "grp_fu_3639_p_ce", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "grp_fu_3639_p_ce", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1"],

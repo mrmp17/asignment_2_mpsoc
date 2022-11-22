@@ -12,7 +12,7 @@
 using namespace std;
 
 #define INPUT_FILENAME "<project directory>/src/sensor_and_control_measurements.txt"
-#define OUTPUT_FILENAME "hls_output.txt"
+#define OUTPUT_FILENAME "KF_output_results2.txt"
 #define DELIMITER ','
 
 
@@ -68,14 +68,12 @@ void writeDataToFile(float dout[N_SAMPLES*N_STATE_VARS], string filename) {
 			if (j < N_STATE_VARS-1) {
 
 				f << ",";
-
 			}
 		}
 
 		if (i < N_SAMPLES-1) {
 
 			f << "\n";
-
 		}
 	}
 }
@@ -83,28 +81,23 @@ void writeDataToFile(float dout[N_SAMPLES*N_STATE_VARS], string filename) {
 int main(int argc, char *argv[]) {
 
 	float dout[N_SAMPLES*N_STATE_VARS];
-
+	unsigned int clock = 12500000;
 
 	for (int i = 0; i < N_SAMPLES; i++) {
 		float din_temp[N_STATE_VARS];
 		for (int j = 0; j < N_STATE_VARS; j++){
 			din_temp[j]=din[j+i*N_STATE_VARS];
-
 		}
-		for (int j = 0; j < N_STATE_VARS; j++){
-			//cout << din_temp[j];
-		}
-		//cout << "\n";
 
 		float dout_temp[N_STATE_VARS];
+		KalmanFilterKernel(din_temp, dout_temp, clock, 0.05, 0.95);
 
-		KalmanFilterKernel(din_temp, dout_temp, 0.1, 0.05, 0.95);
+		clock = clock + 12500000;
 
 		for (int j = 0; j<N_STATE_VARS; j++){
 			dout[N_STATE_VARS*i + j] = dout_temp[j];
 		}
 	}
-
 
 	for (int i = 0; i < N_SAMPLES; i++) {
 		for (int j = 0; j < N_STATE_VARS; j++) {
@@ -114,8 +107,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	writeDataToFile(dout, OUTPUT_FILENAME);
-
-	cout << "written file out \n";
+	cout << "written output file\n";
 
 }
 

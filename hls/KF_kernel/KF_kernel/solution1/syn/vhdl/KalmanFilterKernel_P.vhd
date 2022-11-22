@@ -28,7 +28,7 @@ architecture rtl of KalmanFilterKernel_P_ram is
 
 signal addr0_tmp : std_logic_vector(AWIDTH-1 downto 0); 
 type mem_array is array (0 to MEM_SIZE-1) of std_logic_vector (DWIDTH-1 downto 0); 
-shared variable ram : mem_array := (others=>(others=>'0'));
+shared variable ram : mem_array;
 
 
 begin 

@@ -14,7 +14,7 @@ set C_modelType { void 0 }
 set C_modelArgList {
 	{ din int 32 regular {array 2048 { 1 } 1 1 }  }
 	{ dout int 32 regular {array 2048 { 0 } 0 1 }  }
-	{ counter float 32 regular  }
+	{ counter int 32 regular  }
 	{ q float 32 regular {axi_slave 0}  }
 	{ r float 32 regular {axi_slave 0}  }
 }
@@ -87,13 +87,13 @@ set NewPortList {[
  	{ "name": "counter", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "counter", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "28", "32", "35", "38", "40", "42", "44", "46", "47", "48", "49", "50", "51", "52"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "29", "33", "36", "39", "41", "43", "45", "47", "48", "49", "50", "51", "52", "53", "54"],
 		"CDFG" : "KalmanFilterKernel",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "46", "EstimateLatencyMax" : "11403",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "112", "EstimateLatencyMax" : "11458",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -106,100 +106,57 @@ set RtlHierarchyInfo {[
 			{"Name" : "counter", "Type" : "None", "Direction" : "I"},
 			{"Name" : "q", "Type" : "None", "Direction" : "I"},
 			{"Name" : "r", "Type" : "None", "Direction" : "I"},
-			{"Name" : "guard_variable_for_KalmanFilterKernel_float_float_float_float_float_Q", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "guard_variable_for_KalmanFilterKernel_float_float_float_float_float_R", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "num_calls", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "first_run", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "counter_sig_old", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "din_old", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "x_hat", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "x", "Type" : "Memory", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "42", "SubInstance" : "grp_matMultiply_float_6_6_6_7_fu_1840", "Port" : "mat_in_R"}]},
 			{"Name" : "P_hat", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "P", "Type" : "Memory", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "35", "SubInstance" : "grp_matMultiply_float_6_6_6_s_fu_1806", "Port" : "mat_in_R"}]},
-			{"Name" : "tmp_mat_1", "Type" : "Memory", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "35", "SubInstance" : "grp_matMultiply_float_6_6_6_s_fu_1806", "Port" : "mat_in_L"},
-					{"ID" : "42", "SubInstance" : "grp_matMultiply_float_6_6_6_7_fu_1840", "Port" : "mat_out"}]},
-			{"Name" : "u_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "u_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "u_2", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "tmp_mat_2", "Type" : "Memory", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "35", "SubInstance" : "grp_matMultiply_float_6_6_6_s_fu_1806", "Port" : "mat_in_R"},
-					{"ID" : "32", "SubInstance" : "grp_matMultiply_float_6_6_6_1_fu_1796", "Port" : "mat_out"},
-					{"ID" : "28", "SubInstance" : "grp_matMultiply_float_6_6_6_4_fu_1781", "Port" : "mat_out"},
-					{"ID" : "24", "SubInstance" : "grp_matMultiply_float_6_6_6_2_fu_1769", "Port" : "mat_out"}]},
-			{"Name" : "x_minus", "Type" : "Memory", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "44", "SubInstance" : "grp_matMultiply_float_6_6_6_6_fu_1849", "Port" : "mat_in_R"}]},
-			{"Name" : "tmp_mat_3", "Type" : "Memory", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "35", "SubInstance" : "grp_matMultiply_float_6_6_6_s_fu_1806", "Port" : "mat_out"},
-					{"ID" : "44", "SubInstance" : "grp_matMultiply_float_6_6_6_6_fu_1849", "Port" : "mat_out"},
-					{"ID" : "28", "SubInstance" : "grp_matMultiply_float_6_6_6_4_fu_1781", "Port" : "mat_out"},
-					{"ID" : "24", "SubInstance" : "grp_matMultiply_float_6_6_6_2_fu_1769", "Port" : "mat_out"},
-					{"ID" : "40", "SubInstance" : "grp_matMultiply_float_6_6_6_3_fu_1830", "Port" : "mat_in_L"},
-					{"ID" : "38", "SubInstance" : "grp_matMultiply_float_6_6_6_5_fu_1820", "Port" : "mat_out"}]},
-			{"Name" : "Q_r", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "P_minus", "Type" : "Memory", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "35", "SubInstance" : "grp_matMultiply_float_6_6_6_s_fu_1806", "Port" : "mat_in_R"},
-					{"ID" : "28", "SubInstance" : "grp_matMultiply_float_6_6_6_4_fu_1781", "Port" : "mat_in_L"},
-					{"ID" : "38", "SubInstance" : "grp_matMultiply_float_6_6_6_5_fu_1820", "Port" : "mat_in_R"}]},
-			{"Name" : "x_plus", "Type" : "Memory", "Direction" : "IO"},
-			{"Name" : "P_plus", "Type" : "Memory", "Direction" : "IO",
-				"SubConnect" : [
-					{"ID" : "35", "SubInstance" : "grp_matMultiply_float_6_6_6_s_fu_1806", "Port" : "mat_out"}]},
 			{"Name" : "H", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "32", "SubInstance" : "grp_matMultiply_float_6_6_6_1_fu_1796", "Port" : "H"},
-					{"ID" : "44", "SubInstance" : "grp_matMultiply_float_6_6_6_6_fu_1849", "Port" : "mat_in_L"},
-					{"ID" : "38", "SubInstance" : "grp_matMultiply_float_6_6_6_5_fu_1820", "Port" : "mat_in_L"}]},
-			{"Name" : "z_0", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "z_1", "Type" : "OVld", "Direction" : "IO"},
-			{"Name" : "z_2", "Type" : "OVld", "Direction" : "IO"},
+					{"ID" : "45", "SubInstance" : "grp_matMultiply_float_6_6_6_6_fu_2097", "Port" : "mat_in_L"},
+					{"ID" : "33", "SubInstance" : "grp_matMultiply_float_6_6_6_1_fu_2057", "Port" : "H"},
+					{"ID" : "39", "SubInstance" : "grp_matMultiply_float_6_6_6_5_fu_2073", "Port" : "mat_in_L"}]},
 			{"Name" : "H_T", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
-					{"ID" : "28", "SubInstance" : "grp_matMultiply_float_6_6_6_4_fu_1781", "Port" : "H_T"}]},
-			{"Name" : "R_r", "Type" : "Memory", "Direction" : "IO"},
+					{"ID" : "29", "SubInstance" : "grp_matMultiply_float_6_6_6_4_fu_2046", "Port" : "H_T"}]},
 			{"Name" : "S", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "S_inv", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "40", "SubInstance" : "grp_matMultiply_float_6_6_6_3_fu_1830", "Port" : "mat_in_R"}]},
+					{"ID" : "41", "SubInstance" : "grp_matMultiply_float_6_6_6_3_fu_2081", "Port" : "mat_in_R"}]},
 			{"Name" : "K", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
-					{"ID" : "32", "SubInstance" : "grp_matMultiply_float_6_6_6_1_fu_1796", "Port" : "K"},
-					{"ID" : "24", "SubInstance" : "grp_matMultiply_float_6_6_6_2_fu_1769", "Port" : "mat_in_L"},
-					{"ID" : "40", "SubInstance" : "grp_matMultiply_float_6_6_6_3_fu_1830", "Port" : "mat_out"}]},
+					{"ID" : "25", "SubInstance" : "grp_matMultiply_float_6_6_6_2_fu_2036", "Port" : "mat_in_L"},
+					{"ID" : "33", "SubInstance" : "grp_matMultiply_float_6_6_6_1_fu_2057", "Port" : "K"},
+					{"ID" : "41", "SubInstance" : "grp_matMultiply_float_6_6_6_3_fu_2081", "Port" : "mat_out"}]},
 			{"Name" : "y_bar_0", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "y_bar_1", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "y_bar_2", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "I", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.x_hat_U", "Parent" : "0"},
-	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.x_U", "Parent" : "0"},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.din_old_U", "Parent" : "0"},
+	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.x_hat_U", "Parent" : "0"},
 	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.P_hat_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.P_U", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.tmp_mat_1_U", "Parent" : "0"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.tmp_mat_2_U", "Parent" : "0"},
-	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.x_minus_U", "Parent" : "0"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.tmp_mat_3_U", "Parent" : "0"},
-	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Q_r_U", "Parent" : "0"},
-	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.P_minus_U", "Parent" : "0"},
-	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.x_plus_U", "Parent" : "0"},
-	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.P_plus_U", "Parent" : "0"},
-	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.H_U", "Parent" : "0"},
-	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.R_r_U", "Parent" : "0"},
-	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.S_U", "Parent" : "0"},
-	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.S_inv_U", "Parent" : "0"},
-	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.K_U", "Parent" : "0"},
-	{"ID" : "18", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.I_U", "Parent" : "0"},
-	{"ID" : "19", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.AXI_CPU_s_axi_U", "Parent" : "0"},
-	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.din_s_U", "Parent" : "0"},
-	{"ID" : "21", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.dout_s_U", "Parent" : "0"},
-	{"ID" : "22", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.A_U", "Parent" : "0"},
-	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.B_U", "Parent" : "0"},
-	{"ID" : "24", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_2_fu_1769", "Parent" : "0", "Child" : ["25", "26", "27"],
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.H_U", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.S_U", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.S_inv_U", "Parent" : "0"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.K_U", "Parent" : "0"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.I_U", "Parent" : "0"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.AXI_CPU_s_axi_U", "Parent" : "0"},
+	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.din_new_U", "Parent" : "0"},
+	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.dout_s_U", "Parent" : "0"},
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.A_U", "Parent" : "0"},
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.B_U", "Parent" : "0"},
+	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.Q_U", "Parent" : "0"},
+	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.R_U", "Parent" : "0"},
+	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.x_U", "Parent" : "0"},
+	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.P_U", "Parent" : "0"},
+	{"ID" : "18", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.x_minus_U", "Parent" : "0"},
+	{"ID" : "19", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.P_minus_U", "Parent" : "0"},
+	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.x_plus_U", "Parent" : "0"},
+	{"ID" : "21", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.P_plus_U", "Parent" : "0"},
+	{"ID" : "22", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.tmp_mat_1_U", "Parent" : "0"},
+	{"ID" : "23", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.tmp_mat_2_U", "Parent" : "0"},
+	{"ID" : "24", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.tmp_mat_3_U", "Parent" : "0"},
+	{"ID" : "25", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_2_fu_2036", "Parent" : "0", "Child" : ["26", "27", "28"],
 		"CDFG" : "matMultiply_float_6_6_6_2",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -218,10 +175,10 @@ set RtlHierarchyInfo {[
 			{"Name" : "mat_in_R_1_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "mat_in_R_2_read", "Type" : "None", "Direction" : "I"},
 			{"Name" : "mat_out", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_2_fu_1769.fmul_32ns_32ns_32_4_max_dsp_1_U8", "Parent" : "24"},
-	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_2_fu_1769.mux_32_32_1_1_U9", "Parent" : "24"},
-	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_2_fu_1769.facc_32ns_32ns_1ns_32_3_no_dsp_1_U10", "Parent" : "24"},
-	{"ID" : "28", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_4_fu_1781", "Parent" : "0", "Child" : ["29", "30", "31"],
+	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_2_fu_2036.fmul_32ns_32ns_32_4_max_dsp_1_U8", "Parent" : "25"},
+	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_2_fu_2036.mux_32_32_1_1_U9", "Parent" : "25"},
+	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_2_fu_2036.facc_32ns_32ns_1ns_32_3_no_dsp_1_U10", "Parent" : "25"},
+	{"ID" : "29", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_4_fu_2046", "Parent" : "0", "Child" : ["30", "31", "32"],
 		"CDFG" : "matMultiply_float_6_6_6_4",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -239,10 +196,10 @@ set RtlHierarchyInfo {[
 			{"Name" : "mat_out", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "L", "Type" : "None", "Direction" : "I"},
 			{"Name" : "H_T", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_4_fu_1781.H_T_U", "Parent" : "28"},
-	{"ID" : "30", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_4_fu_1781.fmul_32ns_32ns_32_4_max_dsp_1_U32", "Parent" : "28"},
-	{"ID" : "31", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_4_fu_1781.facc_32ns_32ns_1ns_32_3_no_dsp_1_U33", "Parent" : "28"},
-	{"ID" : "32", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_1_fu_1796", "Parent" : "0", "Child" : ["33", "34"],
+	{"ID" : "30", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_4_fu_2046.H_T_U", "Parent" : "29"},
+	{"ID" : "31", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_4_fu_2046.fmul_32ns_32ns_32_4_max_dsp_1_U32", "Parent" : "29"},
+	{"ID" : "32", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_4_fu_2046.facc_32ns_32ns_1ns_32_3_no_dsp_1_U33", "Parent" : "29"},
+	{"ID" : "33", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_1_fu_2057", "Parent" : "0", "Child" : ["34", "35"],
 		"CDFG" : "matMultiply_float_6_6_6_1",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -259,9 +216,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "mat_out", "Type" : "Memory", "Direction" : "O"},
 			{"Name" : "K", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "H", "Type" : "Memory", "Direction" : "I"}]},
-	{"ID" : "33", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_1_fu_1796.H_U", "Parent" : "32"},
-	{"ID" : "34", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_1_fu_1796.facc_32ns_32ns_1ns_32_3_no_dsp_1_U44", "Parent" : "32"},
-	{"ID" : "35", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_s_fu_1806", "Parent" : "0", "Child" : ["36", "37"],
+	{"ID" : "34", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_1_fu_2057.H_U", "Parent" : "33"},
+	{"ID" : "35", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_1_fu_2057.facc_32ns_32ns_1ns_32_3_no_dsp_1_U44", "Parent" : "33"},
+	{"ID" : "36", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_s_fu_2066", "Parent" : "0", "Child" : ["37", "38"],
 		"CDFG" : "matMultiply_float_6_6_6_s",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -278,9 +235,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "mat_in_L", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mat_in_R", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mat_out", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "36", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_s_fu_1806.fmul_32ns_32ns_32_4_max_dsp_1_U17", "Parent" : "35"},
-	{"ID" : "37", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_s_fu_1806.facc_32ns_32ns_1ns_32_3_no_dsp_1_U18", "Parent" : "35"},
-	{"ID" : "38", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_5_fu_1820", "Parent" : "0", "Child" : ["39"],
+	{"ID" : "37", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_s_fu_2066.fmul_32ns_32ns_32_4_max_dsp_1_U17", "Parent" : "36"},
+	{"ID" : "38", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_s_fu_2066.facc_32ns_32ns_1ns_32_3_no_dsp_1_U18", "Parent" : "36"},
+	{"ID" : "39", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_5_fu_2073", "Parent" : "0", "Child" : ["40"],
 		"CDFG" : "matMultiply_float_6_6_6_5",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -297,8 +254,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "mat_in_L", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mat_in_R", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mat_out", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "39", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_5_fu_1820.facc_32ns_32ns_1ns_32_3_no_dsp_1_U28", "Parent" : "38"},
-	{"ID" : "40", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_3_fu_1830", "Parent" : "0", "Child" : ["41"],
+	{"ID" : "40", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_5_fu_2073.facc_32ns_32ns_1ns_32_3_no_dsp_1_U28", "Parent" : "39"},
+	{"ID" : "41", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_3_fu_2081", "Parent" : "0", "Child" : ["42"],
 		"CDFG" : "matMultiply_float_6_6_6_3",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -315,8 +272,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "mat_in_L", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mat_in_R", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mat_out", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "41", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_3_fu_1830.facc_32ns_32ns_1ns_32_3_no_dsp_1_U39", "Parent" : "40"},
-	{"ID" : "42", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_7_fu_1840", "Parent" : "0", "Child" : ["43"],
+	{"ID" : "42", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_3_fu_2081.facc_32ns_32ns_1ns_32_3_no_dsp_1_U39", "Parent" : "41"},
+	{"ID" : "43", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_7_fu_2090", "Parent" : "0", "Child" : ["44"],
 		"CDFG" : "matMultiply_float_6_6_6_7",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -333,8 +290,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "mat_in_L", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mat_in_R", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mat_out", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "43", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_7_fu_1840.facc_32ns_32ns_1ns_32_3_no_dsp_1_U2", "Parent" : "42"},
-	{"ID" : "44", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_6_fu_1849", "Parent" : "0", "Child" : ["45"],
+	{"ID" : "44", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_7_fu_2090.facc_32ns_32ns_1ns_32_3_no_dsp_1_U2", "Parent" : "43"},
+	{"ID" : "45", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_6_fu_2097", "Parent" : "0", "Child" : ["46"],
 		"CDFG" : "matMultiply_float_6_6_6_6",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -351,47 +308,31 @@ set RtlHierarchyInfo {[
 			{"Name" : "mat_in_L", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mat_in_R", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "mat_out", "Type" : "Memory", "Direction" : "O"}]},
-	{"ID" : "45", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_6_fu_1849.facc_32ns_32ns_1ns_32_3_no_dsp_1_U23", "Parent" : "44"},
-	{"ID" : "46", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.faddfsub_32ns_32ns_32_5_full_dsp_1_U48", "Parent" : "0"},
-	{"ID" : "47", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fdiv_32ns_32ns_32_10_no_dsp_1_U49", "Parent" : "0"},
-	{"ID" : "48", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fptrunc_64ns_32_2_no_dsp_1_U50", "Parent" : "0"},
-	{"ID" : "49", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fpext_32ns_64_2_no_dsp_1_U51", "Parent" : "0"},
-	{"ID" : "50", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.dmul_64ns_64ns_64_6_max_dsp_1_U52", "Parent" : "0"},
-	{"ID" : "51", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_32_32_1_1_U53", "Parent" : "0"},
-	{"ID" : "52", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fmul_32ns_32ns_32_4_max_dsp_1_U54", "Parent" : "0"}]}
+	{"ID" : "46", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.grp_matMultiply_float_6_6_6_6_fu_2097.facc_32ns_32ns_1ns_32_3_no_dsp_1_U23", "Parent" : "45"},
+	{"ID" : "47", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.faddfsub_32ns_32ns_32_5_full_dsp_1_U48", "Parent" : "0"},
+	{"ID" : "48", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fdiv_32ns_32ns_32_10_no_dsp_1_U49", "Parent" : "0"},
+	{"ID" : "49", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.uitofp_32ns_32_4_no_dsp_1_U50", "Parent" : "0"},
+	{"ID" : "50", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fptrunc_64ns_32_2_no_dsp_1_U51", "Parent" : "0"},
+	{"ID" : "51", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fpext_32ns_64_2_no_dsp_1_U52", "Parent" : "0"},
+	{"ID" : "52", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.dmul_64ns_64ns_64_6_max_dsp_1_U53", "Parent" : "0"},
+	{"ID" : "53", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.mux_32_32_1_1_U54", "Parent" : "0"},
+	{"ID" : "54", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.fmul_32ns_32ns_32_4_max_dsp_1_U55", "Parent" : "0"}]}
 
 
 set ArgLastReadFirstWriteLatency {
 	KalmanFilterKernel {
-		din {Type I LastRead 40 FirstWrite -1}
-		dout {Type O LastRead -1 FirstWrite 82}
-		counter {Type I LastRead 1 FirstWrite -1}
-		q {Type I LastRead 17 FirstWrite -1}
-		r {Type I LastRead 17 FirstWrite -1}
-		guard_variable_for_KalmanFilterKernel_float_float_float_float_float_Q {Type IO LastRead -1 FirstWrite -1}
-		guard_variable_for_KalmanFilterKernel_float_float_float_float_float_R {Type IO LastRead -1 FirstWrite -1}
-		num_calls {Type IO LastRead -1 FirstWrite -1}
+		din {Type I LastRead 52 FirstWrite -1}
+		dout {Type O LastRead -1 FirstWrite 96}
+		counter {Type I LastRead 0 FirstWrite -1}
+		q {Type I LastRead 31 FirstWrite -1}
+		r {Type I LastRead 31 FirstWrite -1}
+		first_run {Type IO LastRead -1 FirstWrite -1}
+		counter_sig_old {Type IO LastRead -1 FirstWrite -1}
+		din_old {Type IO LastRead -1 FirstWrite -1}
 		x_hat {Type IO LastRead -1 FirstWrite -1}
-		x {Type IO LastRead -1 FirstWrite -1}
 		P_hat {Type IO LastRead -1 FirstWrite -1}
-		P {Type IO LastRead -1 FirstWrite -1}
-		tmp_mat_1 {Type IO LastRead -1 FirstWrite -1}
-		u_0 {Type IO LastRead -1 FirstWrite -1}
-		u_1 {Type IO LastRead -1 FirstWrite -1}
-		u_2 {Type IO LastRead -1 FirstWrite -1}
-		tmp_mat_2 {Type IO LastRead -1 FirstWrite -1}
-		x_minus {Type IO LastRead -1 FirstWrite -1}
-		tmp_mat_3 {Type IO LastRead -1 FirstWrite -1}
-		Q_r {Type IO LastRead -1 FirstWrite -1}
-		P_minus {Type IO LastRead -1 FirstWrite -1}
-		x_plus {Type IO LastRead -1 FirstWrite -1}
-		P_plus {Type IO LastRead -1 FirstWrite -1}
 		H {Type I LastRead -1 FirstWrite -1}
-		z_0 {Type IO LastRead -1 FirstWrite -1}
-		z_1 {Type IO LastRead -1 FirstWrite -1}
-		z_2 {Type IO LastRead -1 FirstWrite -1}
 		H_T {Type I LastRead -1 FirstWrite -1}
-		R_r {Type IO LastRead -1 FirstWrite -1}
 		S {Type IO LastRead -1 FirstWrite -1}
 		S_inv {Type IO LastRead -1 FirstWrite -1}
 		K {Type IO LastRead -1 FirstWrite -1}
@@ -438,12 +379,11 @@ set ArgLastReadFirstWriteLatency {
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "46", "Max" : "11403"}
-	, {"Name" : "Interval", "Min" : "47", "Max" : "11404"}
+	{"Name" : "Latency", "Min" : "112", "Max" : "11458"}
+	, {"Name" : "Interval", "Min" : "113", "Max" : "11459"}
 ]}
 
 set PipelineEnableSignalInfo {[
-	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 	{"Pipeline" : "1", "EnableSignal" : "ap_enable_pp1"}
 	{"Pipeline" : "2", "EnableSignal" : "ap_enable_pp2"}
 	{"Pipeline" : "3", "EnableSignal" : "ap_enable_pp3"}
@@ -456,6 +396,8 @@ set PipelineEnableSignalInfo {[
 	{"Pipeline" : "10", "EnableSignal" : "ap_enable_pp10"}
 	{"Pipeline" : "11", "EnableSignal" : "ap_enable_pp11"}
 	{"Pipeline" : "12", "EnableSignal" : "ap_enable_pp12"}
+	{"Pipeline" : "13", "EnableSignal" : "ap_enable_pp13"}
+	{"Pipeline" : "14", "EnableSignal" : "ap_enable_pp14"}
 ]}
 
 set Spec2ImplPortList { 

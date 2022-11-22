@@ -32,8 +32,9 @@ class AESL_RUNTIME_BC {
     fstream file_token;
     string mName;
 };
-extern "C" void KalmanFilterKernel(int*, int*, float, float, float);
-extern "C" void apatb_KalmanFilterKernel_hw(volatile void * __xlx_apatb_param_din, volatile void * __xlx_apatb_param_dout, float __xlx_apatb_param_counter, float __xlx_apatb_param_q, float __xlx_apatb_param_r) {
+struct __cosim_s4__ { char data[4]; };
+extern "C" void KalmanFilterKernel(int*, int*, __cosim_s4__, float, float);
+extern "C" void apatb_KalmanFilterKernel_hw(volatile void * __xlx_apatb_param_din, volatile void * __xlx_apatb_param_dout, __cosim_s4__ __xlx_apatb_param_counter, float __xlx_apatb_param_q, float __xlx_apatb_param_r) {
   // Collect __xlx_din__tmp_vec
   vector<sc_bv<32> >__xlx_din__tmp_vec;
   for (int j = 0, e = 2048; j != e; ++j) {

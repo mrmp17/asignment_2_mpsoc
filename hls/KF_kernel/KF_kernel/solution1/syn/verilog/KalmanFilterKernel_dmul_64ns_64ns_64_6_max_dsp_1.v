@@ -7,7 +7,7 @@
 
 module KalmanFilterKernel_dmul_64ns_64ns_64_6_max_dsp_1
 #(parameter
-    ID         = 52,
+    ID         = 53,
     NUM_STAGE  = 6,
     din0_WIDTH = 64,
     din1_WIDTH = 64,

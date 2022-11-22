@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'matMultiply_float_6_6_6_7'" level="0">
-<item name = "Date">Mon Nov 21 20:06:58 2022
+<item name = "Date">Tue Nov 22 20:35:51 2022
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">KF_kernel</item>
@@ -129,10 +129,10 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
-<column name="grp_fu_3352_p_din0">out, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
-<column name="grp_fu_3352_p_din1">out, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
-<column name="grp_fu_3352_p_dout0">in, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
-<column name="grp_fu_3352_p_ce">out, 1, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
+<column name="grp_fu_3639_p_din0">out, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
+<column name="grp_fu_3639_p_din1">out, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
+<column name="grp_fu_3639_p_dout0">in, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
+<column name="grp_fu_3639_p_ce">out, 1, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.7, return value</column>
 <column name="mat_in_L_address0">out, 6, ap_memory, mat_in_L, array</column>
 <column name="mat_in_L_ce0">out, 1, ap_memory, mat_in_L, array</column>
 <column name="mat_in_L_q0">in, 32, ap_memory, mat_in_L, array</column>

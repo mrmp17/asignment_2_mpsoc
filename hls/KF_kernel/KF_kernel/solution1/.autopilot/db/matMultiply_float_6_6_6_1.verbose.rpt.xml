@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'matMultiply_float_6_6_6_1'" level="0">
-<item name = "Date">Mon Nov 21 20:06:59 2022
+<item name = "Date">Tue Nov 22 20:35:52 2022
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">KF_kernel</item>
@@ -88,7 +88,7 @@
 <column name="add_ln23_fu_225_p2">+, 0, 0, 9, 2, 1</column>
 <column name="add_ln27_6_fu_277_p2">+, 0, 0, 10, 5, 5</column>
 <column name="add_ln27_fu_241_p2">+, 0, 0, 12, 5, 5</column>
-<column name="empty_35_fu_189_p2">-, 0, 0, 12, 5, 5</column>
+<column name="empty_36_fu_189_p2">-, 0, 0, 12, 5, 5</column>
 <column name="empty_fu_175_p2">-, 0, 0, 13, 6, 6</column>
 <column name="sub_ln27_fu_271_p2">-, 0, 0, 10, 5, 5</column>
 <column name="icmp_ln13_fu_149_p2">icmp, 0, 0, 8, 3, 3</column>
@@ -113,7 +113,7 @@
 <column name="add_ln17_reg_317">3, 0, 3, 0</column>
 <column name="add_ln23_reg_335">2, 0, 2, 0</column>
 <column name="ap_CS_fsm">11, 0, 11, 0</column>
-<column name="empty_35_reg_312">5, 0, 5, 0</column>
+<column name="empty_36_reg_312">5, 0, 5, 0</column>
 <column name="empty_reg_307">5, 0, 6, 1</column>
 <column name="i_reg_88">3, 0, 3, 0</column>
 <column name="icmp_ln27_reg_353">1, 0, 1, 0</column>
@@ -137,10 +137,10 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
-<column name="grp_fu_3352_p_din0">out, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
-<column name="grp_fu_3352_p_din1">out, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
-<column name="grp_fu_3352_p_dout0">in, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
-<column name="grp_fu_3352_p_ce">out, 1, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
+<column name="grp_fu_3639_p_din0">out, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
+<column name="grp_fu_3639_p_din1">out, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
+<column name="grp_fu_3639_p_dout0">in, 32, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
+<column name="grp_fu_3639_p_ce">out, 1, ap_ctrl_hs, matMultiply&lt;float, 6, 6, 6&gt;.1, return value</column>
 <column name="mat_out_address0">out, 6, ap_memory, mat_out, array</column>
 <column name="mat_out_ce0">out, 1, ap_memory, mat_out, array</column>
 <column name="mat_out_we0">out, 1, ap_memory, mat_out, array</column>

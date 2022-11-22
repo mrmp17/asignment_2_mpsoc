@@ -7,7 +7,7 @@ use ieee.std_logic_1164.all;
 
 entity KalmanFilterKernel_dmul_64ns_64ns_64_6_max_dsp_1 is
     generic (
-        ID         : integer := 52;
+        ID         : integer := 53;
         NUM_STAGE  : integer := 6;
         din0_WIDTH : integer := 64;
         din1_WIDTH : integer := 64;

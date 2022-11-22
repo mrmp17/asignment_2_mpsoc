@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'matMultiply_float_6_6_6_1'
 ================================================================
-* Date:           Mon Nov 21 20:06:56 2022
+* Date:           Tue Nov 22 20:35:48 2022
 
 * Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)
 * Project:        KF_kernel
@@ -101,13 +101,13 @@ ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln13 = zext i3 %i" [../../src
 ST_2 : Operation 16 [1/1] (0.69ns)   --->   "%icmp_ln13 = icmp_eq  i3 %i, i3 6" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 16 'icmp' 'icmp_ln13' <Predicate = true> <Delay = 0.69> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 6, i64 6, i64 6"   --->   Operation 17 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%br_ln13 = br i1 %icmp_ln13, void %.split4, void %._crit_edge12.loopexit" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 18 'br' 'br_ln13' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%specloopname_ln13 = specloopname void @_ssdm_op_SpecLoopName, void @empty_18" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 19 'specloopname' 'specloopname_ln13' <Predicate = (!icmp_ln13)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%specloopname_ln13 = specloopname void @_ssdm_op_SpecLoopName, void @empty_5" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 19 'specloopname' 'specloopname_ln13' <Predicate = (!icmp_ln13)> <Delay = 0.00>
 ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%p_shl1 = bitconcatenate i6 @_ssdm_op_BitConcatenate.i6.i3.i3, i3 %i, i3 0" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 20 'bitconcatenate' 'p_shl1' <Predicate = (!icmp_ln13)> <Delay = 0.00>
 ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%p_shl2 = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i3.i1, i3 %i, i1 0" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 21 'bitconcatenate' 'p_shl2' <Predicate = (!icmp_ln13)> <Delay = 0.00>
 ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%p_shl2_cast = zext i4 %p_shl2" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 22 'zext' 'p_shl2_cast' <Predicate = (!icmp_ln13)> <Delay = 0.00>
 ST_2 : Operation 23 [1/1] (0.88ns)   --->   "%empty = sub i6 %p_shl1, i6 %p_shl2_cast" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 23 'sub' 'empty' <Predicate = (!icmp_ln13)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%p_shl = bitconcatenate i5 @_ssdm_op_BitConcatenate.i5.i3.i2, i3 %i, i2 0" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 24 'bitconcatenate' 'p_shl' <Predicate = (!icmp_ln13)> <Delay = 0.00>
-ST_2 : Operation 25 [1/1] (0.87ns)   --->   "%empty_35 = sub i5 %p_shl, i5 %zext_ln13" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 25 'sub' 'empty_35' <Predicate = (!icmp_ln13)> <Delay = 0.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 25 [1/1] (0.87ns)   --->   "%empty_36 = sub i5 %p_shl, i5 %zext_ln13" [../../src/hls_src/matrix_ops.h:13]   --->   Operation 25 'sub' 'empty_36' <Predicate = (!icmp_ln13)> <Delay = 0.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_2 : Operation 26 [1/1] (0.48ns)   --->   "%br_ln17 = br void" [../../src/hls_src/matrix_ops.h:17]   --->   Operation 26 'br' 'br_ln17' <Predicate = (!icmp_ln13)> <Delay = 0.48>
 ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%ret_ln32 = ret" [../../src/hls_src/matrix_ops.h:32]   --->   Operation 27 'ret' 'ret_ln32' <Predicate = (icmp_ln13)> <Delay = 0.00>
 
@@ -119,7 +119,7 @@ ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%zext_ln17_4 = zext i3 %k" [../../s
 ST_3 : Operation 32 [1/1] (0.69ns)   --->   "%icmp_ln17 = icmp_eq  i3 %k, i3 6" [../../src/hls_src/matrix_ops.h:17]   --->   Operation 32 'icmp' 'icmp_ln17' <Predicate = true> <Delay = 0.69> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 6, i64 6, i64 6"   --->   Operation 33 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%br_ln17 = br i1 %icmp_ln17, void %.split2, void %._crit_edge7.loopexit" [../../src/hls_src/matrix_ops.h:17]   --->   Operation 34 'br' 'br_ln17' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%specloopname_ln17 = specloopname void @_ssdm_op_SpecLoopName, void @empty_27" [../../src/hls_src/matrix_ops.h:17]   --->   Operation 35 'specloopname' 'specloopname_ln17' <Predicate = (!icmp_ln17)> <Delay = 0.00>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%specloopname_ln17 = specloopname void @_ssdm_op_SpecLoopName, void @empty_4" [../../src/hls_src/matrix_ops.h:17]   --->   Operation 35 'specloopname' 'specloopname_ln17' <Predicate = (!icmp_ln17)> <Delay = 0.00>
 ST_3 : Operation 36 [1/1] (0.88ns)   --->   "%add_ln20 = add i6 %zext_ln17_4, i6 %empty" [../../src/hls_src/matrix_ops.h:20]   --->   Operation 36 'add' 'add_ln20' <Predicate = (!icmp_ln17)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%zext_ln20 = zext i6 %add_ln20" [../../src/hls_src/matrix_ops.h:20]   --->   Operation 37 'zext' 'zext_ln20' <Predicate = (!icmp_ln17)> <Delay = 0.00>
 ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%mat_out_addr = getelementptr i32 %mat_out, i64 0, i64 %zext_ln20" [../../src/hls_src/matrix_ops.h:20]   --->   Operation 38 'getelementptr' 'mat_out_addr' <Predicate = (!icmp_ln17)> <Delay = 0.00>
@@ -134,7 +134,7 @@ ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%zext_ln23 = zext i2 %j" [../../src
 ST_4 : Operation 45 [1/1] (0.51ns)   --->   "%icmp_ln23 = icmp_eq  i2 %j, i2 3" [../../src/hls_src/matrix_ops.h:23]   --->   Operation 45 'icmp' 'icmp_ln23' <Predicate = true> <Delay = 0.51> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
 ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 3, i64 3, i64 3"   --->   Operation 46 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
 ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%br_ln23 = br i1 %icmp_ln23, void %.split, void %._crit_edge.loopexit" [../../src/hls_src/matrix_ops.h:23]   --->   Operation 47 'br' 'br_ln23' <Predicate = true> <Delay = 0.00>
-ST_4 : Operation 48 [1/1] (0.87ns)   --->   "%add_ln27 = add i5 %zext_ln23, i5 %empty_35" [../../src/hls_src/matrix_ops.h:27]   --->   Operation 48 'add' 'add_ln27' <Predicate = (!icmp_ln23)> <Delay = 0.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 48 [1/1] (0.87ns)   --->   "%add_ln27 = add i5 %zext_ln23, i5 %empty_36" [../../src/hls_src/matrix_ops.h:27]   --->   Operation 48 'add' 'add_ln27' <Predicate = (!icmp_ln23)> <Delay = 0.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%zext_ln27 = zext i5 %add_ln27" [../../src/hls_src/matrix_ops.h:27]   --->   Operation 49 'zext' 'zext_ln27' <Predicate = (!icmp_ln23)> <Delay = 0.00>
 ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%K_addr = getelementptr i32 %K, i64 0, i64 %zext_ln27" [../../src/hls_src/matrix_ops.h:27]   --->   Operation 50 'getelementptr' 'K_addr' <Predicate = (!icmp_ln23)> <Delay = 0.00>
 ST_4 : Operation 51 [2/2] (0.79ns)   --->   "%K_load = load i5 %K_addr" [../../src/hls_src/matrix_ops.h:27]   --->   Operation 51 'load' 'K_load' <Predicate = (!icmp_ln23)> <Delay = 0.79> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 18> <RAM>
@@ -171,7 +171,7 @@ State 10 <SV = 9> <Delay = 5.48>
 ST_10 : Operation 70 [2/3] (5.48ns)   --->   "%tmp = facc i32 @_ssdm_op_FACC, i32 %mul, i1 %icmp_ln27" [../../src/hls_src/matrix_ops.h:27]   --->   Operation 70 'facc' 'tmp' <Predicate = true> <Delay = 5.48> <CoreInst = "FAcc_nodsp">   --->   Core 11 'FAcc_nodsp' <Latency = 2> <II = 1> <Delay = 5.48> <FuncUnit> <Opcode : 'facc'> <InPorts = 2> <OutPorts = 1>
 
 State 11 <SV = 10> <Delay = 5.48>
-ST_11 : Operation 71 [1/1] (0.00ns)   --->   "%specloopname_ln23 = specloopname void @_ssdm_op_SpecLoopName, void @empty_5" [../../src/hls_src/matrix_ops.h:23]   --->   Operation 71 'specloopname' 'specloopname_ln23' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 71 [1/1] (0.00ns)   --->   "%specloopname_ln23 = specloopname void @_ssdm_op_SpecLoopName, void @empty_27" [../../src/hls_src/matrix_ops.h:23]   --->   Operation 71 'specloopname' 'specloopname_ln23' <Predicate = true> <Delay = 0.00>
 ST_11 : Operation 72 [1/3] (5.48ns)   --->   "%tmp = facc i32 @_ssdm_op_FACC, i32 %mul, i1 %icmp_ln27" [../../src/hls_src/matrix_ops.h:27]   --->   Operation 72 'facc' 'tmp' <Predicate = true> <Delay = 5.48> <CoreInst = "FAcc_nodsp">   --->   Core 11 'FAcc_nodsp' <Latency = 2> <II = 1> <Delay = 5.48> <FuncUnit> <Opcode : 'facc'> <InPorts = 2> <OutPorts = 1>
 ST_11 : Operation 73 [1/1] (0.00ns)   --->   "%br_ln0 = br void %.lr.ph"   --->   Operation 73 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
 
@@ -209,7 +209,7 @@ p_shl2                (bitconcatenate   ) [ 000000000000]
 p_shl2_cast           (zext             ) [ 000000000000]
 empty                 (sub              ) [ 000111111111]
 p_shl                 (bitconcatenate   ) [ 000000000000]
-empty_35              (sub              ) [ 000111111111]
+empty_36              (sub              ) [ 000111111111]
 br_ln17               (br               ) [ 001111111111]
 ret_ln32              (ret              ) [ 000000000000]
 k                     (phi              ) [ 000100000000]
@@ -345,7 +345,7 @@ br_ln0                (br               ) [ 001111111111]
 <pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_18"/></StgValue>
+<StgValue><ssdm name="empty_5"/></StgValue>
 </bind>
 </comp>
 
@@ -399,7 +399,7 @@ br_ln0                (br               ) [ 001111111111]
 <pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_27"/></StgValue>
+<StgValue><ssdm name="empty_4"/></StgValue>
 </bind>
 </comp>
 
@@ -480,7 +480,7 @@ br_ln0                (br               ) [ 001111111111]
 <pin id="49" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_5"/></StgValue>
+<StgValue><ssdm name="empty_27"/></StgValue>
 </bind>
 </comp>
 
@@ -767,7 +767,7 @@ br_ln0                (br               ) [ 001111111111]
 </bind>
 </comp>
 
-<comp id="189" class="1004" name="empty_35_fu_189">
+<comp id="189" class="1004" name="empty_36_fu_189">
 <pin_list>
 <pin id="190" dir="0" index="0" bw="5" slack="0"/>
 <pin id="191" dir="0" index="1" bw="3" slack="0"/>
@@ -775,7 +775,7 @@ br_ln0                (br               ) [ 001111111111]
 </pin_list>
 <bind>
 <opcode="sub(10) " fcode="sub"/>
-<opset="empty_35/2 "/>
+<opset="empty_36/2 "/>
 </bind>
 </comp>
 
@@ -1023,13 +1023,13 @@ br_ln0                (br               ) [ 001111111111]
 </bind>
 </comp>
 
-<comp id="312" class="1005" name="empty_35_reg_312">
+<comp id="312" class="1005" name="empty_36_reg_312">
 <pin_list>
 <pin id="313" dir="0" index="0" bw="5" slack="2"/>
 <pin id="314" dir="1" index="1" bw="5" slack="2"/>
 </pin_list>
 <bind>
-<opset="empty_35 "/>
+<opset="empty_36 "/>
 </bind>
 </comp>
 
@@ -1365,7 +1365,7 @@ br_ln0                (br               ) [ 001111111111]
 		p_shl2_cast : 2
 		empty : 3
 		p_shl : 1
-		empty_35 : 2
+		empty_36 : 2
 	State 3
 		add_ln17 : 1
 		zext_ln17 : 1
@@ -1424,7 +1424,7 @@ br_ln0                (br               ) [ 001111111111]
 |          |  add_ln27_6_fu_277 |    0    |    0    |    10   |
 |----------|--------------------|---------|---------|---------|
 |          |    empty_fu_175    |    0    |    0    |    13   |
-|    sub   |   empty_35_fu_189  |    0    |    0    |    12   |
+|    sub   |   empty_36_fu_189  |    0    |    0    |    12   |
 |          |   sub_ln27_fu_271  |    0    |    0    |    10   |
 |----------|--------------------|---------|---------|---------|
 |          |  icmp_ln13_fu_149  |    0    |    0    |    8    |
@@ -1466,7 +1466,7 @@ N/A
 |  add_ln13_reg_299  |    3   |
 |  add_ln17_reg_317  |    3   |
 |  add_ln23_reg_335  |    2   |
-|  empty_35_reg_312  |    5   |
+|  empty_36_reg_312  |    5   |
 |    empty_reg_307   |    6   |
 |      i_reg_88      |    3   |
 |  icmp_ln27_reg_353 |    1   |
