@@ -11,8 +11,9 @@
 using namespace std;
 
 #define INPUT_FILENAME "<project directory>/src/sensor_and_control_measurements.txt"
-#define OUTPUT_FILENAME "<project directory>/matlab/hls_output.txt"
+#define OUTPUT_FILENAME "hls_output.txt"
 #define DELIMITER ','
+
 
 vector<vector<float>> parseFile(string filename) {
 	vector <vector <float> > data;
@@ -94,9 +95,27 @@ int main(int argc, char *argv[]) {
 
 #include "data.h"
 
-	KalmanFilterKernel(din, dout, 0, 0.05, 0.95);
 
-//	writeDataToFile(dout, OUTPUT_FILENAME);
+	for (int i = 0; i < N_SAMPLES; i++) {
+		float din_temp[N_STATE_VARS];
+		for (int j = 0; j < N_STATE_VARS; j++){
+			din_temp[j]=din[j+i*N_STATE_VARS];
+
+		}
+		for (int j = 0; j < N_STATE_VARS; j++){
+			//cout << din_temp[j];
+		}
+		//cout << "\n";
+
+		float dout_temp[N_STATE_VARS];
+
+		KalmanFilterKernel(din_temp, dout_temp, 0.1, 0.05, 0.95);
+
+		for (int j = 0; j<N_STATE_VARS; j++){
+			dout[N_STATE_VARS*i + j] = dout_temp[j];
+		}
+	}
+
 
 	for (int i = 0; i < N_SAMPLES; i++) {
 		for (int j = 0; j < N_STATE_VARS; j++) {
@@ -104,6 +123,10 @@ int main(int argc, char *argv[]) {
 		}
 		cout << "\n";
 	}
+
+	writeDataToFile(dout, OUTPUT_FILENAME);
+
+	cout << "written file out \n";
 
 }
 

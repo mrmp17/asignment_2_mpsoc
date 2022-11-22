@@ -4,8 +4,8 @@
 
 #include "matrix_ops.h"
 
-#define 	SAMPLE_FREQ 	10	// Hz
-#define 	DT 				0.1
+//#define 	SAMPLE_FREQ 	10	// Hz
+//#define 	DT 				0.1
 #define		BRAM_SIZE		2048
 #define		N_SAMPLES		300
 #define		N_STATE_VARS	6
@@ -15,4 +15,4 @@
 typedef		float		KF_data_t;
 //typedef		ap_fixed<16,8>	KF_data_t;
 
-void KalmanFilterKernel(float din[2048], float dout[1024], ap_uint<32> counter, float q, float r);
+void KalmanFilterKernel(float din[2048], float dout[1024], float counter, float q, float r);

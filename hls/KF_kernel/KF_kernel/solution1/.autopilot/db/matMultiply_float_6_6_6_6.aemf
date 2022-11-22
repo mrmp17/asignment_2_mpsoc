@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1669057619027">
+  <ports id="1" name="mat_in_L" type="PortType" originalName="mat_in_L" coreName="ROM" coreId="1286459984" bitwidth="32" iftype="IfTypeRegister" arraysize="18">
+    <dataOutputObjs>getelementptr</dataOutputObjs>
+  </ports>
+  <ports id="2" name="mat_in_R" type="PortType" originalName="mat_in_R" coreName="RAM" coreId="177" bitwidth="32" iftype="IfTypeRegister" arraysize="6">
+    <dataOutputObjs>getelementptr</dataOutputObjs>
+  </ports>
+  <ports id="3" name="mat_out" type="PortType" originalName="mat_out" coreName="RAM" coreId="433" bitwidth="32" direction="DirOut" iftype="IfTypeRegister" arraysize="36">
+    <dataInputObjs>getelementptr</dataInputObjs>
+  </ports>
+  <edges id="60" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.0"/>
+  <edges id="61" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.1/@node_objs.0" is_back_edge="1"/>
+  <edges id="62" edge_type="CtrlEdge" source_obj="//@blocks.8" sink_obj="//@blocks.1/@node_objs.0" is_back_edge="1"/>
+  <edges id="65" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="66" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="69" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="72" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="73" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="74" edge_type="CtrlEdge" source_obj="//@blocks.9" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="77" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="82" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.2/@node_objs.1"/>
+  <edges id="85" source_obj="//@blocks.2/@node_objs.1" sink_obj="//@blocks.2/@node_objs.2"/>
+  <edges id="86" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@blocks.2/@node_objs.3"/>
+  <edges id="87" source_obj="//@blocks.2/@node_objs.2" sink_obj="//@blocks.2/@node_objs.3"/>
+  <edges id="88" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.2/@node_objs.4"/>
+  <edges id="91" edge_type="CtrlEdge" source_obj="//@blocks.7" sink_obj="//@blocks.3/@node_objs.0" is_back_edge="1"/>
+  <edges id="93" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.3/@node_objs.0"/>
+  <edges id="94" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.3/@node_objs.1"/>
+  <edges id="95" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.3/@node_objs.2"/>
+  <edges id="96" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.3/@node_objs.3"/>
+  <edges id="97" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.3/@node_objs.3"/>
+  <edges id="98" edge_type="CtrlEdge" source_obj="//@blocks.8" sink_obj="//@blocks.3/@node_objs.3"/>
+  <edges id="99" source_obj="//@blocks.3/@node_objs.2" sink_obj="//@blocks.4/@node_objs.0"/>
+  <edges id="100" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.4/@node_objs.0"/>
+  <edges id="101" source_obj="//@blocks.4/@node_objs.0" sink_obj="//@blocks.4/@node_objs.1"/>
+  <edges id="102" source_obj="//@blocks.4/@node_objs.2" sink_obj="//@ports.2"/>
+  <edges id="105" source_obj="//@blocks.4/@node_objs.1" sink_obj="//@blocks.4/@node_objs.2"/>
+  <edges id="106" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.4/@node_objs.3"/>
+  <edges id="107" source_obj="//@blocks.5/@node_objs.2" sink_obj="//@blocks.5/@node_objs.0" is_back_edge="1"/>
+  <edges id="108" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.5/@node_objs.0" is_back_edge="1"/>
+  <edges id="110" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.5/@node_objs.0"/>
+  <edges id="111" source_obj="//@blocks.6/@node_objs.10" sink_obj="//@blocks.5/@node_objs.1" is_back_edge="1"/>
+  <edges id="112" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.5/@node_objs.1" is_back_edge="1"/>
+  <edges id="115" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.5/@node_objs.1"/>
+  <edges id="116" source_obj="//@blocks.5/@node_objs.0" sink_obj="//@blocks.5/@node_objs.2"/>
+  <edges id="119" source_obj="//@blocks.5/@node_objs.0" sink_obj="//@blocks.5/@node_objs.3"/>
+  <edges id="120" source_obj="//@blocks.5/@node_objs.0" sink_obj="//@blocks.5/@node_objs.4"/>
+  <edges id="123" source_obj="//@blocks.5/@node_objs.4" sink_obj="//@blocks.5/@node_objs.5"/>
+  <edges id="124" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.5/@node_objs.5"/>
+  <edges id="125" edge_type="CtrlEdge" source_obj="//@blocks.7" sink_obj="//@blocks.5/@node_objs.5"/>
+  <edges id="126" source_obj="//@blocks.5/@node_objs.3" sink_obj="//@blocks.6/@node_objs.0"/>
+  <edges id="127" source_obj="//@blocks.2/@node_objs.3" sink_obj="//@blocks.6/@node_objs.0"/>
+  <edges id="128" source_obj="//@blocks.6/@node_objs.0" sink_obj="//@blocks.6/@node_objs.1"/>
+  <edges id="129" source_obj="//@ports.0" sink_obj="//@blocks.6/@node_objs.2"/>
+  <edges id="131" source_obj="//@blocks.6/@node_objs.1" sink_obj="//@blocks.6/@node_objs.2"/>
+  <edges id="132" source_obj="//@blocks.6/@node_objs.2" sink_obj="//@blocks.6/@node_objs.3"/>
+  <edges id="133" source_obj="//@blocks.5/@node_objs.0" sink_obj="//@blocks.6/@node_objs.4"/>
+  <edges id="134" source_obj="//@blocks.3/@node_objs.1" sink_obj="//@blocks.6/@node_objs.4"/>
+  <edges id="135" source_obj="//@blocks.6/@node_objs.4" sink_obj="//@blocks.6/@node_objs.5"/>
+  <edges id="136" source_obj="//@ports.1" sink_obj="//@blocks.6/@node_objs.6"/>
+  <edges id="138" source_obj="//@blocks.6/@node_objs.5" sink_obj="//@blocks.6/@node_objs.6"/>
+  <edges id="139" source_obj="//@blocks.6/@node_objs.6" sink_obj="//@blocks.6/@node_objs.7"/>
+  <edges id="140" source_obj="//@blocks.6/@node_objs.3" sink_obj="//@blocks.6/@node_objs.8"/>
+  <edges id="141" source_obj="//@blocks.6/@node_objs.7" sink_obj="//@blocks.6/@node_objs.8"/>
+  <edges id="142" source_obj="//@blocks.5/@node_objs.2" sink_obj="//@blocks.6/@node_objs.9"/>
+  <edges id="146" source_obj="//@blocks.6/@node_objs.8" sink_obj="//@blocks.6/@node_objs.10"/>
+  <edges id="147" source_obj="//@blocks.6/@node_objs.9" sink_obj="//@blocks.6/@node_objs.10"/>
+  <edges id="148" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.6/@node_objs.11"/>
+  <edges id="149" source_obj="//@blocks.5/@node_objs.1" sink_obj="//@blocks.7/@node_objs.0"/>
+  <edges id="150" source_obj="//@blocks.4/@node_objs.2" sink_obj="//@blocks.7/@node_objs.0"/>
+  <edges id="151" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.7/@node_objs.1"/>
+  <edges id="152" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.8/@node_objs.0"/>
+  <edges id="182" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="183" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.9"/>
+  <edges id="184" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.2"/>
+  <edges id="185" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.3"/>
+  <edges id="186" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.8"/>
+  <edges id="187" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.4"/>
+  <edges id="188" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.5"/>
+  <edges id="189" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.7"/>
+  <edges id="190" edge_type="CtrlEdge" source_obj="//@blocks.5" sink_obj="//@blocks.6"/>
+  <edges id="191" edge_type="CtrlEdge" source_obj="//@blocks.6" sink_obj="//@blocks.5" is_back_edge="1"/>
+  <edges id="192" edge_type="CtrlEdge" source_obj="//@blocks.7" sink_obj="//@blocks.3" is_back_edge="1"/>
+  <edges id="193" edge_type="CtrlEdge" source_obj="//@blocks.8" sink_obj="//@blocks.1" is_back_edge="1"/>
+  <blocks id="5" name=".lr.ph11" type="BlockType">
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_11</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="4" name="br_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="0" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" m_display="0" m_delay="0.48" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <controlInputObjs>block_11</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">
+      <validLinenumbers>13</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="11" name="block_11" type="BlockType">
+    <controlInputObjs>.lr.ph11</controlInputObjs>
+    <controlInputObjs>._crit_edge7.loopexit</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>._crit_edge12.loopexit</controlOutputObjs>
+    <controlOutputObjs>.split4</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="6" name="i" lineNumber="13" originalName="i" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="801" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="2" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>bitconcatenate</dataOutputObjs>
+      <dataOutputObjs>bitconcatenate</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <controlInputObjs>._crit_edge7.loopexit</controlInputObjs>
+      <controlInputObjs>.lr.ph11</controlInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="7" name="add_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="add_ln13_fu_140_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="2" opcode="add" nodeLabel="1.0" m_display="0" m_delay="0.62" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="8" name="icmp_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="icmp_ln13_fu_146_p2" opType="icmp" coreId="132" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="0.51" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="br_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="0" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>.split4</controlInputObjs>
+      <controlInputObjs>._crit_edge12.loopexit</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">
+      <validLinenumbers>13</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="18" name=".split4" type="BlockType">
+    <controlInputObjs>block_11</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_24</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="13" name="p_shl" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="p_shl_fu_152_p3" coreId="1287203392" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>sub</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="14" name="p_shl1" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="p_shl1_fu_160_p3" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="15" name="p_shl1_cast" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="p_shl1_cast_fu_168_p1" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="zext" nodeLabel="1.0" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>bitconcatenate</dataInputObjs>
+      <dataOutputObjs>sub</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="16" name="empty" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="empty_fu_172_p2" coreName="Adder" implIndex="fabric" control="auto" opType="sub" coreId="1" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="sub" nodeLabel="1.0" m_display="0" m_delay="0.87" m_topoIndex="9" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>bitconcatenate</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="17" name="br_ln17" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="0" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="1.0" m_display="0" m_delay="0.48" m_topoIndex="10" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="17" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <controlInputObjs>block_24</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">
+      <validLinenumbers>13</validLinenumbers>
+      <validLinenumbers>17</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="24" name="block_24" type="BlockType">
+    <controlInputObjs>.split4</controlInputObjs>
+    <controlInputObjs>._crit_edge.loopexit</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>._crit_edge7.loopexit</controlOutputObjs>
+    <controlOutputObjs>.split2</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="19" name="k" originalName="k" coreId="49" bitwidth="1" opcode="phi" nodeLabel="2.0" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <controlInputObjs>._crit_edge.loopexit</controlInputObjs>
+      <controlInputObjs>.split4</controlInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="20" name="zext_ln17" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln17_fu_178_p1" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="17" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="21" name="zext_ln17_1" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln17_1_fu_182_p1" coreId="132" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="2" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="17" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="23" name="br_ln17" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="49" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="17" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <controlInputObjs>.split2</controlInputObjs>
+      <controlInputObjs>._crit_edge7.loopexit</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">
+      <validLinenumbers>17</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="30" name=".split2" type="BlockType">
+    <controlInputObjs>block_24</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>.lr.ph</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="26" name="add_ln20" lineNumber="20" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="add_ln20_fu_186_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="2" opcode="add" nodeLabel="2.0" m_display="0" m_delay="0.62" m_topoIndex="16" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="20" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="27" name="zext_ln20" lineNumber="20" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln20_fu_192_p1" coreId="49" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="64" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="20" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="28" name="mat_out_addr" lineNumber="20" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="6" opcode="getelementptr" nodeLabel="2.0" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="20" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>mat_out</dataOutputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="29" name="br_ln23" lineNumber="23" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="49" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="2.0" m_display="0" m_delay="0.48" m_topoIndex="19" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="23" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <controlInputObjs>.lr.ph</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">
+      <validLinenumbers>20</validLinenumbers>
+      <validLinenumbers>23</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="38" name=".lr.ph" type="BlockType">
+    <controlInputObjs>.split2</controlInputObjs>
+    <controlInputObjs>.split</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>._crit_edge.loopexit</controlOutputObjs>
+    <controlOutputObjs>.split</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="j" lineNumber="23" originalName="j" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="49" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="phi" nodeLabel="3.0" m_display="0" m_topoIndex="21" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="23" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <controlInputObjs>.split</controlInputObjs>
+      <controlInputObjs>.split2</controlInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="32" name="add1913" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="49" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="32" opcode="phi" nodeLabel="3.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>facc</dataInputObjs>
+      <dataOutputObjs>store</dataOutputObjs>
+      <controlInputObjs>.split</controlInputObjs>
+      <controlInputObjs>.split2</controlInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="33" name="add_ln23" lineNumber="23" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="add_ln23_fu_197_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="add" nodeLabel="3.0" m_display="0" m_delay="0.74" m_topoIndex="23" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="23" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="34" name="zext_ln23" lineNumber="23" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln23_fu_203_p1" coreId="132" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="zext" nodeLabel="3.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="23" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="35" name="icmp_ln23" lineNumber="23" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="icmp_ln23_fu_207_p2" opType="icmp" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="1" opcode="icmp" nodeLabel="3.0" m_display="0" m_delay="0.69" m_topoIndex="25" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="23" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>br</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="37" name="br_ln23" lineNumber="23" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="132" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="3.0" m_display="0" m_topoIndex="26" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="23" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>.split</controlInputObjs>
+      <controlInputObjs>._crit_edge.loopexit</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">
+      <validLinenumbers>23</validLinenumbers>
+      <validLinenumbers>27</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="52" name=".split" type="BlockType">
+    <controlInputObjs>.lr.ph</controlInputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>.lr.ph</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="add_ln27" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="add_ln27_fu_213_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="add" nodeLabel="3.0" m_display="0" m_delay="0.87" m_topoIndex="27" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataInputObjs>sub</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="41" name="zext_ln27" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln27_fu_218_p1" coreId="132" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="64" opcode="zext" nodeLabel="3.0" m_display="0" m_topoIndex="28" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="42" name="mat_in_L_addr" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="1634692198" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="getelementptr" nodeLabel="3.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>mat_in_L</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="43" name="mat_in_L_load" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreName="ROM" implIndex="auto" control="auto" opType="rom" coreId="101" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="32" opcode="load" nodeLabel="3.0" nodeLatency="1" m_display="0" m_delay="0.79" m_topoIndex="30" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>getelementptr</dataInputObjs>
+      <dataOutputObjs>fmul</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="add_ln27_2" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="add_ln27_2_fu_223_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="add" nodeLabel="3.0" m_display="0" m_delay="0.74" m_topoIndex="31" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="45" name="zext_ln27_2" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln27_2_fu_228_p1" coreId="132" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="64" opcode="zext" nodeLabel="3.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>getelementptr</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="46" name="mat_in_R_addr" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="1286889168" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="getelementptr" nodeLabel="3.0" m_display="0" m_topoIndex="33" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>mat_in_R</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>load</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="47" name="mat_in_R_load" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreName="RAM" implIndex="auto" control="auto" opType="ram" coreId="83" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="32" opcode="load" nodeLabel="3.0" nodeLatency="1" m_display="0" m_delay="0.79" m_topoIndex="34" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>getelementptr</dataInputObjs>
+      <dataOutputObjs>fmul</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="mul" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreName="FMul_maxdsp" implIndex="maxdsp" control="auto" opType="fmul" coreId="30" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="32" opcode="fmul" nodeLabel="4.0" nodeLatency="3" m_display="0" m_delay="4.67" m_topoIndex="38" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>load</dataInputObjs>
+      <dataInputObjs>load</dataInputObjs>
+      <dataOutputObjs>facc</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="49" name="icmp_ln27" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="icmp_ln27_fu_233_p2" opType="icmp" coreId="132" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="1" opcode="icmp" nodeLabel="3.0" m_display="0" m_delay="0.69" m_topoIndex="35" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>facc</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="50" name="tmp" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="facc_32ns_32ns_1ns_32_3_no_dsp_1_U23" coreName="FAcc_nodsp" implIndex="fabric" control="auto" coreId="11" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="32" opcode="facc" nodeLabel="8.0" nodeLatency="2" m_display="0" m_delay="5.48" m_topoIndex="39" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>fmul</dataInputObjs>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="br_ln0" coreId="0" opcode="br" nodeLabel="10.0" m_display="0" m_topoIndex="40" m_clusterGroupNumber="-1">
+      <controlInputObjs>.lr.ph</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">
+      <validLinenumbers>27</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="55" name="._crit_edge.loopexit" type="BlockType">
+    <controlInputObjs>.lr.ph</controlInputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_24</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="53" name="mat_out_addr_write_ln27" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreName="RAM" implIndex="auto" control="auto" opType="ram" coreId="83" contextFuncName="matMultiply_float_6_6_6_s" opcode="store" nodeLabel="3.0" m_display="0" m_delay="1.35" m_topoIndex="36" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataInputObjs>getelementptr</dataInputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="54" name="br_ln0" coreId="0" opcode="br" nodeLabel="3.0" m_display="0" m_topoIndex="37" m_clusterGroupNumber="-1">
+      <controlInputObjs>block_24</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">
+      <validLinenumbers>27</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="57" name="._crit_edge7.loopexit" type="BlockType">
+    <controlInputObjs>block_24</controlInputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_11</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="56" name="br_ln0" coreId="0" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
+      <controlInputObjs>block_11</controlInputObjs>
+    </node_objs>
+  </blocks>
+  <blocks id="59" name="._crit_edge12.loopexit" type="BlockType">
+    <controlInputObjs>block_11</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="58" name="_ln32" lineNumber="32" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="0" contextFuncName="matMultiply_float_6_6_6_s" opcode="ret" nodeLabel="1.0" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="32" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
+    </node_objs>
+    <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">
+      <validLinenumbers>32</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <ScheduleInfo time="2"/>
+  <ScheduleInfo time="3"/>
+  <ScheduleInfo time="4"/>
+  <ScheduleInfo time="5"/>
+  <ScheduleInfo time="6"/>
+  <ScheduleInfo time="7"/>
+  <ScheduleInfo time="8"/>
+  <ScheduleInfo time="9"/>
+  <ScheduleInfo time="10"/>
+  <regnodes realName="add_ln13_reg_245">
+    <nodeIds>7</nodeIds>
+  </regnodes>
+  <regnodes realName="add1913_reg_122">
+    <nodeIds>32</nodeIds>
+  </regnodes>
+  <regnodes realName="k_reg_98">
+    <nodeIds>19</nodeIds>
+  </regnodes>
+  <regnodes realName="i_reg_86">
+    <nodeIds>6</nodeIds>
+  </regnodes>
+  <regnodes realName="mat_in_L_load_reg_291">
+    <nodeIds>43</nodeIds>
+  </regnodes>
+  <regnodes realName="j_reg_111">
+    <nodeIds>31</nodeIds>
+  </regnodes>
+  <regnodes realName="mat_out_addr_reg_263">
+    <nodeIds>28</nodeIds>
+  </regnodes>
+  <regnodes realName="zext_ln17_reg_258">
+    <nodeIds>20</nodeIds>
+  </regnodes>
+  <regnodes realName="mat_in_R_addr_reg_281">
+    <nodeIds>46</nodeIds>
+  </regnodes>
+  <regnodes realName="mat_in_R_load_reg_296">
+    <nodeIds>47</nodeIds>
+  </regnodes>
+  <regnodes realName="mul_reg_301">
+    <nodeIds>48</nodeIds>
+  </regnodes>
+  <regnodes realName="empty_reg_253">
+    <nodeIds>16</nodeIds>
+  </regnodes>
+  <regnodes realName="mat_in_L_addr_reg_276">
+    <nodeIds>42</nodeIds>
+  </regnodes>
+  <regnodes realName="tmp_reg_306">
+    <nodeIds>50</nodeIds>
+  </regnodes>
+  <regnodes realName="icmp_ln27_reg_286">
+    <nodeIds>49</nodeIds>
+  </regnodes>
+  <regnodes realName="add_ln23_reg_268">
+    <nodeIds>33</nodeIds>
+  </regnodes>
+  <expressionNodes realName="add_ln23_fu_197">
+    <nodeIds>33</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln13_fu_146">
+    <nodeIds>8</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln17_1_fu_182">
+    <nodeIds>21</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="mat_out_addr_gep_fu_48">
+    <nodeIds>28</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="p_shl1_fu_160">
+    <nodeIds>14</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="mat_in_L_addr_gep_fu_55">
+    <nodeIds>42</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="mat_in_R_addr_gep_fu_68">
+    <nodeIds>46</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln20_fu_186">
+    <nodeIds>26</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln23_fu_203">
+    <nodeIds>34</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add1913_phi_fu_126">
+    <nodeIds>32</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln13_fu_140">
+    <nodeIds>7</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="k_phi_fu_103">
+    <nodeIds>19</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln27_fu_233">
+    <nodeIds>49</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="empty_fu_172">
+    <nodeIds>16</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln27_2_fu_223">
+    <nodeIds>44</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="p_shl_fu_152">
+    <nodeIds>13</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="p_shl1_cast_fu_168">
+    <nodeIds>15</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln20_fu_192">
+    <nodeIds>27</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln27_fu_218">
+    <nodeIds>41</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="i_phi_fu_90">
+    <nodeIds>6</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln17_fu_178">
+    <nodeIds>20</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln27_2_fu_228">
+    <nodeIds>45</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln23_fu_207">
+    <nodeIds>35</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="j_phi_fu_115">
+    <nodeIds>31</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln27_fu_213">
+    <nodeIds>40</nodeIds>
+  </expressionNodes>
+  <moduleNodes realName="grp_fu_239">
+    <nodeIds>50</nodeIds>
+  </moduleNodes>
+  <moduleNodes realName="grp_fu_134">
+    <nodeIds>48</nodeIds>
+  </moduleNodes>
+  <memoryPorts dataString="mat_in_L">
+    <nodeIds>43</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="mat_in_R">
+    <nodeIds>47</nodeIds>
+  </memoryPorts>
+  <memoryPorts dataString="mat_out">
+    <nodeIds>53</nodeIds>
+  </memoryPorts>
+  <ioPorts name="mat_in_L(p0)">
+    <contents name="load">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="mat_in_R(p0)">
+    <contents name="load">
+      <nodeIds>47</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="mat_out(p0)">
+    <contents name="store">
+      <nodeIds>53</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="4" stage="1" latency="1"/>
+    </states>
+    <states id="2">
+      <operations id="6" stage="1" latency="1"/>
+      <operations id="7" stage="1" latency="1"/>
+      <operations id="8" stage="1" latency="1"/>
+      <operations id="9" stage="1" latency="1"/>
+      <operations id="10" stage="1" latency="1"/>
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="1" latency="1"/>
+      <operations id="15" stage="1" latency="1"/>
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="17" stage="1" latency="1"/>
+      <operations id="58" stage="1" latency="1"/>
+    </states>
+    <states id="3">
+      <operations id="19" stage="1" latency="1"/>
+      <operations id="20" stage="1" latency="1"/>
+      <operations id="21" stage="1" latency="1"/>
+      <operations id="22" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+      <operations id="25" stage="1" latency="1"/>
+      <operations id="26" stage="1" latency="1"/>
+      <operations id="27" stage="1" latency="1"/>
+      <operations id="28" stage="1" latency="1"/>
+      <operations id="29" stage="1" latency="1"/>
+      <operations id="56" stage="1" latency="1"/>
+    </states>
+    <states id="4">
+      <operations id="31" stage="1" latency="1"/>
+      <operations id="32" stage="1" latency="1"/>
+      <operations id="33" stage="1" latency="1"/>
+      <operations id="34" stage="1" latency="1"/>
+      <operations id="35" stage="1" latency="1"/>
+      <operations id="36" stage="1" latency="1"/>
+      <operations id="37" stage="1" latency="1"/>
+      <operations id="40" stage="1" latency="1"/>
+      <operations id="41" stage="1" latency="1"/>
+      <operations id="42" stage="1" latency="1"/>
+      <operations id="43" stage="2" latency="2"/>
+      <operations id="44" stage="1" latency="1"/>
+      <operations id="45" stage="1" latency="1"/>
+      <operations id="46" stage="1" latency="1"/>
+      <operations id="47" stage="2" latency="2"/>
+      <operations id="49" stage="1" latency="1"/>
+      <operations id="53" stage="1" latency="1"/>
+      <operations id="54" stage="1" latency="1"/>
+    </states>
+    <states id="5">
+      <operations id="43" stage="1" latency="2"/>
+      <operations id="47" stage="1" latency="2"/>
+      <operations id="48" stage="4" latency="4"/>
+    </states>
+    <states id="6">
+      <operations id="48" stage="3" latency="4"/>
+    </states>
+    <states id="7">
+      <operations id="48" stage="2" latency="4"/>
+    </states>
+    <states id="8">
+      <operations id="48" stage="1" latency="4"/>
+    </states>
+    <states id="9">
+      <operations id="50" stage="3" latency="3"/>
+    </states>
+    <states id="10">
+      <operations id="50" stage="2" latency="3"/>
+    </states>
+    <states id="11">
+      <operations id="39" stage="1" latency="1"/>
+      <operations id="50" stage="1" latency="3"/>
+      <operations id="51" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="3">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="3" outState="4">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="4" outState="5">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="5" outState="6">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="6" outState="7">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="7" outState="8">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="8" outState="9">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="9" outState="10">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="10" outState="11">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="11" outState="4">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="4" outState="3">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="3" outState="2">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="matMultiply_float_6_6_6_6" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="157" mMaxLatency="157">
+      <subRegions>2</subRegions>
+      <subRegions>3</subRegions>
+      <subRegions>10</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="2" mTag="Entry" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>5</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="3" mTag="matMul_loop_L" mII="-1" mDepth="-1" mMinTripCount="3" mMaxTripCount="3" mMinLatency="156" mMaxLatency="156" mType="1">
+      <subRegions>4</subRegions>
+      <subRegions>5</subRegions>
+      <subRegions>9</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="4" mTag="Region 1" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>11</basicBlocks>
+      <basicBlocks>18</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="5" mTag="matMul_loop_N" mII="-1" mDepth="-1" mMinTripCount="1" mMaxTripCount="1" mMinLatency="50" mMaxLatency="50" mType="1">
+      <subRegions>6</subRegions>
+      <subRegions>7</subRegions>
+      <subRegions>8</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="6" mTag="Region 2" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>24</basicBlocks>
+      <basicBlocks>30</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="7" mTag="matMul_loop_M" mII="-1" mDepth="-1" mMinTripCount="6" mMaxTripCount="6" mMinLatency="48" mMaxLatency="48" mType="1">
+      <basicBlocks>38</basicBlocks>
+      <basicBlocks>52</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="8" mTag="Region 3" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>55</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="9" mTag="Region 4" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>57</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="10" mTag="Return" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>59</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

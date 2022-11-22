@@ -157,6 +157,8 @@
                         					
                     </folderInfo>
                     					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.debug.1056485980.472497801" name="data.h" rcbsApplicability="disable" resourcePath="testbench/data.h" toolsToInvoke=""/>
+                    					
                     <fileInfo id="cdt.managedbuild.config.gnu.exe.debug.1056485980.1740341285" name="kf_test.cpp" rcbsApplicability="disable" resourcePath="testbench/kf_test.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1156792956.1738996891">
                         						
                         <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1156792956.1738996891" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1156792956">
@@ -335,6 +337,8 @@
                         					
                     </folderInfo>
                     					
+                    <fileInfo id="cdt.managedbuild.config.gnu.exe.release.685119602.1118022954" name="data.h" rcbsApplicability="disable" resourcePath="testbench/data.h" toolsToInvoke=""/>
+                    					
                     <fileInfo id="cdt.managedbuild.config.gnu.exe.release.685119602.979006519" name="kf_test.cpp" rcbsApplicability="disable" resourcePath="testbench/kf_test.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.56483384.1294757887">
                         						
                         <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.56483384.1294757887" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.56483384">
@@ -418,5 +422,7 @@
     </storageModule>
     	
     <storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+    	
+    <storageModule moduleId="refreshScope"/>
     
 </cproject>
