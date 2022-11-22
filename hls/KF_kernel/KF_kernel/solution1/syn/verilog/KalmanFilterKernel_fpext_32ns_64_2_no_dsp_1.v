@@ -7,7 +7,7 @@
 
 module KalmanFilterKernel_fpext_32ns_64_2_no_dsp_1
 #(parameter
-    ID         = 51,
+    ID         = 52,
     NUM_STAGE  = 2,
     din0_WIDTH = 32,
     dout_WIDTH = 64

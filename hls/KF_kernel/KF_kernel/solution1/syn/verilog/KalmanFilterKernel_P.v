@@ -18,9 +18,6 @@ input clk;
 
 reg [DWIDTH-1:0] ram[0:MEM_SIZE-1];
 
-initial begin
-    $readmemh("./KalmanFilterKernel_P_ram.dat", ram);
-end
 
 
 

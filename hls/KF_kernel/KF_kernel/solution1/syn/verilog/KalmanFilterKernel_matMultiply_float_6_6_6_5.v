@@ -24,10 +24,10 @@ module KalmanFilterKernel_matMultiply_float_6_6_6_5 (
         mat_out_ce0,
         mat_out_we0,
         mat_out_d0,
-        grp_fu_3352_p_din0,
-        grp_fu_3352_p_din1,
-        grp_fu_3352_p_dout0,
-        grp_fu_3352_p_ce
+        grp_fu_3639_p_din0,
+        grp_fu_3639_p_din1,
+        grp_fu_3639_p_dout0,
+        grp_fu_3639_p_ce
 );
 
 parameter    ap_ST_fsm_state1 = 11'd1;
@@ -58,10 +58,10 @@ output  [5:0] mat_out_address0;
 output   mat_out_ce0;
 output   mat_out_we0;
 output  [31:0] mat_out_d0;
-output  [31:0] grp_fu_3352_p_din0;
-output  [31:0] grp_fu_3352_p_din1;
-input  [31:0] grp_fu_3352_p_dout0;
-output   grp_fu_3352_p_ce;
+output  [31:0] grp_fu_3639_p_din0;
+output  [31:0] grp_fu_3639_p_din1;
+input  [31:0] grp_fu_3639_p_dout0;
+output   grp_fu_3639_p_ce;
 
 reg ap_done;
 reg ap_idle;
@@ -225,7 +225,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state8)) begin
-        mul_reg_352 <= grp_fu_3352_p_dout0;
+        mul_reg_352 <= grp_fu_3639_p_dout0;
     end
 end
 
@@ -386,13 +386,13 @@ assign grp_fu_131_p0 = mat_in_L_q0;
 
 assign grp_fu_131_p1 = mat_in_R_q0;
 
-assign grp_fu_131_p2 = grp_fu_3352_p_dout0;
+assign grp_fu_131_p2 = grp_fu_3639_p_dout0;
 
-assign grp_fu_3352_p_ce = 1'b1;
+assign grp_fu_3639_p_ce = 1'b1;
 
-assign grp_fu_3352_p_din0 = mat_in_L_q0;
+assign grp_fu_3639_p_din0 = mat_in_L_q0;
 
-assign grp_fu_3352_p_din1 = mat_in_R_q0;
+assign grp_fu_3639_p_din1 = mat_in_R_q0;
 
 assign icmp_ln13_fu_143_p2 = ((i_reg_86 == 2'd3) ? 1'b1 : 1'b0);
 

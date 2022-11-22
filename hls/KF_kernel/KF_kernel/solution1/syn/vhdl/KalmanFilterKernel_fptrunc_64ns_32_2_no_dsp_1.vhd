@@ -7,7 +7,7 @@ use ieee.std_logic_1164.all;
 
 entity KalmanFilterKernel_fptrunc_64ns_32_2_no_dsp_1 is
     generic (
-        ID         : integer := 50;
+        ID         : integer := 51;
         NUM_STAGE  : integer := 2;
         din0_WIDTH : integer := 64;
         dout_WIDTH : integer := 32

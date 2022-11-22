@@ -76,8 +76,8 @@ attribute shreg_extract : string;
     signal empty_fu_172_p2 : STD_LOGIC_VECTOR (5 downto 0);
     signal empty_reg_313 : STD_LOGIC_VECTOR (5 downto 0);
     signal icmp_ln13_fu_155_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal empty_34_fu_198_p2 : STD_LOGIC_VECTOR (5 downto 0);
-    signal empty_34_reg_318 : STD_LOGIC_VECTOR (5 downto 0);
+    signal empty_35_fu_198_p2 : STD_LOGIC_VECTOR (5 downto 0);
+    signal empty_35_reg_318 : STD_LOGIC_VECTOR (5 downto 0);
     signal add_ln17_fu_204_p2 : STD_LOGIC_VECTOR (1 downto 0);
     signal add_ln17_reg_323 : STD_LOGIC_VECTOR (1 downto 0);
     signal ap_CS_fsm_state3 : STD_LOGIC;
@@ -304,7 +304,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((icmp_ln13_fu_155_p2 = ap_const_lv1_0) and (ap_const_logic_1 = ap_CS_fsm_state2))) then
-                    empty_34_reg_318(5 downto 1) <= empty_34_fu_198_p2(5 downto 1);
+                    empty_35_reg_318(5 downto 1) <= empty_35_fu_198_p2(5 downto 1);
                 empty_reg_313 <= empty_fu_172_p2;
             end if;
         end if;
@@ -333,7 +333,7 @@ begin
             end if;
         end if;
     end process;
-    empty_34_reg_318(0) <= '0';
+    empty_35_reg_318(0) <= '0';
     zext_ln17_reg_328(4 downto 2) <= "000";
 
     ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, ap_CS_fsm_state2, icmp_ln13_fu_155_p2, ap_CS_fsm_state3, icmp_ln17_fu_218_p2, ap_CS_fsm_state4, icmp_ln23_fu_248_p2)
@@ -397,7 +397,7 @@ begin
     add_ln20_fu_224_p2 <= std_logic_vector(unsigned(zext_ln17_2_fu_214_p1) + unsigned(empty_reg_313));
     add_ln23_fu_234_p2 <= std_logic_vector(unsigned(j_reg_116) + unsigned(ap_const_lv3_1));
     add_ln27_4_fu_278_p2 <= std_logic_vector(unsigned(sub_ln27_fu_272_p2) + unsigned(zext_ln17_reg_328));
-    add_ln27_fu_254_p2 <= std_logic_vector(unsigned(zext_ln23_1_fu_244_p1) + unsigned(empty_34_reg_318));
+    add_ln27_fu_254_p2 <= std_logic_vector(unsigned(zext_ln23_1_fu_244_p1) + unsigned(empty_35_reg_318));
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
     ap_CS_fsm_state11 <= ap_CS_fsm(10);
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
@@ -436,7 +436,7 @@ begin
         end if; 
     end process;
 
-    empty_34_fu_198_p2 <= std_logic_vector(unsigned(p_shl_fu_178_p3) - unsigned(p_shl1_cast_fu_194_p1));
+    empty_35_fu_198_p2 <= std_logic_vector(unsigned(p_shl_fu_178_p3) - unsigned(p_shl1_cast_fu_194_p1));
     empty_fu_172_p2 <= std_logic_vector(unsigned(p_shl2_cast_fu_168_p1) - unsigned(zext_ln13_fu_151_p1));
 
     grp_fu_294_in_valid_assign_proc : process(ap_CS_fsm_state9)

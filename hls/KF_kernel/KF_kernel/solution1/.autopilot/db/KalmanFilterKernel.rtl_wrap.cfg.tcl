@@ -37,7 +37,7 @@ set Pointer "0"
 set Reference "0"
 set Dims [list 0]
 set Interface "wire"
-set DataType "float"
+set DataType "int"
 set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
 lappend PortList $Port
 set PortName "q"

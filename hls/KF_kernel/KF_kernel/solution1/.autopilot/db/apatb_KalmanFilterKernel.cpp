@@ -132,9 +132,10 @@ static void RTLOutputCheckAndReplacement(std::string &AESL_token, std::string Po
       no_x = true;
   }
 }
-extern "C" void KalmanFilterKernel_hw_stub_wrapper(volatile void *, volatile void *, float, float, float);
+struct __cosim_s4__ { char data[4]; };
+extern "C" void KalmanFilterKernel_hw_stub_wrapper(volatile void *, volatile void *, __cosim_s4__*, float, float);
 
-extern "C" void apatb_KalmanFilterKernel_hw(volatile void * __xlx_apatb_param_din, volatile void * __xlx_apatb_param_dout, float __xlx_apatb_param_counter, float __xlx_apatb_param_q, float __xlx_apatb_param_r) {
+extern "C" void apatb_KalmanFilterKernel_hw(volatile void * __xlx_apatb_param_din, volatile void * __xlx_apatb_param_dout, __cosim_s4__* __xlx_apatb_param_counter, float __xlx_apatb_param_q, float __xlx_apatb_param_r) {
   refine_signal_handler();
   fstream wrapc_switch_file_token;
   wrapc_switch_file_token.open(".hls_cosim_wrapc_switch.log");
@@ -258,7 +259,7 @@ sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_dout)[j];
   sprintf(__xlx_sprintf_buffer.data(), "[[transaction]] %d\n", AESL_transaction);
   aesl_fh.write(AUTOTB_TVIN_counter, __xlx_sprintf_buffer.data());
   {
-    sc_bv<32> __xlx_tmp_lv = *((int*)&__xlx_apatb_param_counter);
+    sc_bv<32> __xlx_tmp_lv = *((int*)__xlx_apatb_param_counter);
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
     aesl_fh.write(AUTOTB_TVIN_counter, __xlx_sprintf_buffer.data()); 
