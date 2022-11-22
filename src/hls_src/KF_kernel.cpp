@@ -16,27 +16,15 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], float count
 
 
 
-	static int num_calls = 0;
-	 KF_data_t din_[N_STATE_VARS];
+	static bool first_run = true;
+
+	 static KF_data_t din_old[N_STATE_VARS];
+	 KF_data_t din_new[N_STATE_VARS];
 	 KF_data_t dout_[N_STATE_VARS];
 
 
+
 	// Registers
-	static KF_data_t u[N_CTRL_VARS];
-	static KF_data_t z[N_MEAS_VARS];
-	static KF_data_t x[N_STATE_VARS];
-	static KF_data_t P[N_STATE_VARS*N_STATE_VARS];
-
-	static KF_data_t x_minus[N_STATE_VARS];
-	static KF_data_t P_minus[N_STATE_VARS*N_STATE_VARS];
-	static KF_data_t x_plus[N_STATE_VARS];
-	static KF_data_t P_plus[N_STATE_VARS*N_STATE_VARS];
-
-	static KF_data_t tmp_mat_1[N_STATE_VARS*N_STATE_VARS];
-	static KF_data_t tmp_mat_2[N_STATE_VARS*N_STATE_VARS];
-
-	static KF_data_t tmp_mat_3[N_STATE_VARS*N_STATE_VARS];
-
 
 
 
@@ -109,15 +97,15 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], float count
 
 
 
-	 if( num_calls == 0){
+	 if( first_run){
 		for (int i = 0; i < N_STATE_VARS; i++) {
-			din_[i] = (KF_data_t)din[i];
+			din_old[i] = (KF_data_t)din[i];
 
 		}
 
-		x_hat[0] =  din_[0];
-		x_hat[1] =  din_[1];
-		x_hat[2] =  din_[2];
+		x_hat[0] =  din_old[0];
+		x_hat[1] =  din_old[1];
+		x_hat[2] =  din_old[2];
 		x_hat[3] =  0;
 		x_hat[4] =  0;
 		x_hat[5] =  0;
@@ -130,18 +118,31 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], float count
 	 else{
 		 //cout << "Main block\n";
 		 for (int i = 0; i < N_STATE_VARS; i++) {
-		 			din_[i] = (KF_data_t)din[i];
+		 			din_new[i] = (KF_data_t)din[i];
 		 			//cout << din_[i] << " ";
 		 		}
 
+	 KF_data_t u[N_CTRL_VARS];
+			 KF_data_t z[N_MEAS_VARS];
+			 KF_data_t x[N_STATE_VARS];
+			 KF_data_t P[N_STATE_VARS*N_STATE_VARS];
+
+			 KF_data_t x_minus[N_STATE_VARS];
+			 KF_data_t P_minus[N_STATE_VARS*N_STATE_VARS];
+			 KF_data_t x_plus[N_STATE_VARS];
+			 KF_data_t P_plus[N_STATE_VARS*N_STATE_VARS];
+
+			 KF_data_t tmp_mat_1[N_STATE_VARS*N_STATE_VARS];
+			 KF_data_t tmp_mat_2[N_STATE_VARS*N_STATE_VARS];
+			 KF_data_t tmp_mat_3[N_STATE_VARS*N_STATE_VARS];
 
 
 		// Processing:
 
 			// Load data step
 
-			for (int j = 0; j < N_CTRL_VARS; j++) u[j] = (din_[N_MEAS_VARS+j]);
-			for (int j = 0; j < N_MEAS_VARS; j++) z[j] = (din_[N_MEAS_VARS+N_CTRL_VARS+j]);
+			for (int j = 0; j < N_CTRL_VARS; j++) u[j] = (din_old[N_MEAS_VARS+j]);
+			for (int j = 0; j < N_MEAS_VARS; j++) z[j] = (din_new[j]); //problem
 			for (int j = 0; j < N_STATE_VARS; j++) x[j] = x_hat[j];
 			for (int j = 0; j < N_STATE_VARS*N_STATE_VARS; j++) P[j] = P_hat[j];
 
@@ -188,6 +189,13 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], float count
 			for (int j = 0; j < N_STATE_VARS*N_STATE_VARS; j++) P_hat[j] = P_plus[j];
 			for (int j = 0; j < N_STATE_VARS; j++) dout_[j] = x_plus[j];
 
+			for (int i = 0; i < N_STATE_VARS; i++) {
+						din_old[i] = din_new[i];
+
+					}
+
+
+
 		}
 		for (int i = 0; i < N_STATE_VARS; i++) {
 			dout[i] = (float)dout_[i];
@@ -195,6 +203,7 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], float count
 		}
 		//cout << "\n";
 
-	num_calls ++;
-	//cout << num_calls << "\n";
+	first_run = false;
+
+
 }

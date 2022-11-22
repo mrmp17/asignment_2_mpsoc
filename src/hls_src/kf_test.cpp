@@ -1,4 +1,5 @@
 #include "KF_kernel.h"
+#include "data.h"
 
 #include <iostream>
 #include <stdlib.h>
@@ -81,19 +82,7 @@ void writeDataToFile(float dout[N_SAMPLES*N_STATE_VARS], string filename) {
 
 int main(int argc, char *argv[]) {
 
-//	vector<vector<float>> data_vec = parseFile(INPUT_FILENAME);
-//
-//	float din[N_SAMPLES*(N_MEAS_VARS+N_CTRL_VARS)];
 	float dout[N_SAMPLES*N_STATE_VARS];
-
-//	for (int i = 0; i < N_SAMPLES; i++) {
-//		for (int j = 0; j < (N_MEAS_VARS+N_CTRL_VARS); j++) {
-//
-//			din[i*(N_MEAS_VARS+N_CTRL_VARS)+j] = data_vec[i][j];
-//		}
-//	}
-
-#include "data.h"
 
 
 	for (int i = 0; i < N_SAMPLES; i++) {
