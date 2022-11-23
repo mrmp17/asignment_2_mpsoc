@@ -16,7 +16,7 @@ vivado*.str
 /meta-avnet/
 /target/
 /PYNQ/
-
+/hdl/
 .git_setup
 .vivado_setup
 .petalinux_setup
