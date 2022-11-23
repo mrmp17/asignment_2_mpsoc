@@ -11,7 +11,7 @@
 vivado*.str
 
 /petalinux/
-/hdl/
+
 /bdf/
 /meta-avnet/
 /target/
