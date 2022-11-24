@@ -12,7 +12,7 @@
 using namespace std;
 
 #define INPUT_FILENAME "<project directory>/src/sensor_and_control_measurements.txt"
-#define OUTPUT_FILENAME "KF_output_results2.txt"
+#define OUTPUT_FILENAME "KF_output_results1.txt"
 #define DELIMITER ','
 
 
@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
 		float dout_temp[N_STATE_VARS];
 		KalmanFilterKernel(din_temp, dout_temp, clock, 0.05, 0.95);
 
-		clock = clock + 12500000;
+		clock = clock + 10000000;
 
 		for (int j = 0; j<N_STATE_VARS; j++){
 			dout[N_STATE_VARS*i + j] = dout_temp[j];

@@ -114,8 +114,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "H", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "45", "SubInstance" : "grp_matMultiply_float_6_6_6_6_fu_2097", "Port" : "mat_in_L"},
-					{"ID" : "33", "SubInstance" : "grp_matMultiply_float_6_6_6_1_fu_2057", "Port" : "H"},
-					{"ID" : "39", "SubInstance" : "grp_matMultiply_float_6_6_6_5_fu_2073", "Port" : "mat_in_L"}]},
+					{"ID" : "39", "SubInstance" : "grp_matMultiply_float_6_6_6_5_fu_2073", "Port" : "mat_in_L"},
+					{"ID" : "33", "SubInstance" : "grp_matMultiply_float_6_6_6_1_fu_2057", "Port" : "H"}]},
 			{"Name" : "H_T", "Type" : "Memory", "Direction" : "I",
 				"SubConnect" : [
 					{"ID" : "29", "SubInstance" : "grp_matMultiply_float_6_6_6_4_fu_2046", "Port" : "H_T"}]},
@@ -126,8 +126,8 @@ set RtlHierarchyInfo {[
 			{"Name" : "K", "Type" : "Memory", "Direction" : "IO",
 				"SubConnect" : [
 					{"ID" : "25", "SubInstance" : "grp_matMultiply_float_6_6_6_2_fu_2036", "Port" : "mat_in_L"},
-					{"ID" : "33", "SubInstance" : "grp_matMultiply_float_6_6_6_1_fu_2057", "Port" : "K"},
-					{"ID" : "41", "SubInstance" : "grp_matMultiply_float_6_6_6_3_fu_2081", "Port" : "mat_out"}]},
+					{"ID" : "41", "SubInstance" : "grp_matMultiply_float_6_6_6_3_fu_2081", "Port" : "mat_out"},
+					{"ID" : "33", "SubInstance" : "grp_matMultiply_float_6_6_6_1_fu_2057", "Port" : "K"}]},
 			{"Name" : "y_bar_0", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "y_bar_1", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "y_bar_2", "Type" : "OVld", "Direction" : "IO"},

@@ -1531,7 +1531,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2022-11-22 20:35:56 CET",
+    "Time": "2022-11-24 12:24:13 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.2"
   }

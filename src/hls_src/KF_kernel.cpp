@@ -38,7 +38,7 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], ap_uint<32>
 	//cout << DT << "\n";
 
 
-	DT = DT / 125000000;
+	DT = DT / 100000000;
 	//cout << "aaaaaaa \n";
 	//cout << "Calculated:" << DT << "\n";
 

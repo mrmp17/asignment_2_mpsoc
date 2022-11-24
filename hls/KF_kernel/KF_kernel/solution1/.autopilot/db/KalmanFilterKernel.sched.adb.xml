@@ -2295,7 +2295,7 @@
 
 <Node id="68" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1.25e+08
+._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1e+08
 
 ]]></Node>
 <StgValue><ssdm name="DT_1"/></StgValue>
@@ -2433,7 +2433,7 @@
 
 <Node id="68" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1.25e+08
+._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1e+08
 
 ]]></Node>
 <StgValue><ssdm name="DT_1"/></StgValue>
@@ -2511,7 +2511,7 @@
 
 <Node id="68" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1.25e+08
+._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1e+08
 
 ]]></Node>
 <StgValue><ssdm name="DT_1"/></StgValue>
@@ -2589,7 +2589,7 @@
 
 <Node id="68" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1.25e+08
+._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1e+08
 
 ]]></Node>
 <StgValue><ssdm name="DT_1"/></StgValue>
@@ -2667,7 +2667,7 @@
 
 <Node id="68" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1.25e+08
+._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1e+08
 
 ]]></Node>
 <StgValue><ssdm name="DT_1"/></StgValue>
@@ -2745,7 +2745,7 @@
 
 <Node id="68" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1.25e+08
+._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1e+08
 
 ]]></Node>
 <StgValue><ssdm name="DT_1"/></StgValue>
@@ -2823,7 +2823,7 @@
 
 <Node id="68" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1.25e+08
+._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1e+08
 
 ]]></Node>
 <StgValue><ssdm name="DT_1"/></StgValue>
@@ -2901,7 +2901,7 @@
 
 <Node id="68" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1.25e+08
+._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1e+08
 
 ]]></Node>
 <StgValue><ssdm name="DT_1"/></StgValue>
@@ -2979,7 +2979,7 @@
 
 <Node id="68" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1.25e+08
+._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1e+08
 
 ]]></Node>
 <StgValue><ssdm name="DT_1"/></StgValue>
@@ -3057,7 +3057,7 @@
 
 <Node id="68" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1.25e+08
+._crit_edge:39 %DT_1 = fdiv i32 %DT, i32 1e+08
 
 ]]></Node>
 <StgValue><ssdm name="DT_1"/></StgValue>

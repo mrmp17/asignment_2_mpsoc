@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1669145752517">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1669289049728">
   <ports id="1" name="mat_out" type="PortType" originalName="mat_out" coreName="RAM" coreId="0" bitwidth="32" direction="DirOut" iftype="IfTypeRegister" arraysize="36">
     <dataInputObjs>getelementptr</dataInputObjs>
   </ports>
-  <ports id="3" name="K" type="PortType" coreName="RAM" coreId="673731689" bitwidth="32" iftype="IfTypeRegister" arraysize="18">
+  <ports id="3" name="K" type="PortType" coreName="RAM" coreId="49" bitwidth="32" iftype="IfTypeRegister" arraysize="18">
     <dataOutputObjs>getelementptr</dataOutputObjs>
   </ports>
   <edges id="71" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.0"/>
@@ -95,7 +95,7 @@
   <blocks id="7" name=".lr.ph11" type="BlockType">
     <controlOutputObjs>phi</controlOutputObjs>
     <controlOutputObjs>block_14</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="6" name="br_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="39" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" m_display="0" m_delay="0.48" m_topoIndex="1" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="6" name="br_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="32" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" m_display="0" m_delay="0.48" m_topoIndex="1" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <controlInputObjs>block_14</controlInputObjs>
     </node_objs>
@@ -110,7 +110,7 @@
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>._crit_edge12.loopexit</controlOutputObjs>
     <controlOutputObjs>.split4</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="8" name="i" lineNumber="13" originalName="i" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="32" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="8" name="i" lineNumber="13" originalName="i" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="251" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
@@ -129,18 +129,18 @@
       <dataOutputObjs>phi</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="zext_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln13_fu_145_p1" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="zext" nodeLabel="1.0" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="zext_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln13_fu_145_p1" coreId="132" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="zext" nodeLabel="1.0" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>sub</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="11" name="icmp_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="icmp_ln13_fu_149_p2" opType="icmp" coreId="1819243365" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="0.69" m_topoIndex="5" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="11" name="icmp_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="icmp_ln13_fu_149_p2" opType="icmp" coreId="4294967295" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="0.69" m_topoIndex="5" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>br</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="13" name="br_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="1275068752" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="13" name="br_ln13" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="2170602016" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>icmp</dataInputObjs>
       <controlInputObjs>.split4</controlInputObjs>
@@ -155,19 +155,19 @@
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>phi</controlOutputObjs>
     <controlOutputObjs>block_31</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="16" name="p_shl1" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="p_shl1_fu_155_p3" coreId="177" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="6" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="16" name="p_shl1" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="p_shl1_fu_155_p3" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="6" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>sub</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="17" name="p_shl2" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="p_shl2_fu_163_p3" coreId="177" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="4" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="17" name="p_shl2" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="p_shl2_fu_163_p3" coreId="657" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="4" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>zext</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="18" name="p_shl2_cast" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="p_shl2_cast_fu_171_p1" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="6" opcode="zext" nodeLabel="1.0" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="18" name="p_shl2_cast" lineNumber="13" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="p_shl2_cast_fu_171_p1" coreId="833" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="6" opcode="zext" nodeLabel="1.0" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="13" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>bitconcatenate</dataInputObjs>
       <dataOutputObjs>sub</dataOutputObjs>
@@ -190,7 +190,7 @@
       <dataInputObjs>zext</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="22" name="br_ln17" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="1825" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="1.0" m_display="0" m_delay="0.48" m_topoIndex="13" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="22" name="br_ln17" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="132" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="1.0" m_display="0" m_delay="0.48" m_topoIndex="13" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="17" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <controlInputObjs>block_31</controlInputObjs>
     </node_objs>
@@ -206,7 +206,7 @@
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>._crit_edge7.loopexit</controlOutputObjs>
     <controlOutputObjs>.split2</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="24" name="k" lineNumber="17" originalName="k" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="36" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="phi" nodeLabel="2.0" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="24" name="k" lineNumber="17" originalName="k" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="49" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="phi" nodeLabel="2.0" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="17" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
@@ -223,12 +223,12 @@
       <dataOutputObjs>phi</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="26" name="zext_ln17" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln17_fu_201_p1" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="26" name="zext_ln17" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln17_fu_201_p1" coreId="132" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="17" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="27" name="zext_ln17_4" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln17_4_fu_205_p1" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="6" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="27" name="zext_ln17_4" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln17_4_fu_205_p1" coreId="3" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="6" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="17" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
@@ -239,7 +239,7 @@
       <dataOutputObjs>br</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="br_ln17" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="675615001" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="30" name="br_ln17" lineNumber="17" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="2171216912" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="17" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>icmp</dataInputObjs>
       <controlInputObjs>.split2</controlInputObjs>
@@ -261,7 +261,7 @@
       <dataInputObjs>sub</dataInputObjs>
       <dataOutputObjs>zext</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="34" name="zext_ln20" lineNumber="20" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln20_fu_220_p1" coreId="675385945" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="64" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="34" name="zext_ln20" lineNumber="20" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln20_fu_220_p1" coreId="2171214633" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="64" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="22" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="20" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>getelementptr</dataOutputObjs>
@@ -289,7 +289,7 @@
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>._crit_edge.loopexit</controlOutputObjs>
     <controlOutputObjs>.split</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="38" name="j" lineNumber="23" originalName="j" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="675375536" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="2" opcode="phi" nodeLabel="3.0" m_display="0" m_topoIndex="26" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="38" name="j" lineNumber="23" originalName="j" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="2171209296" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="2" opcode="phi" nodeLabel="3.0" m_display="0" m_topoIndex="26" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="23" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
@@ -316,7 +316,7 @@
       <dataOutputObjs>icmp</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="41" name="zext_ln23" lineNumber="23" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln23_fu_231_p1" coreId="49" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="zext" nodeLabel="3.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="41" name="zext_ln23" lineNumber="23" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln23_fu_231_p1" coreId="11" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="5" opcode="zext" nodeLabel="3.0" m_display="0" m_topoIndex="29" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="23" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>add</dataOutputObjs>
@@ -327,7 +327,7 @@
       <dataOutputObjs>br</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="br_ln23" lineNumber="23" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="675370936" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="3.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="br_ln23" lineNumber="23" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="11" contextFuncName="matMultiply_float_6_6_6_s" opcode="br" nodeLabel="3.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="23" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>icmp</dataInputObjs>
       <controlInputObjs>.split</controlInputObjs>
@@ -373,7 +373,7 @@
       <dataOutputObjs>sub</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="shl_ln27_2" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="shl_ln27_2_fu_259_p3" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="bitconcatenate" nodeLabel="3.0" m_display="0" m_topoIndex="37" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="shl_ln27_2" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="shl_ln27_2_fu_259_p3" coreId="11" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="3" opcode="bitconcatenate" nodeLabel="3.0" m_display="0" m_topoIndex="37" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>zext</dataOutputObjs>
@@ -396,7 +396,7 @@
       <dataInputObjs>zext</dataInputObjs>
       <dataOutputObjs>zext</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="56" name="zext_ln27_7" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln27_7_fu_282_p1" coreId="11" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="64" opcode="zext" nodeLabel="3.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="56" name="zext_ln27_7" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="zext_ln27_7_fu_282_p1" coreId="2171181849" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="64" opcode="zext" nodeLabel="3.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>getelementptr</dataOutputObjs>
@@ -418,7 +418,7 @@
       <dataInputObjs>load</dataInputObjs>
       <dataOutputObjs>facc</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="60" name="icmp_ln27" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="icmp_ln27_fu_287_p2" opType="icmp" coreId="11" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="1" opcode="icmp" nodeLabel="3.0" m_display="0" m_delay="0.51" m_topoIndex="44" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="60" name="icmp_ln27" lineNumber="27" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." rtlName="icmp_ln27_fu_287_p2" opType="icmp" coreId="0" contextFuncName="matMultiply_float_6_6_6_s" bitwidth="1" opcode="icmp" nodeLabel="3.0" m_display="0" m_delay="0.51" m_topoIndex="44" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="27" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
       <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>facc</dataOutputObjs>
@@ -430,7 +430,7 @@
       <dataInputObjs>icmp</dataInputObjs>
       <dataOutputObjs>phi</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="62" name="br_ln0" coreId="4" opcode="br" nodeLabel="10.0" m_display="0" m_topoIndex="49" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="62" name="br_ln0" coreId="0" opcode="br" nodeLabel="10.0" m_display="0" m_topoIndex="49" m_clusterGroupNumber="-1">
       <controlInputObjs>.lr.ph</controlInputObjs>
     </node_objs>
     <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">
@@ -459,14 +459,14 @@
     <controlOutputObjs>phi</controlOutputObjs>
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>block_14</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="67" name="br_ln0" coreId="2177" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="67" name="br_ln0" coreId="0" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1">
       <controlInputObjs>block_14</controlInputObjs>
     </node_objs>
   </blocks>
   <blocks id="70" name="._crit_edge12.loopexit" type="BlockType">
     <controlInputObjs>block_14</controlInputObjs>
     <controlOutputObjs>br</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="69" name="_ln32" lineNumber="32" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="132" contextFuncName="matMultiply_float_6_6_6_s" opcode="ret" nodeLabel="1.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+    <node_objs xsi:type="cdfg:CdfgNode" id="69" name="_ln32" lineNumber="32" fileName="../../src/hls_src/matrix_ops.h" fileDirectory=".." coreId="49" contextFuncName="matMultiply_float_6_6_6_s" opcode="ret" nodeLabel="1.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
       <inlineStackInfo fileName="../../src/hls_src/matrix_ops.h" linenumber="32" fileDirectory="/home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel" functionName="matMultiply&amp;lt;float, 6, 6, 6&amp;gt;"/>
     </node_objs>
     <fileValidLineNumbers fileName="../../src/hls_src/matrix_ops.h">

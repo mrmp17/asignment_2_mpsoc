@@ -45,7 +45,7 @@ set TargetInfo xczu3eg:-sbva484:-1-i
 set SourceFiles {sc {} c ../../../../src/hls_src/KF_kernel.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile /home/tjaz/ass2/asignment_2_mpsoc/hls/KF_kernel/KF_kernel/solution1/solution1.directive
-set TBFiles {verilog {../../../../src/hls_src/data.h ../../../../src/hls_src/kf_test.cpp} bc {../../../../src/hls_src/data.h ../../../../src/hls_src/kf_test.cpp} sc {../../../../src/hls_src/data.h ../../../../src/hls_src/kf_test.cpp} vhdl {../../../../src/hls_src/data.h ../../../../src/hls_src/kf_test.cpp} c {} cas {../../../../src/hls_src/data.h ../../../../src/hls_src/kf_test.cpp}}
+set TBFiles {verilog {../../../../src/hls_src/kf_test.cpp ../../../../src/hls_src/data.h} bc {../../../../src/hls_src/kf_test.cpp ../../../../src/hls_src/data.h} sc {../../../../src/hls_src/kf_test.cpp ../../../../src/hls_src/data.h} vhdl {../../../../src/hls_src/kf_test.cpp ../../../../src/hls_src/data.h} c {} cas {../../../../src/hls_src/kf_test.cpp ../../../../src/hls_src/data.h}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

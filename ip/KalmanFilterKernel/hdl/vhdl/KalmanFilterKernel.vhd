@@ -385,7 +385,7 @@ architecture behav of KalmanFilterKernel is
     constant ap_const_lv32_41 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001000001";
     constant ap_const_lv32_4E : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001001110";
     constant ap_const_lv32_89 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000010001001";
-    constant ap_const_lv32_4CEE6B28 : STD_LOGIC_VECTOR (31 downto 0) := "01001100111011100110101100101000";
+    constant ap_const_lv32_4CBEBC20 : STD_LOGIC_VECTOR (31 downto 0) := "01001100101111101011110000100000";
     constant ap_const_lv32_6D : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000001101101";
     constant ap_const_lv32_1D : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000011101";
     constant ap_const_lv64_3FE0000000000000 : STD_LOGIC_VECTOR (63 downto 0) := "0011111111100000000000000000000000000000000000000000000000000000";
@@ -6354,7 +6354,7 @@ begin
         if ((ap_const_logic_1 = ap_CS_fsm_state117)) then 
             grp_fu_2114_p1 <= S_load_reg_3411;
         elsif ((ap_const_logic_1 = ap_CS_fsm_state6)) then 
-            grp_fu_2114_p1 <= ap_const_lv32_4CEE6B28;
+            grp_fu_2114_p1 <= ap_const_lv32_4CBEBC20;
         else 
             grp_fu_2114_p1 <= "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
         end if; 

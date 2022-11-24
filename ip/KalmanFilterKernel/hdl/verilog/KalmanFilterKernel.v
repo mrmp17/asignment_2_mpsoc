@@ -4120,7 +4120,7 @@ always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state117)) begin
         grp_fu_2114_p1 = S_load_reg_3411;
     end else if ((1'b1 == ap_CS_fsm_state6)) begin
-        grp_fu_2114_p1 = 32'd1290693416;
+        grp_fu_2114_p1 = 32'd1287568416;
     end else begin
         grp_fu_2114_p1 = 'bx;
     end
