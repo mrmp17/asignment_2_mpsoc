@@ -138,7 +138,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>grp_fu_3639_p_din0</name>
+<name>grp_fu_3680_p_din0</name>
 <Object>matMultiply&lt;float, 6, 6, 6&gt;.7</Object>
 <Type>return value</Type>
 <Scope></Scope>
@@ -149,7 +149,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>grp_fu_3639_p_din1</name>
+<name>grp_fu_3680_p_din1</name>
 <Object>matMultiply&lt;float, 6, 6, 6&gt;.7</Object>
 <Type>return value</Type>
 <Scope></Scope>
@@ -160,7 +160,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>grp_fu_3639_p_dout0</name>
+<name>grp_fu_3680_p_dout0</name>
 <Object>matMultiply&lt;float, 6, 6, 6&gt;.7</Object>
 <Type>return value</Type>
 <Scope></Scope>
@@ -171,7 +171,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>grp_fu_3639_p_ce</name>
+<name>grp_fu_3680_p_ce</name>
 <Object>matMultiply&lt;float, 6, 6, 6&gt;.7</Object>
 <Type>return value</Type>
 <Scope></Scope>

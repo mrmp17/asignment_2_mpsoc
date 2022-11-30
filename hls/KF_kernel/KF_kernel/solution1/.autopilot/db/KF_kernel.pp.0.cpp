@@ -32540,12 +32540,12 @@ void matDiagInverse(T *mat_in, T *mat_out, int M)
 typedef float KF_data_t;
 
 
-__attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(float din[2048], float dout[1024], ap_uint<32> counter, float q, float r);
+__attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(float din[3 +3], float dout[6], ap_uint<32> counter, float q, float r);
 # 2 "../../src/hls_src/KF_kernel.cpp" 2
 
 
 
-__attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(float din[2048], float dout[2048], ap_uint<32> counter, float q, float r) {_ssdm_SpecArrayDimSize(din, 2048);_ssdm_SpecArrayDimSize(dout, 2048);
+__attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(float din[3 +3], float dout[6], ap_uint<32> counter, float q, float r) {_ssdm_SpecArrayDimSize(din, 6);_ssdm_SpecArrayDimSize(dout, 6);
 #pragma HLS TOP name=KalmanFilterKernel
 # 5 "../../src/hls_src/KF_kernel.cpp"
 
@@ -32555,15 +32555,18 @@ __attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(flo
 #pragma HLS INTERFACE s_axilite port=q bundle=AXI_CPU
 #pragma HLS INTERFACE s_axilite port=r bundle=AXI_CPU
 #pragma HLS INTERFACE s_axilite port=return bundle=AXI_CPU
-#pragma HLS_INTERFACE ap_none port=counter register
+#pragma HLS_INTERFACE ap_none port=counter
+#pragma HLS pipeline off
+
 
  static unsigned int counter_sig_old;
  unsigned int counter_sig_new = counter;
 
  static bool first_run = true;
+
  static KF_data_t din_old[6];
  KF_data_t din_new[6];
- KF_data_t dout_[6];
+ KF_data_t dout_[6] = {0,0,0,0,0,0};
 
  float DT;
 
@@ -32588,7 +32591,13 @@ __attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(flo
 
 
 
+
+
  counter_sig_old = counter_sig_new;
+
+
+
+
 
 
 
@@ -32622,8 +32631,6 @@ __attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(flo
   0,0,0,0,0,1
  };
 
-
-
   KF_data_t Q[6*6] = {
   q, 0, 0, 0, 0, 0,
   0, q, 0, 0, 0, 0,
@@ -32640,6 +32647,9 @@ __attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(flo
  };
 
 
+
+
+
  static KF_data_t x_hat[6];
  static KF_data_t P_hat[6*6] = {
   1, 0, 0, 0, 0, 0,
@@ -32650,15 +32660,16 @@ __attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(flo
   0, 0, 0, 0, 0, 1
  };
 
- static KF_data_t y_bar[3];
- static KF_data_t H_T[6*3];
- static KF_data_t S[3*3];
- static KF_data_t S_inv[3*3];
- static KF_data_t K[6*3];
+  KF_data_t y_bar[3];
+  KF_data_t H_T[6*3];
+  KF_data_t S[3*3];
+  KF_data_t S_inv[3*3];
+  KF_data_t K[6*3];
 
 
  if( first_run){
-  VITIS_LOOP_115_1: for (int i = 0; i < 6; i++) {
+#pragma HLS PIPELINE off
+ VITIS_LOOP_126_1: for (int i = 0; i < 6; i++) {
    din_old[i] = (KF_data_t)din[i];
   }
 
@@ -32669,12 +32680,13 @@ __attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(flo
   x_hat[4] = 0;
   x_hat[5] = 0;
 
-  VITIS_LOOP_126_2: for (int i = 0; i < 6; i++) dout_[i] = x_hat[i];
+  VITIS_LOOP_137_2: for (int i = 0; i < 6; i++) dout_[i] = x_hat[i];
 
  }
  else{
+#pragma HLS PIPELINE off
 
-  VITIS_LOOP_131_3: for (int i = 0; i < 6; i++) {
+ VITIS_LOOP_143_3: for (int i = 0; i < 6; i++) {
      din_new[i] = (KF_data_t)din[i];
    }
 
@@ -32697,10 +32709,10 @@ __attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(flo
 
 
 
-  VITIS_LOOP_154_4: for (int j = 0; j < 3; j++) u[j] = (din_old[3 +j]);
-  VITIS_LOOP_155_5: for (int j = 0; j < 3; j++) z[j] = (din_new[j]);
-  VITIS_LOOP_156_6: for (int j = 0; j < 6; j++) x[j] = x_hat[j];
-  VITIS_LOOP_157_7: for (int j = 0; j < 6*6; j++) P[j] = P_hat[j];
+  VITIS_LOOP_166_4: for (int j = 0; j < 3; j++) u[j] = (din_old[3 +j]);
+  VITIS_LOOP_167_5: for (int j = 0; j < 3; j++) z[j] = (din_new[j]);
+  VITIS_LOOP_168_6: for (int j = 0; j < 6; j++) x[j] = x_hat[j];
+  VITIS_LOOP_169_7: for (int j = 0; j < 6*6; j++) P[j] = P_hat[j];
 
 
 
@@ -32714,8 +32726,10 @@ __attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(flo
   matMultiply<KF_data_t, 6, 6, 6>(tmp_mat_1, tmp_mat_2, tmp_mat_3, 6, 6, 6);
   matAdd<KF_data_t, 6, 6>(tmp_mat_3, Q, P_minus, 6, 6);
 
-  VITIS_LOOP_171_8: for (int j = 0; j < 6; j++) x_plus[j] = x_minus[j];
-  VITIS_LOOP_172_9: for (int j = 0; j < 6*6; j++) P_plus[j] = P_minus[j];
+
+
+  VITIS_LOOP_185_8: for (int j = 0; j < 6; j++) x_plus[j] = x_minus[j];
+  VITIS_LOOP_186_9: for (int j = 0; j < 6*6; j++) P_plus[j] = P_minus[j];
 
 
 
@@ -32741,16 +32755,15 @@ __attribute__((sdx_kernel("KalmanFilterKernel", 0))) void KalmanFilterKernel(flo
   matMultiply<KF_data_t, 6, 6, 6>(tmp_mat_1, P_minus, P_plus, 6, 6, 6);
 
 
-  VITIS_LOOP_198_10: for (int j = 0; j < 6; j++) x_hat[j] = x_plus[j];
-  VITIS_LOOP_199_11: for (int j = 0; j < 6*6; j++) P_hat[j] = P_plus[j];
-  VITIS_LOOP_200_12: for (int j = 0; j < 6; j++) dout_[j] = x_plus[j];
-
-  VITIS_LOOP_202_13: for (int i = 0; i < 6; i++) {
-   din_old[i] = din_new[i];
-  }
+  VITIS_LOOP_212_10: for (int j = 0; j < 6; j++) x_hat[j] = x_plus[j];
+  VITIS_LOOP_213_11: for (int j = 0; j < 6*6; j++) P_hat[j] = P_plus[j];
+  VITIS_LOOP_214_12: for (int j = 0; j < 6; j++) dout_[j] = x_plus[j];
+  VITIS_LOOP_215_13: for (int i = 0; i < 6; i++) din_old[i] = din_new[i];
  }
- VITIS_LOOP_206_14: for (int i = 0; i < 6; i++) {
+ VITIS_LOOP_217_14: for (int i = 0; i < 6; i++) {
   dout[i] = (float)dout_[i];
+
+
  }
  first_run = false;
 }

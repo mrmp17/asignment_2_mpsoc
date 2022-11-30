@@ -81,7 +81,7 @@ void writeDataToFile(float dout[N_SAMPLES*N_STATE_VARS], string filename) {
 int main(int argc, char *argv[]) {
 
 	float dout[N_SAMPLES*N_STATE_VARS];
-	unsigned int clock = 12500000;
+	unsigned int clock = 0;
 
 	for (int i = 0; i < N_SAMPLES; i++) {
 		float din_temp[N_STATE_VARS];

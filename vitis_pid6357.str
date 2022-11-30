@@ -1,0 +1,160 @@
+/*
+
+Xilinx Vitis v2020.2.0 (64-bit) [Major: 2020, Minor: 2]
+SW Build 3064172 on 2020-11-18-06:24:19
+
+Process ID (PID): 6357
+License: Customer
+
+Current time: 	Tue Nov 29 12:39:33 CET 2022
+Time zone: 	Central European Standard Time (Europe/Berlin)
+
+OS: Ubuntu
+OS Version: 5.15.0-53-generic
+OS Architecture: amd64
+Available processors (cores): 12
+
+Display: :0
+Screen size: 1920x1080
+Available screens: 1
+Available disk space: 79 GB
+
+Java version: 	11.0.2 64-bit
+Java home: 	/tools/Xilinx/Vitis/2020.2/tps/lnx64/jre11.0.2
+Java executable location: 	/tools/Xilinx/Vitis/2020.2/tps/lnx64/jre11.0.2/bin/java
+Java initial memory (-Xms): 	64 MB
+Java maximum memory (-Xmx):	 1,024 MB
+
+Java library paths: /tools/Xilinx/Vitis/2020.2/tps/lnx64/javafx-sdk-11.0.2/lib:/tools/Xilinx/Vitis/2020.2/lib/lnx64.o/Ubuntu:/tools/Xilinx/Vitis/2020.2/lib/lnx64.o:/tools/Xilinx/Vitis/2020.2/tps/lnx64/jre11.0.2/lib/:/tools/Xilinx/Vitis/2020.2/tps/lnx64/jre11.0.2/lib//server:/tools/Xilinx/Vitis/2020.2/lib/lnx64.o:/tools/Xilinx/Vitis/2020.2/lib/lnx64.o/Ubuntu:/tools/Xilinx/Vitis/2020.2/lib/lnx64.o:/tools/Xilinx/Vitis/2020.2/tps/lnx64/python-3.8.3/lib:/opt/ros/noetic/lib:/tools/Xilinx/Vivado/2020.2/bin/../lnx64/tools/dot/lib:/tools/Xilinx/Vitis/2020.2/bin/../lnx64/tools/dot/lib:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+
+Java class paths: /tools/Xilinx/Vitis/2020.2/eclipse/lnx64.o//plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar
+LD_LIBRARY_PATH: /tools/Xilinx/Vitis
+
+User name: 	tjaz
+User home directory: /home/tjaz
+User working directory: /home/tjaz/ass2/asignment_2_mpsoc
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /tools/Xilinx/Vitis
+HDI_APPROOT: /tools/Xilinx/Vitis/2020.2
+RDI_DATADIR: /tools/Xilinx/Vitis/2020.2/data
+RDI_BINDIR: /tools/Xilinx/Vitis/2020.2/bin
+
+Vitis preferences directory: /home/tjaz/.Xilinx/Vitis/2020.2/
+Vitis workspace directory: /home/tjaz/ass2/asignment_2_mpsoc/vitis
+Vitis workspace log file location: /home/tjaz/ass2/asignment_2_mpsoc/vitis/.metadata/.log
+Engine tmp dir: 	
+
+Xilinx Environment Variables
+----------------------------
+XILINX_DSP: 
+XILINX_HLS: /tools/Xilinx/Vitis_HLS/2020.2
+XILINX_PLANAHEAD: /tools/Xilinx/Vitis/2020.2
+XILINX_SDK: /tools/Xilinx/Vitis/2020.2
+XILINX_VITIS: /tools/Xilinx/Vitis/2020.2
+XILINX_VIVADO: /tools/Xilinx/Vivado/2020.2
+XILINX_VIVADO_HLS: /tools/Xilinx/Vivado/2020.2
+_RDI_DONT_SET_XILINX_AS_PATH: True
+
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+selectButton("Next", "New Application Project (Create a New Application Project)", "NewAppProjectWizard", "Button.NEXT");
+selectTab("Create a new platform from hardware", "New Application Project (Platform)", "NewAppProjectWizard", "CTabItem.CREATE_A_NEW_PLATFORM");
+selectButton("Browse", "New Application Project (Platform)", "NewAppProjectWizard", "Button.BROWSE");
+setFileDialog("/home/tjaz/ass2/asignment_2_mpsoc/hdl/projects/u96v2_sbc_mp4d_2020_2/u96v2_sbc_mp4d.xsa", "Create Platform from XSA", "SDXFileDialog", "Button.OK");
+selectButton("Next", "New Application Project (Platform)", "NewAppProjectWizard", "Button.NEXT");
+setTextField("Bare_metal_test", "New Application Project (Application Project Details)", "NewAppProjectWizard", "Text.APPLICATION_PROJECT_NAME");
+selectButton("Next", "New Application Project (Application Project Details)", "NewAppProjectWizard", "Button.NEXT");
+selectButton("Next", "New Application Project (Domain)", "NewAppProjectWizard", "Button.NEXT");
+selectButton("Finish", "New Application Project (Templates)", "NewAppProjectWizard", "Button.FINISH");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("helloworld.c", "Bare_metal_test_system > Bare_metal_test > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectToolBarButton("Build Debug for project Bare_metal_test", "Bare_metal_test", "WorkbenchWindow", "ToolItem.BUILD_DEBUG_FOR");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectToolBarMenuButton("Run", "Bare_metal_test", "WorkbenchWindow", "ToolItem.RUN");
+selectTreeTable("Debug", "Bare_metal_test_system > Bare_metal_test", "Console", "ConsoleView", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("Bare_metal_test", "Bare_metal_test_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch on Hardware", "Bare_metal_test", "WorkbenchWindow", "MenuItem.1_LAUNCH_ON_HARDWARE");
+activateView("Assistant", "SDXAssistantView", "CTabItem.ASSISTANT");
+selectTreeTable("u96v2_sbc_mp4d", "Bare_metal_test_system", EventType.POPUP_TRIGGER_CLICK, "Assistant", "SDXAssistantView", "TreeViewer.AssistantContentProvider");
+selectMenuItem("Open Platform Editor", "Assistant", "SDXAssistantView", "MenuItem.OPEN_PLATFORM_EDITOR");
+activateView("Assistant", "SDXAssistantView", "CTabItem.ASSISTANT");
+selectTreeTable("u96v2_sbc_mp4d", "Bare_metal_test_system", EventType.POPUP_TRIGGER_CLICK, "Assistant", "SDXAssistantView", "TreeViewer.AssistantContentProvider");
+selectTreeTable("Bare_metal_test", "Bare_metal_test_system", EventType.POPUP_TRIGGER_CLICK, "Assistant", "SDXAssistantView", "TreeViewer.AssistantContentProvider");
+selectMenuItem("Navigate to BSP Settings", "Assistant", "SDXAssistantView", "MenuItem.NAVIGATE_TO_BSP");
+selectTab("Drivers", "Drivers", "SDXAssistantView", "TabItem.DRIVERS");
+selectButton("Modify BSP Settings", "u96v2_sbc_mp4d", "ScwEditor", "Button.MODIFY_BSP_SETTINGS");
+selectTreeTable("Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.NavInfoProvider");
+selectTreeTable("standalone", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.NavInfoProvider");
+selectTreeTable("stdin", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.PropertyProvider");
+selectTreeTable("stdout", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.PropertyProvider");
+selectTreeTable("stdin", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.PropertyProvider");
+selectButton("Cancel", "Board Support Package Settings", "BspSettingsView", "Button.CANCEL");
+selectButton("Modify BSP Settings", "u96v2_sbc_mp4d", "ScwEditor", "Button.MODIFY_BSP_SETTINGS");
+selectTreeTable("Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.NavInfoProvider");
+selectTreeTable("standalone", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.NavInfoProvider");
+selectTreeTable("stdin", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.PropertyProvider");
+selectTreeTable("sleep_timer", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.PropertyProvider");
+selectTreeTable("stdin", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.PropertyProvider");
+selectButton("OK", "Board Support Package Settings", "BspSettingsView", "Button.OK");
+selectButton("Modify BSP Settings", "u96v2_sbc_mp4d", "ScwEditor", "Button.MODIFY_BSP_SETTINGS");
+selectTreeTable("Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.NavInfoProvider");
+selectTreeTable("standalone", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.NavInfoProvider");
+selectTreeTable("stdin", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.PropertyProvider");
+selectTreeTable("stdout", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.PropertyProvider");
+selectButton("OK", "Board Support Package Settings", "BspSettingsView", "Button.OK");
+selectButton("Modify BSP Settings", "u96v2_sbc_mp4d", "ScwEditor", "Button.MODIFY_BSP_SETTINGS");
+selectTreeTable("Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.NavInfoProvider");
+selectTreeTable("standalone", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.NavInfoProvider");
+selectTreeTable("stdout", "Overview", "Board Support Package Settings", "BspSettingsView", "TreeViewer.PropertyProvider");
+selectButton("OK", "Board Support Package Settings", "BspSettingsView", "Button.OK");
+activateView("helloworld.c", "Bare_metal_test/src/helloworld.c", "CEditor", "CTabItem.HELLOWORLD_C");
+selectToolBarMenuButton("Build Debug for project Bare_metal_test", "Bare_metal_test", "WorkbenchWindow", "ToolItem.BUILD_DEBUG_FOR");
+selectToolBarButton("Build Debug for project Bare_metal_test", "Bare_metal_test", "WorkbenchWindow", "ToolItem.BUILD_DEBUG_FOR");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("Debug", "Bare_metal_test_system > Bare_metal_test", "Console", "ConsoleView", "TreeViewer.NavigatorContentServiceContentProvider");
+selectToolBarMenuButton("Run", "Bare_metal_test", "WorkbenchWindow", "ToolItem.RUN");
+selectTreeTable("Debug", "Bare_metal_test_system > Bare_metal_test", "Console", "ConsoleView", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("1 Debugger_Bare_metal_test-Default", "Console", "WorkbenchWindow", "MenuItem.1_DEBUGGER_BARE_METAL_TEST_DEFAULT");
+selectButton("OK", "WARNING", "MessageDialogWithToggle", "Button.OK");
+selectToolBarButton("Build Debug for project Bare_metal_test", "Bare_metal_test", "WorkbenchWindow", "ToolItem.BUILD_DEBUG_FOR");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("Debug", "Bare_metal_test_system > Bare_metal_test", "Console", "ConsoleView", "TreeViewer.NavigatorContentServiceContentProvider");
+selectToolBarButton("Build Debug for project Bare_metal_test", "Bare_metal_test", "WorkbenchWindow", "ToolItem.BUILD_DEBUG_FOR");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("Debug", "Bare_metal_test_system > Bare_metal_test", "Console", "ConsoleView", "TreeViewer.NavigatorContentServiceContentProvider");
+selectToolBarButton("Build Debug for project Bare_metal_test", "Bare_metal_test", "WorkbenchWindow", "ToolItem.BUILD_DEBUG_FOR");
+activateView("Console", "ConsoleView", "CTabItem.CONSOLE");
+selectTreeTable("Debug", "Bare_metal_test_system > Bare_metal_test", "Console", "ConsoleView", "TreeViewer.NavigatorContentServiceContentProvider");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("Bare_metal_test_system", "Bare_metal_test_system > Bare_metal_test", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTreeTable("Bare_metal_test", "Bare_metal_test_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch on Hardware", "Bare_metal_test", "WorkbenchWindow", "MenuItem.1_LAUNCH_ON_HARDWARE");
+selectButton("OK", "WARNING", "MessageDialogWithToggle", "Button.OK");
+selectButton("OK", "Error Launching Program", "ErrorDialog", "Button.OK");
+selectTreeTable("Bare_metal_test", "Bare_metal_test_system", EventType.POPUP_TRIGGER_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectMenuItem("Run As", "Explorer", "ProjectExplorer", "MenuItem.RUN_AS");
+selectMenuItem("1 Launch on Hardware", "Bare_metal_test", "WorkbenchWindow", "MenuItem.1_LAUNCH_ON_HARDWARE");
+activateView("Explorer", "ProjectExplorer", "CTabItem.EXPLORER");
+selectTreeTable("lscript.ld", "Bare_metal_test_system > Bare_metal_test > src", EventType.DOUBLE_CLICK, "Explorer", "ProjectExplorer", "TreeViewer.NavigatorContentServiceContentProvider");
+selectTable("axi_bram_ctrl_0_Mem0", "lscript.ld", "LscriptEditor", "TableViewer.MemoryRangeContentProvider");
+selectTable("psu_ddr_0_MEM_0", "lscript.ld", "LscriptEditor", "TableViewer.MemoryRangeContentProvider");
+selectTable("axi_bram_ctrl_1_Mem0", "lscript.ld", "LscriptEditor", "TableViewer.MemoryRangeContentProvider");
+selectTable("axi_bram_ctrl_0_Mem0", "lscript.ld", "LscriptEditor", "TableViewer.MemoryRangeContentProvider");
+selectTable("axi_bram_ctrl_1_Mem0", "lscript.ld", "LscriptEditor", "TableViewer.MemoryRangeContentProvider");
+selectTable("axi_bram_ctrl_0_Mem0", "lscript.ld", "LscriptEditor", "TableViewer.MemoryRangeContentProvider");
+activateView("Bare_metal_test_system", "Bare_metal_test_system/Bare_metal_test_system.sprj", "SystemSettingsEditor", "CTabItem.BARE_METAL_TEST_SYSTEM");
+activateView("Bare_metal_test", "Bare_metal_test/Bare_metal_test.prj", "SDXSettingsEditor", "CTabItem.BARE_METAL_TEST");
+activateView("helloworld.c", "Bare_metal_test/src/helloworld.c", "CEditor", "CTabItem.HELLOWORLD_C");
+selectButton("Exit", "Confirm Exit", "MessageDialogWithToggle", "Button.EXIT");
+// Exiting Xilinx Vitis with a status code '0' at 11/29/22, 1:18:34 PM CET
+// Elapsed time: 00:39:01
+

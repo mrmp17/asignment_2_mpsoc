@@ -17,17 +17,17 @@ port (
     ap_done : OUT STD_LOGIC;
     ap_idle : OUT STD_LOGIC;
     ap_ready : OUT STD_LOGIC;
+    mat_in_L_address0 : OUT STD_LOGIC_VECTOR (4 downto 0);
+    mat_in_L_ce0 : OUT STD_LOGIC;
+    mat_in_L_q0 : IN STD_LOGIC_VECTOR (31 downto 0);
     mat_out_address0 : OUT STD_LOGIC_VECTOR (5 downto 0);
     mat_out_ce0 : OUT STD_LOGIC;
     mat_out_we0 : OUT STD_LOGIC;
     mat_out_d0 : OUT STD_LOGIC_VECTOR (31 downto 0);
-    K_address0 : OUT STD_LOGIC_VECTOR (4 downto 0);
-    K_ce0 : OUT STD_LOGIC;
-    K_q0 : IN STD_LOGIC_VECTOR (31 downto 0);
-    grp_fu_3639_p_din0 : OUT STD_LOGIC_VECTOR (31 downto 0);
-    grp_fu_3639_p_din1 : OUT STD_LOGIC_VECTOR (31 downto 0);
-    grp_fu_3639_p_dout0 : IN STD_LOGIC_VECTOR (31 downto 0);
-    grp_fu_3639_p_ce : OUT STD_LOGIC );
+    grp_fu_3680_p_din0 : OUT STD_LOGIC_VECTOR (31 downto 0);
+    grp_fu_3680_p_din1 : OUT STD_LOGIC_VECTOR (31 downto 0);
+    grp_fu_3680_p_dout0 : IN STD_LOGIC_VECTOR (31 downto 0);
+    grp_fu_3680_p_ce : OUT STD_LOGIC );
 end;
 
 
@@ -320,7 +320,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state8)) then
-                mul_reg_368 <= grp_fu_3639_p_dout0;
+                mul_reg_368 <= grp_fu_3680_p_dout0;
             end if;
         end if;
     end process;
@@ -383,17 +383,6 @@ begin
         end if; 
     end process;
 
-    K_address0 <= zext_ln27_fu_246_p1(5 - 1 downto 0);
-
-    K_ce0_assign_proc : process(ap_CS_fsm_state4)
-    begin
-        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
-            K_ce0 <= ap_const_logic_1;
-        else 
-            K_ce0 <= ap_const_logic_0;
-        end if; 
-    end process;
-
     add_ln13_fu_139_p2 <= std_logic_vector(unsigned(i_reg_88) + unsigned(ap_const_lv3_1));
     add_ln17_fu_195_p2 <= std_logic_vector(unsigned(k_reg_99) + unsigned(ap_const_lv3_1));
     add_ln20_fu_215_p2 <= std_logic_vector(unsigned(zext_ln17_4_fu_205_p1) + unsigned(empty_reg_307));
@@ -441,9 +430,9 @@ begin
     empty_36_fu_189_p2 <= std_logic_vector(unsigned(p_shl_fu_181_p3) - unsigned(zext_ln13_fu_145_p1));
     empty_fu_175_p2 <= std_logic_vector(unsigned(p_shl1_fu_155_p3) - unsigned(p_shl2_cast_fu_171_p1));
     grp_fu_133_ce <= ap_const_logic_1;
-    grp_fu_133_p0 <= K_q0;
+    grp_fu_133_p0 <= mat_in_L_q0;
     grp_fu_133_p1 <= H_q0;
-    grp_fu_133_p2 <= grp_fu_3639_p_dout0;
+    grp_fu_133_p2 <= grp_fu_3680_p_dout0;
 
     grp_fu_293_in_valid_assign_proc : process(ap_CS_fsm_state9)
     begin
@@ -454,13 +443,24 @@ begin
         end if; 
     end process;
 
-    grp_fu_3639_p_ce <= ap_const_logic_1;
-    grp_fu_3639_p_din0 <= K_q0;
-    grp_fu_3639_p_din1 <= H_q0;
+    grp_fu_3680_p_ce <= ap_const_logic_1;
+    grp_fu_3680_p_din0 <= mat_in_L_q0;
+    grp_fu_3680_p_din1 <= H_q0;
     icmp_ln13_fu_149_p2 <= "1" when (i_reg_88 = ap_const_lv3_6) else "0";
     icmp_ln17_fu_209_p2 <= "1" when (k_reg_99 = ap_const_lv3_6) else "0";
     icmp_ln23_fu_235_p2 <= "1" when (j_reg_110 = ap_const_lv2_3) else "0";
     icmp_ln27_fu_287_p2 <= "1" when (add_ln23_fu_225_p2 = ap_const_lv2_3) else "0";
+    mat_in_L_address0 <= zext_ln27_fu_246_p1(5 - 1 downto 0);
+
+    mat_in_L_ce0_assign_proc : process(ap_CS_fsm_state4)
+    begin
+        if ((ap_const_logic_1 = ap_CS_fsm_state4)) then 
+            mat_in_L_ce0 <= ap_const_logic_1;
+        else 
+            mat_in_L_ce0 <= ap_const_logic_0;
+        end if; 
+    end process;
+
     mat_out_address0 <= mat_out_addr_reg_330;
 
     mat_out_ce0_assign_proc : process(ap_CS_fsm_state4)

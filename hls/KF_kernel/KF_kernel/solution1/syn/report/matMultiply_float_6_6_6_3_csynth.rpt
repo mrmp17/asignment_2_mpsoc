@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'matMultiply_float_6_6_6_3'
 ================================================================
-* Date:           Thu Nov 24 12:24:09 2022
+* Date:           Wed Nov 30 09:21:02 2022
 
 * Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)
 * Project:        KF_kernel
@@ -159,10 +159,10 @@
 |ap_done              |  out|    1|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
 |ap_idle              |  out|    1|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
 |ap_ready             |  out|    1|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
-|grp_fu_3639_p_din0   |  out|   32|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
-|grp_fu_3639_p_din1   |  out|   32|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
-|grp_fu_3639_p_dout0  |   in|   32|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
-|grp_fu_3639_p_ce     |  out|    1|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
+|grp_fu_3680_p_din0   |  out|   32|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
+|grp_fu_3680_p_din1   |  out|   32|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
+|grp_fu_3680_p_dout0  |   in|   32|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
+|grp_fu_3680_p_ce     |  out|    1|  ap_ctrl_hs|  matMultiply<float, 6, 6, 6>.3|  return value|
 |mat_in_L_address0    |  out|    6|   ap_memory|                       mat_in_L|         array|
 |mat_in_L_ce0         |  out|    1|   ap_memory|                       mat_in_L|         array|
 |mat_in_L_q0          |   in|   32|   ap_memory|                       mat_in_L|         array|

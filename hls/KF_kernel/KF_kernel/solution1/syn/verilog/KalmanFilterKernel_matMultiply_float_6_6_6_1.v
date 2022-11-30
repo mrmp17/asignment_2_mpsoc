@@ -14,17 +14,17 @@ module KalmanFilterKernel_matMultiply_float_6_6_6_1 (
         ap_done,
         ap_idle,
         ap_ready,
+        mat_in_L_address0,
+        mat_in_L_ce0,
+        mat_in_L_q0,
         mat_out_address0,
         mat_out_ce0,
         mat_out_we0,
         mat_out_d0,
-        K_address0,
-        K_ce0,
-        K_q0,
-        grp_fu_3639_p_din0,
-        grp_fu_3639_p_din1,
-        grp_fu_3639_p_dout0,
-        grp_fu_3639_p_ce
+        grp_fu_3680_p_din0,
+        grp_fu_3680_p_din1,
+        grp_fu_3680_p_dout0,
+        grp_fu_3680_p_ce
 );
 
 parameter    ap_ST_fsm_state1 = 11'd1;
@@ -45,24 +45,24 @@ input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
+output  [4:0] mat_in_L_address0;
+output   mat_in_L_ce0;
+input  [31:0] mat_in_L_q0;
 output  [5:0] mat_out_address0;
 output   mat_out_ce0;
 output   mat_out_we0;
 output  [31:0] mat_out_d0;
-output  [4:0] K_address0;
-output   K_ce0;
-input  [31:0] K_q0;
-output  [31:0] grp_fu_3639_p_din0;
-output  [31:0] grp_fu_3639_p_din1;
-input  [31:0] grp_fu_3639_p_dout0;
-output   grp_fu_3639_p_ce;
+output  [31:0] grp_fu_3680_p_din0;
+output  [31:0] grp_fu_3680_p_din1;
+input  [31:0] grp_fu_3680_p_dout0;
+output   grp_fu_3680_p_ce;
 
 reg ap_done;
 reg ap_idle;
 reg ap_ready;
+reg mat_in_L_ce0;
 reg mat_out_ce0;
 reg mat_out_we0;
-reg K_ce0;
 
 (* fsm_encoding = "none" *) reg   [10:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
@@ -235,7 +235,7 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state8)) begin
-        mul_reg_368 <= grp_fu_3639_p_dout0;
+        mul_reg_368 <= grp_fu_3680_p_dout0;
     end
 end
 
@@ -244,14 +244,6 @@ always @ (*) begin
         H_ce0 = 1'b1;
     end else begin
         H_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        K_ce0 = 1'b1;
-    end else begin
-        K_ce0 = 1'b0;
     end
 end
 
@@ -284,6 +276,14 @@ always @ (*) begin
         grp_fu_293_in_valid = 1'b1;
     end else begin
         grp_fu_293_in_valid = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if ((1'b1 == ap_CS_fsm_state4)) begin
+        mat_in_L_ce0 = 1'b1;
+    end else begin
+        mat_in_L_ce0 = 1'b0;
     end
 end
 
@@ -362,8 +362,6 @@ end
 
 assign H_address0 = zext_ln27_7_fu_282_p1;
 
-assign K_address0 = zext_ln27_fu_246_p1;
-
 assign add_ln13_fu_139_p2 = (i_reg_88 + 3'd1);
 
 assign add_ln17_fu_195_p2 = (k_reg_99 + 3'd1);
@@ -398,17 +396,17 @@ assign empty_fu_175_p2 = (p_shl1_fu_155_p3 - p_shl2_cast_fu_171_p1);
 
 assign grp_fu_133_ce = 1'b1;
 
-assign grp_fu_133_p0 = K_q0;
+assign grp_fu_133_p0 = mat_in_L_q0;
 
 assign grp_fu_133_p1 = H_q0;
 
-assign grp_fu_133_p2 = grp_fu_3639_p_dout0;
+assign grp_fu_133_p2 = grp_fu_3680_p_dout0;
 
-assign grp_fu_3639_p_ce = 1'b1;
+assign grp_fu_3680_p_ce = 1'b1;
 
-assign grp_fu_3639_p_din0 = K_q0;
+assign grp_fu_3680_p_din0 = mat_in_L_q0;
 
-assign grp_fu_3639_p_din1 = H_q0;
+assign grp_fu_3680_p_din1 = H_q0;
 
 assign icmp_ln13_fu_149_p2 = ((i_reg_88 == 3'd6) ? 1'b1 : 1'b0);
 
@@ -417,6 +415,8 @@ assign icmp_ln17_fu_209_p2 = ((k_reg_99 == 3'd6) ? 1'b1 : 1'b0);
 assign icmp_ln23_fu_235_p2 = ((j_reg_110 == 2'd3) ? 1'b1 : 1'b0);
 
 assign icmp_ln27_fu_287_p2 = ((add_ln23_fu_225_p2 == 2'd3) ? 1'b1 : 1'b0);
+
+assign mat_in_L_address0 = zext_ln27_fu_246_p1;
 
 assign mat_out_address0 = mat_out_addr_reg_330;
 

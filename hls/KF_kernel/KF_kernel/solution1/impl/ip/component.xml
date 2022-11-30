@@ -647,7 +647,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>628873b6</spirit:value>
+            <spirit:value>231bc9ca</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -666,7 +666,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>eb52b375</spirit:value>
+            <spirit:value>c6cd93d7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -685,7 +685,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ae7291d8</spirit:value>
+            <spirit:value>dfc79346</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -704,7 +704,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>92a09aa9</spirit:value>
+            <spirit:value>7117d723</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1106,7 +1106,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">10</spirit:left>
+            <spirit:left spirit:format="long">2</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1140,7 +1140,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">10</spirit:left>
+            <spirit:left spirit:format="long">2</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1303,8 +1303,8 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/KalmanFilterKernel_K_ram.dat</spirit:name>
-        <spirit:userFileType>mif</spirit:userFileType>
+        <spirit:name>hdl/verilog/KalmanFilterKernel_mat_out_assign_2.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/KalmanFilterKernel_matMultiply_float_6_6_6_1.v</spirit:name>
@@ -1373,14 +1373,6 @@
       <spirit:file>
         <spirit:name>hdl/verilog/KalmanFilterKernel_R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/KalmanFilterKernel_S.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/KalmanFilterKernel_S_ram.dat</spirit:name>
-        <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/KalmanFilterKernel_uitofp_32ns_32_4_no_dsp_1.v</spirit:name>
@@ -1490,8 +1482,9 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/verilog/KalmanFilterKernel_K_ram.dat</spirit:name>
-        <spirit:userFileType>mif</spirit:userFileType>
+        <spirit:name>hdl/verilog/KalmanFilterKernel_mat_out_assign_2.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/KalmanFilterKernel_matMultiply_float_6_6_6_1.v</spirit:name>
@@ -1574,15 +1567,6 @@
         <spirit:name>hdl/verilog/KalmanFilterKernel_R.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/KalmanFilterKernel_S.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/verilog/KalmanFilterKernel_S_ram.dat</spirit:name>
-        <spirit:userFileType>mif</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/verilog/KalmanFilterKernel_uitofp_32ns_32_4_no_dsp_1.v</spirit:name>
@@ -1750,6 +1734,10 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/vhdl/KalmanFilterKernel_mat_out_assign_2.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/vhdl/KalmanFilterKernel_matMultiply_float_6_6_6_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -1806,10 +1794,6 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>hdl/vhdl/KalmanFilterKernel_S.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/vhdl/KalmanFilterKernel_uitofp_32ns_32_4_no_dsp_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -1820,7 +1804,7 @@
       <spirit:file>
         <spirit:name>hdl/vhdl/KalmanFilterKernel.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_ea7c3a64</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_db93ad71</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1906,6 +1890,11 @@
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>hdl/vhdl/KalmanFilterKernel_mat_out_assign_2.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>hdl/vhdl/KalmanFilterKernel_matMultiply_float_6_6_6_1.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
@@ -1972,11 +1961,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>hdl/vhdl/KalmanFilterKernel_R.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>hdl/vhdl/KalmanFilterKernel_S.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2133,7 +2117,7 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>latency</spirit:name>
-      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">112</spirit:value>
+      <spirit:value spirit:id="PARAM_VALUE.latency" spirit:order="5">133</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>II</spirit:name>
@@ -2150,8 +2134,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>Kalmanfilterkernel</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>2112783985</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-11-24T11:25:53Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>2112792441</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2022-11-30T08:22:16Z</xilinx:coreCreationDateTime>
       <xilinx:sdxKernelAttributes>
         <xilinx:sdx_kernel>true</xilinx:sdx_kernel>
         <xilinx:sdx_kernel_type>hls</xilinx:sdx_kernel_type>
@@ -2161,10 +2145,10 @@
       <xilinx:xilinxVersion>2020.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="41af0816"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="6ef0e9b5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9e4804a3"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="f7f45ecd"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="5e68808e"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="60f02ece"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="75c07333"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="cb59bf89"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="0039306b"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

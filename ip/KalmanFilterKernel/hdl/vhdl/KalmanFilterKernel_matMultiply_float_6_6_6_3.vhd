@@ -27,10 +27,10 @@ port (
     mat_out_ce0 : OUT STD_LOGIC;
     mat_out_we0 : OUT STD_LOGIC;
     mat_out_d0 : OUT STD_LOGIC_VECTOR (31 downto 0);
-    grp_fu_3639_p_din0 : OUT STD_LOGIC_VECTOR (31 downto 0);
-    grp_fu_3639_p_din1 : OUT STD_LOGIC_VECTOR (31 downto 0);
-    grp_fu_3639_p_dout0 : IN STD_LOGIC_VECTOR (31 downto 0);
-    grp_fu_3639_p_ce : OUT STD_LOGIC );
+    grp_fu_3680_p_din0 : OUT STD_LOGIC_VECTOR (31 downto 0);
+    grp_fu_3680_p_din1 : OUT STD_LOGIC_VECTOR (31 downto 0);
+    grp_fu_3680_p_dout0 : IN STD_LOGIC_VECTOR (31 downto 0);
+    grp_fu_3680_p_ce : OUT STD_LOGIC );
 end;
 
 
@@ -291,7 +291,7 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = ap_CS_fsm_state8)) then
-                mul_reg_334 <= grp_fu_3639_p_dout0;
+                mul_reg_334 <= grp_fu_3680_p_dout0;
             end if;
         end if;
     end process;
@@ -390,7 +390,7 @@ begin
     grp_fu_125_ce <= ap_const_logic_1;
     grp_fu_125_p0 <= mat_in_L_q0;
     grp_fu_125_p1 <= mat_in_R_q0;
-    grp_fu_125_p2 <= grp_fu_3639_p_dout0;
+    grp_fu_125_p2 <= grp_fu_3680_p_dout0;
 
     grp_fu_259_in_valid_assign_proc : process(ap_CS_fsm_state9)
     begin
@@ -401,9 +401,9 @@ begin
         end if; 
     end process;
 
-    grp_fu_3639_p_ce <= ap_const_logic_1;
-    grp_fu_3639_p_din0 <= mat_in_L_q0;
-    grp_fu_3639_p_din1 <= mat_in_R_q0;
+    grp_fu_3680_p_ce <= ap_const_logic_1;
+    grp_fu_3680_p_din0 <= mat_in_L_q0;
+    grp_fu_3680_p_din1 <= mat_in_R_q0;
     icmp_ln13_fu_141_p2 <= "1" when (i_reg_80 = ap_const_lv3_6) else "0";
     icmp_ln17_fu_183_p2 <= "1" when (k_reg_91 = ap_const_lv2_3) else "0";
     icmp_ln23_fu_213_p2 <= "1" when (j_reg_102 = ap_const_lv2_3) else "0";

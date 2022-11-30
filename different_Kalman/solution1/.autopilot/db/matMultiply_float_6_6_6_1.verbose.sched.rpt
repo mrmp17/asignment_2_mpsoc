@@ -1,0 +1,260 @@
+
+
+================================================================
+== Vitis HLS Report for 'matMultiply_float_6_6_6_1'
+================================================================
+* Date:           Tue Nov 29 21:25:51 2022
+
+* Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)
+* Project:        different_Kalman
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu3eg-sbva484-1-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  5.484 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      949|      949|  9.490 us|  9.490 us|  949|  949|     none|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- matMul_loop_L     |      948|      948|       158|          -|          -|     6|        no|
+        | + matMul_loop_N    |      156|      156|        26|          -|          -|     6|        no|
+        |  ++ matMul_loop_M  |       24|       24|         8|          -|          -|     3|        no|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 11
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 2 
+4 --> 5 3 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 4 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.48>
+ST_1 : Operation 12 [1/1] (0.48ns)   --->   "%br_ln13 = br void" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 12 'br' 'br_ln13' <Predicate = true> <Delay = 0.48>
+
+State 2 <SV = 1> <Delay = 0.88>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%i = phi i3 %add_ln13, void %._crit_edge7.loopexit, i3 0, void %.lr.ph11" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 13 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.74ns)   --->   "%add_ln13 = add i3 %i, i3 1" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 14 'add' 'add_ln13' <Predicate = true> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%zext_ln13 = zext i3 %i" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 15 'zext' 'zext_ln13' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.69ns)   --->   "%icmp_ln13 = icmp_eq  i3 %i, i3 6" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 16 'icmp' 'icmp_ln13' <Predicate = true> <Delay = 0.69> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 6, i64 6, i64 6"   --->   Operation 17 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%br_ln13 = br i1 %icmp_ln13, void %.split4, void %._crit_edge12.loopexit" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 18 'br' 'br_ln13' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%specloopname_ln13 = specloopname void @_ssdm_op_SpecLoopName, void @empty_23" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 19 'specloopname' 'specloopname_ln13' <Predicate = (!icmp_ln13)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%p_shl1 = bitconcatenate i6 @_ssdm_op_BitConcatenate.i6.i3.i3, i3 %i, i3 0" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 20 'bitconcatenate' 'p_shl1' <Predicate = (!icmp_ln13)> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%p_shl2 = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i3.i1, i3 %i, i1 0" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 21 'bitconcatenate' 'p_shl2' <Predicate = (!icmp_ln13)> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%p_shl2_cast = zext i4 %p_shl2" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 22 'zext' 'p_shl2_cast' <Predicate = (!icmp_ln13)> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.88ns)   --->   "%empty = sub i6 %p_shl1, i6 %p_shl2_cast" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 23 'sub' 'empty' <Predicate = (!icmp_ln13)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%p_shl = bitconcatenate i5 @_ssdm_op_BitConcatenate.i5.i3.i2, i3 %i, i2 0" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 24 'bitconcatenate' 'p_shl' <Predicate = (!icmp_ln13)> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.87ns)   --->   "%empty_33 = sub i5 %p_shl, i5 %zext_ln13" [src/kalman_2/vitis/matrix_ops.h:13]   --->   Operation 25 'sub' 'empty_33' <Predicate = (!icmp_ln13)> <Delay = 0.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 26 [1/1] (0.48ns)   --->   "%br_ln17 = br void" [src/kalman_2/vitis/matrix_ops.h:17]   --->   Operation 26 'br' 'br_ln17' <Predicate = (!icmp_ln13)> <Delay = 0.48>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%ret_ln32 = ret" [src/kalman_2/vitis/matrix_ops.h:32]   --->   Operation 27 'ret' 'ret_ln32' <Predicate = (icmp_ln13)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 0.88>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%k = phi i3 %add_ln17, void %._crit_edge.loopexit, i3 0, void %.split4" [src/kalman_2/vitis/matrix_ops.h:17]   --->   Operation 28 'phi' 'k' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.74ns)   --->   "%add_ln17 = add i3 %k, i3 1" [src/kalman_2/vitis/matrix_ops.h:17]   --->   Operation 29 'add' 'add_ln17' <Predicate = true> <Delay = 0.74> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%zext_ln17 = zext i3 %k" [src/kalman_2/vitis/matrix_ops.h:17]   --->   Operation 30 'zext' 'zext_ln17' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%zext_ln17_4 = zext i3 %k" [src/kalman_2/vitis/matrix_ops.h:17]   --->   Operation 31 'zext' 'zext_ln17_4' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 32 [1/1] (0.69ns)   --->   "%icmp_ln17 = icmp_eq  i3 %k, i3 6" [src/kalman_2/vitis/matrix_ops.h:17]   --->   Operation 32 'icmp' 'icmp_ln17' <Predicate = true> <Delay = 0.69> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 6, i64 6, i64 6"   --->   Operation 33 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%br_ln17 = br i1 %icmp_ln17, void %.split2, void %._crit_edge7.loopexit" [src/kalman_2/vitis/matrix_ops.h:17]   --->   Operation 34 'br' 'br_ln17' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%specloopname_ln17 = specloopname void @_ssdm_op_SpecLoopName, void @empty_22" [src/kalman_2/vitis/matrix_ops.h:17]   --->   Operation 35 'specloopname' 'specloopname_ln17' <Predicate = (!icmp_ln17)> <Delay = 0.00>
+ST_3 : Operation 36 [1/1] (0.88ns)   --->   "%add_ln20 = add i6 %zext_ln17_4, i6 %empty" [src/kalman_2/vitis/matrix_ops.h:20]   --->   Operation 36 'add' 'add_ln20' <Predicate = (!icmp_ln17)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%zext_ln20 = zext i6 %add_ln20" [src/kalman_2/vitis/matrix_ops.h:20]   --->   Operation 37 'zext' 'zext_ln20' <Predicate = (!icmp_ln17)> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%mat_out_addr = getelementptr i32 %mat_out, i64 0, i64 %zext_ln20" [src/kalman_2/vitis/matrix_ops.h:20]   --->   Operation 38 'getelementptr' 'mat_out_addr' <Predicate = (!icmp_ln17)> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (0.48ns)   --->   "%br_ln23 = br void %.lr.ph" [src/kalman_2/vitis/matrix_ops.h:23]   --->   Operation 39 'br' 'br_ln23' <Predicate = (!icmp_ln17)> <Delay = 0.48>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 40 'br' 'br_ln0' <Predicate = (icmp_ln17)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 1.86>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%j = phi i2 %add_ln23, void %.split, i2 0, void %.split2" [src/kalman_2/vitis/matrix_ops.h:23]   --->   Operation 41 'phi' 'j' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%add1913 = phi i32 %tmp, void %.split, i32 0, void %.split2" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 42 'phi' 'add1913' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 43 [1/1] (0.62ns)   --->   "%add_ln23 = add i2 %j, i2 1" [src/kalman_2/vitis/matrix_ops.h:23]   --->   Operation 43 'add' 'add_ln23' <Predicate = true> <Delay = 0.62> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%zext_ln23 = zext i2 %j" [src/kalman_2/vitis/matrix_ops.h:23]   --->   Operation 44 'zext' 'zext_ln23' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 45 [1/1] (0.51ns)   --->   "%icmp_ln23 = icmp_eq  i2 %j, i2 3" [src/kalman_2/vitis/matrix_ops.h:23]   --->   Operation 45 'icmp' 'icmp_ln23' <Predicate = true> <Delay = 0.51> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%speclooptripcount_ln0 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 3, i64 3, i64 3"   --->   Operation 46 'speclooptripcount' 'speclooptripcount_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%br_ln23 = br i1 %icmp_ln23, void %.split, void %._crit_edge.loopexit" [src/kalman_2/vitis/matrix_ops.h:23]   --->   Operation 47 'br' 'br_ln23' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 48 [1/1] (0.87ns)   --->   "%add_ln27 = add i5 %zext_ln23, i5 %empty_33" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 48 'add' 'add_ln27' <Predicate = (!icmp_ln23)> <Delay = 0.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%zext_ln27 = zext i5 %add_ln27" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 49 'zext' 'zext_ln27' <Predicate = (!icmp_ln23)> <Delay = 0.00>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%mat_in_L_addr = getelementptr i32 %mat_in_L, i64 0, i64 %zext_ln27" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 50 'getelementptr' 'mat_in_L_addr' <Predicate = (!icmp_ln23)> <Delay = 0.00>
+ST_4 : Operation 51 [2/2] (0.79ns)   --->   "%mat_in_L_load = load i5 %mat_in_L_addr" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 51 'load' 'mat_in_L_load' <Predicate = (!icmp_ln23)> <Delay = 0.79> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 18> <RAM>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i5 @_ssdm_op_BitConcatenate.i5.i2.i3, i2 %j, i3 0" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 52 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln23)> <Delay = 0.00>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "%shl_ln27_2 = bitconcatenate i3 @_ssdm_op_BitConcatenate.i3.i2.i1, i2 %j, i1 0" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 53 'bitconcatenate' 'shl_ln27_2' <Predicate = (!icmp_ln23)> <Delay = 0.00>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%zext_ln27_6 = zext i3 %shl_ln27_2" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 54 'zext' 'zext_ln27_6' <Predicate = (!icmp_ln23)> <Delay = 0.00>
+ST_4 : Operation 55 [1/1] (0.00ns) (grouped into TernaryAdder)   --->   "%sub_ln27 = sub i5 %shl_ln, i5 %zext_ln27_6" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 55 'sub' 'sub_ln27' <Predicate = (!icmp_ln23)> <Delay = 0.00> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.35> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync>
+ST_4 : Operation 56 [1/1] (0.71ns) (root node of TernaryAdder)   --->   "%add_ln27_6 = add i5 %sub_ln27, i5 %zext_ln17" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 56 'add' 'add_ln27_6' <Predicate = (!icmp_ln23)> <Delay = 0.71> <CoreInst = "TAddSub">   --->   Core 10 'TAddSub' <Latency = 0> <II = 1> <Delay = 0.35> <IPBlock> <Opcode : 'add' 'sub'> <InPorts = 3> <OutPorts = 1> <Sync>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%zext_ln27_7 = zext i5 %add_ln27_6" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 57 'zext' 'zext_ln27_7' <Predicate = (!icmp_ln23)> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%H_addr = getelementptr i32 %H, i64 0, i64 %zext_ln27_7" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 58 'getelementptr' 'H_addr' <Predicate = (!icmp_ln23)> <Delay = 0.00>
+ST_4 : Operation 59 [2/2] (0.79ns)   --->   "%H_load = load i5 %H_addr" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 59 'load' 'H_load' <Predicate = (!icmp_ln23)> <Delay = 0.79> <CoreInst = "ROM">   --->   Core 101 'ROM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 18> <ROM>
+ST_4 : Operation 60 [1/1] (0.51ns)   --->   "%icmp_ln27 = icmp_eq  i2 %add_ln23, i2 3" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 60 'icmp' 'icmp_ln27' <Predicate = (!icmp_ln23)> <Delay = 0.51> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.51> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 61 [1/1] (1.35ns)   --->   "%store_ln27 = store i32 %add1913, i6 %mat_out_addr" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 61 'store' 'store_ln27' <Predicate = (icmp_ln23)> <Delay = 1.35> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 1.35> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 36> <RAM>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 62 'br' 'br_ln0' <Predicate = (icmp_ln23)> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 5.46>
+ST_5 : Operation 63 [1/2] (0.79ns)   --->   "%mat_in_L_load = load i5 %mat_in_L_addr" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 63 'load' 'mat_in_L_load' <Predicate = true> <Delay = 0.79> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 18> <RAM>
+ST_5 : Operation 64 [1/2] (0.79ns)   --->   "%H_load = load i5 %H_addr" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 64 'load' 'H_load' <Predicate = true> <Delay = 0.79> <CoreInst = "ROM">   --->   Core 101 'ROM' <Latency = 1> <II = 1> <Delay = 0.79> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 18> <ROM>
+ST_5 : Operation 65 [4/4] (4.67ns)   --->   "%mul = fmul i32 %mat_in_L_load, i32 %H_load" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 65 'fmul' 'mul' <Predicate = true> <Delay = 4.67> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 4.67> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 6 <SV = 5> <Delay = 4.67>
+ST_6 : Operation 66 [3/4] (4.67ns)   --->   "%mul = fmul i32 %mat_in_L_load, i32 %H_load" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 66 'fmul' 'mul' <Predicate = true> <Delay = 4.67> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 4.67> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 4.67>
+ST_7 : Operation 67 [2/4] (4.67ns)   --->   "%mul = fmul i32 %mat_in_L_load, i32 %H_load" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 67 'fmul' 'mul' <Predicate = true> <Delay = 4.67> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 4.67> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 4.67>
+ST_8 : Operation 68 [1/4] (4.67ns)   --->   "%mul = fmul i32 %mat_in_L_load, i32 %H_load" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 68 'fmul' 'mul' <Predicate = true> <Delay = 4.67> <CoreInst = "FMul_maxdsp">   --->   Core 30 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 4.67> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 5.48>
+ST_9 : Operation 69 [3/3] (5.48ns)   --->   "%tmp = facc i32 @_ssdm_op_FACC, i32 %mul, i1 %icmp_ln27" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 69 'facc' 'tmp' <Predicate = true> <Delay = 5.48> <CoreInst = "FAcc_nodsp">   --->   Core 11 'FAcc_nodsp' <Latency = 2> <II = 1> <Delay = 5.48> <FuncUnit> <Opcode : 'facc'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 5.48>
+ST_10 : Operation 70 [2/3] (5.48ns)   --->   "%tmp = facc i32 @_ssdm_op_FACC, i32 %mul, i1 %icmp_ln27" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 70 'facc' 'tmp' <Predicate = true> <Delay = 5.48> <CoreInst = "FAcc_nodsp">   --->   Core 11 'FAcc_nodsp' <Latency = 2> <II = 1> <Delay = 5.48> <FuncUnit> <Opcode : 'facc'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 5.48>
+ST_11 : Operation 71 [1/1] (0.00ns)   --->   "%specloopname_ln23 = specloopname void @_ssdm_op_SpecLoopName, void @empty_21" [src/kalman_2/vitis/matrix_ops.h:23]   --->   Operation 71 'specloopname' 'specloopname_ln23' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 72 [1/3] (5.48ns)   --->   "%tmp = facc i32 @_ssdm_op_FACC, i32 %mul, i1 %icmp_ln27" [src/kalman_2/vitis/matrix_ops.h:27]   --->   Operation 72 'facc' 'tmp' <Predicate = true> <Delay = 5.48> <CoreInst = "FAcc_nodsp">   --->   Core 11 'FAcc_nodsp' <Latency = 2> <II = 1> <Delay = 5.48> <FuncUnit> <Opcode : 'facc'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 73 [1/1] (0.00ns)   --->   "%br_ln0 = br void %.lr.ph"   --->   Operation 73 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 0.489ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i', src/kalman_2/vitis/matrix_ops.h:13) with incoming values : ('add_ln13', src/kalman_2/vitis/matrix_ops.h:13) [7]  (0.489 ns)
+
+ <State 2>: 0.887ns
+The critical path consists of the following:
+	'phi' operation ('i', src/kalman_2/vitis/matrix_ops.h:13) with incoming values : ('add_ln13', src/kalman_2/vitis/matrix_ops.h:13) [7]  (0 ns)
+	'sub' operation ('empty', src/kalman_2/vitis/matrix_ops.h:13) [18]  (0.887 ns)
+
+ <State 3>: 0.887ns
+The critical path consists of the following:
+	'phi' operation ('k', src/kalman_2/vitis/matrix_ops.h:17) with incoming values : ('add_ln17', src/kalman_2/vitis/matrix_ops.h:17) [23]  (0 ns)
+	'add' operation ('add_ln20', src/kalman_2/vitis/matrix_ops.h:20) [32]  (0.887 ns)
+
+ <State 4>: 1.86ns
+The critical path consists of the following:
+	'phi' operation ('j', src/kalman_2/vitis/matrix_ops.h:23) with incoming values : ('add_ln23', src/kalman_2/vitis/matrix_ops.h:23) [37]  (0 ns)
+	'add' operation ('add_ln27', src/kalman_2/vitis/matrix_ops.h:27) [46]  (0.878 ns)
+	'getelementptr' operation ('mat_in_L_addr', src/kalman_2/vitis/matrix_ops.h:27) [48]  (0 ns)
+	'load' operation ('mat_in_L_load', src/kalman_2/vitis/matrix_ops.h:27) on array 'mat_in_L' [49]  (0.79 ns)
+	blocking operation 0.196 ns on control path)
+
+ <State 5>: 5.46ns
+The critical path consists of the following:
+	'load' operation ('mat_in_L_load', src/kalman_2/vitis/matrix_ops.h:27) on array 'mat_in_L' [49]  (0.79 ns)
+	'fmul' operation ('mul', src/kalman_2/vitis/matrix_ops.h:27) [58]  (4.67 ns)
+
+ <State 6>: 4.67ns
+The critical path consists of the following:
+	'fmul' operation ('mul', src/kalman_2/vitis/matrix_ops.h:27) [58]  (4.67 ns)
+
+ <State 7>: 4.67ns
+The critical path consists of the following:
+	'fmul' operation ('mul', src/kalman_2/vitis/matrix_ops.h:27) [58]  (4.67 ns)
+
+ <State 8>: 4.67ns
+The critical path consists of the following:
+	'fmul' operation ('mul', src/kalman_2/vitis/matrix_ops.h:27) [58]  (4.67 ns)
+
+ <State 9>: 5.48ns
+The critical path consists of the following:
+	'facc' operation ('tmp', src/kalman_2/vitis/matrix_ops.h:27) [60]  (5.48 ns)
+
+ <State 10>: 5.48ns
+The critical path consists of the following:
+	'facc' operation ('tmp', src/kalman_2/vitis/matrix_ops.h:27) [60]  (5.48 ns)
+
+ <State 11>: 5.48ns
+The critical path consists of the following:
+	'facc' operation ('tmp', src/kalman_2/vitis/matrix_ops.h:27) [60]  (5.48 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

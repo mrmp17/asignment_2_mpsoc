@@ -141,7 +141,7 @@
     "Uncertainty": "2.7",
     "IsCombinational": "0",
     "II": "x",
-    "Latency": "112"
+    "Latency": "133"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
   "Ipx": {
@@ -173,6 +173,7 @@
       "impl\/vhdl\/KalmanFilterKernel_fptrunc_64ns_32_2_no_dsp_1.vhd",
       "impl\/vhdl\/KalmanFilterKernel_I.vhd",
       "impl\/vhdl\/KalmanFilterKernel_K.vhd",
+      "impl\/vhdl\/KalmanFilterKernel_mat_out_assign_2.vhd",
       "impl\/vhdl\/KalmanFilterKernel_matMultiply_float_6_6_6_1.vhd",
       "impl\/vhdl\/KalmanFilterKernel_matMultiply_float_6_6_6_1_H.vhd",
       "impl\/vhdl\/KalmanFilterKernel_matMultiply_float_6_6_6_2.vhd",
@@ -187,7 +188,6 @@
       "impl\/vhdl\/KalmanFilterKernel_P.vhd",
       "impl\/vhdl\/KalmanFilterKernel_P_hat.vhd",
       "impl\/vhdl\/KalmanFilterKernel_R.vhd",
-      "impl\/vhdl\/KalmanFilterKernel_S.vhd",
       "impl\/vhdl\/KalmanFilterKernel_uitofp_32ns_32_4_no_dsp_1.vhd",
       "impl\/vhdl\/KalmanFilterKernel_x_hat.vhd",
       "impl\/vhdl\/KalmanFilterKernel.vhd"
@@ -209,7 +209,7 @@
       "impl\/verilog\/KalmanFilterKernel_I.v",
       "impl\/verilog\/KalmanFilterKernel_I_rom.dat",
       "impl\/verilog\/KalmanFilterKernel_K.v",
-      "impl\/verilog\/KalmanFilterKernel_K_ram.dat",
+      "impl\/verilog\/KalmanFilterKernel_mat_out_assign_2.v",
       "impl\/verilog\/KalmanFilterKernel_matMultiply_float_6_6_6_1.v",
       "impl\/verilog\/KalmanFilterKernel_matMultiply_float_6_6_6_1_H.v",
       "impl\/verilog\/KalmanFilterKernel_matMultiply_float_6_6_6_1_H_rom.dat",
@@ -227,8 +227,6 @@
       "impl\/verilog\/KalmanFilterKernel_P_hat.v",
       "impl\/verilog\/KalmanFilterKernel_P_hat_ram.dat",
       "impl\/verilog\/KalmanFilterKernel_R.v",
-      "impl\/verilog\/KalmanFilterKernel_S.v",
-      "impl\/verilog\/KalmanFilterKernel_S_ram.dat",
       "impl\/verilog\/KalmanFilterKernel_uitofp_32ns_32_4_no_dsp_1.v",
       "impl\/verilog\/KalmanFilterKernel_x_hat.v",
       "impl\/verilog\/KalmanFilterKernel_x_hat_ram.dat",
@@ -343,7 +341,7 @@
       "type": "data",
       "busTypeName": "data",
       "mode": "master",
-      "dataWidth": "11",
+      "dataWidth": "3",
       "portMap": {"din_address0": "DATA"},
       "ports": ["din_address0"],
       "constraints": [{
@@ -371,7 +369,7 @@
       "type": "data",
       "busTypeName": "data",
       "mode": "master",
-      "dataWidth": "11",
+      "dataWidth": "3",
       "portMap": {"dout_address0": "DATA"},
       "ports": ["dout_address0"],
       "constraints": [{
@@ -717,7 +715,7 @@
     },
     "din_address0": {
       "dir": "out",
-      "width": "11"
+      "width": "3"
     },
     "din_ce0": {
       "dir": "out",
@@ -729,7 +727,7 @@
     },
     "dout_address0": {
       "dir": "out",
-      "width": "11"
+      "width": "3"
     },
     "dout_ce0": {
       "dir": "out",
@@ -754,35 +752,35 @@
       "Instances": [
         {
           "ModuleName": "matMultiply_float_6_6_6_2",
-          "InstanceName": "grp_matMultiply_float_6_6_6_2_fu_2036"
+          "InstanceName": "grp_matMultiply_float_6_6_6_2_fu_2055"
         },
         {
           "ModuleName": "matMultiply_float_6_6_6_4",
-          "InstanceName": "grp_matMultiply_float_6_6_6_4_fu_2046"
+          "InstanceName": "grp_matMultiply_float_6_6_6_4_fu_2064"
         },
         {
           "ModuleName": "matMultiply_float_6_6_6_1",
-          "InstanceName": "grp_matMultiply_float_6_6_6_1_fu_2057"
+          "InstanceName": "grp_matMultiply_float_6_6_6_1_fu_2075"
         },
         {
           "ModuleName": "matMultiply_float_6_6_6_s",
-          "InstanceName": "grp_matMultiply_float_6_6_6_s_fu_2066"
+          "InstanceName": "grp_matMultiply_float_6_6_6_s_fu_2083"
         },
         {
           "ModuleName": "matMultiply_float_6_6_6_5",
-          "InstanceName": "grp_matMultiply_float_6_6_6_5_fu_2073"
+          "InstanceName": "grp_matMultiply_float_6_6_6_5_fu_2090"
         },
         {
           "ModuleName": "matMultiply_float_6_6_6_3",
-          "InstanceName": "grp_matMultiply_float_6_6_6_3_fu_2081"
+          "InstanceName": "grp_matMultiply_float_6_6_6_3_fu_2098"
         },
         {
           "ModuleName": "matMultiply_float_6_6_6_7",
-          "InstanceName": "grp_matMultiply_float_6_6_6_7_fu_2090"
+          "InstanceName": "grp_matMultiply_float_6_6_6_7_fu_2105"
         },
         {
           "ModuleName": "matMultiply_float_6_6_6_6",
-          "InstanceName": "grp_matMultiply_float_6_6_6_6_fu_2097"
+          "InstanceName": "grp_matMultiply_float_6_6_6_6_fu_2112"
         }
       ]
     },
@@ -1282,12 +1280,12 @@
       },
       "KalmanFilterKernel": {
         "Latency": {
-          "LatencyBest": "112",
-          "LatencyAvg": "5329",
-          "LatencyWorst": "11458",
-          "PipelineIIMin": "113",
-          "PipelineIIMax": "11459",
-          "PipelineII": "113 ~ 11459",
+          "LatencyBest": "133",
+          "LatencyAvg": "5415",
+          "LatencyWorst": "11608",
+          "PipelineIIMin": "134",
+          "PipelineIIMax": "11609",
+          "PipelineII": "134 ~ 11609",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -1299,58 +1297,65 @@
         "Loops": [
           {
             "Name": "Loop 1",
-            "TripCount": "35",
-            "Latency": "35",
-            "PipelineII": "1",
+            "TripCount": "6",
+            "Latency": "6",
+            "PipelineII": "",
             "PipelineDepth": "1"
           },
           {
-            "Name": "VITIS_LOOP_115_1",
+            "Name": "Loop 2",
+            "TripCount": "35",
+            "Latency": "35",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "VITIS_LOOP_126_1",
             "TripCount": "6",
-            "Latency": "6",
-            "PipelineII": "1",
+            "Latency": "12",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
-            "Name": "VITIS_LOOP_126_2",
+            "Name": "VITIS_LOOP_137_2",
             "TripCount": "6",
-            "Latency": "6",
-            "PipelineII": "1",
+            "Latency": "12",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
-            "Name": "VITIS_LOOP_131_3",
+            "Name": "VITIS_LOOP_143_3",
             "TripCount": "6",
-            "Latency": "6",
-            "PipelineII": "1",
+            "Latency": "12",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
-            "Name": "VITIS_LOOP_154_4",
+            "Name": "VITIS_LOOP_166_4",
             "TripCount": "3",
-            "Latency": "3",
-            "PipelineII": "1",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "VITIS_LOOP_155_5",
-            "TripCount": "3",
-            "Latency": "3",
-            "PipelineII": "1",
-            "PipelineDepth": "2"
-          },
-          {
-            "Name": "VITIS_LOOP_156_6",
-            "TripCount": "6",
             "Latency": "6",
-            "PipelineII": "1",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
-            "Name": "VITIS_LOOP_157_7",
+            "Name": "VITIS_LOOP_167_5",
+            "TripCount": "3",
+            "Latency": "6",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "VITIS_LOOP_168_6",
+            "TripCount": "6",
+            "Latency": "12",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "VITIS_LOOP_169_7",
             "TripCount": "36",
-            "Latency": "36",
-            "PipelineII": "1",
+            "Latency": "72",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
@@ -1396,17 +1401,17 @@
               }]
           },
           {
-            "Name": "VITIS_LOOP_171_8",
+            "Name": "VITIS_LOOP_185_8",
             "TripCount": "6",
-            "Latency": "6",
-            "PipelineII": "1",
+            "Latency": "12",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
-            "Name": "VITIS_LOOP_172_9",
+            "Name": "VITIS_LOOP_186_9",
             "TripCount": "36",
-            "Latency": "36",
-            "PipelineII": "1",
+            "Latency": "72",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
@@ -1473,38 +1478,38 @@
               }]
           },
           {
-            "Name": "VITIS_LOOP_198_10",
+            "Name": "VITIS_LOOP_212_10",
             "TripCount": "6",
-            "Latency": "6",
-            "PipelineII": "1",
+            "Latency": "12",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
-            "Name": "VITIS_LOOP_199_11",
+            "Name": "VITIS_LOOP_213_11",
             "TripCount": "36",
-            "Latency": "36",
-            "PipelineII": "1",
+            "Latency": "72",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
-            "Name": "VITIS_LOOP_200_12",
+            "Name": "VITIS_LOOP_214_12",
             "TripCount": "6",
-            "Latency": "6",
-            "PipelineII": "1",
+            "Latency": "12",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
-            "Name": "VITIS_LOOP_202_13",
+            "Name": "VITIS_LOOP_215_13",
             "TripCount": "6",
-            "Latency": "6",
-            "PipelineII": "1",
+            "Latency": "12",
+            "PipelineII": "",
             "PipelineDepth": "2"
           },
           {
-            "Name": "VITIS_LOOP_206_14",
+            "Name": "VITIS_LOOP_217_14",
             "TripCount": "6",
-            "Latency": "6",
-            "PipelineII": "1",
+            "Latency": "12",
+            "PipelineII": "",
             "PipelineDepth": "2"
           }
         ],
@@ -1515,10 +1520,10 @@
           "DSP": "25",
           "AVAIL_DSP": "360",
           "UTIL_DSP": "6",
-          "FF": "5398",
+          "FF": "5404",
           "AVAIL_FF": "141120",
           "UTIL_FF": "3",
-          "LUT": "13820",
+          "LUT": "13589",
           "AVAIL_LUT": "70560",
           "UTIL_LUT": "19",
           "URAM": "0",
@@ -1531,7 +1536,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2022-11-24 12:24:13 CET",
+    "Time": "2022-11-30 09:21:06 CET",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.2"
   }

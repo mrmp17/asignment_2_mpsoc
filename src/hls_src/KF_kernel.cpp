@@ -2,22 +2,25 @@
 //using namespace std;
 
 
-void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], ap_uint<32> counter,  float q, float r) {
+void KalmanFilterKernel(float din[N_CTRL_VARS+N_MEAS_VARS], float dout[N_STATE_VARS], ap_uint<32> counter,  float q, float r) {
 
 #pragma HLS INTERFACE ap_memory storage_type=ram_1p port=din
 #pragma HLS INTERFACE ap_memory storage_type=ram_1p port=dout
 #pragma HLS INTERFACE s_axilite port=q bundle=AXI_CPU
 #pragma HLS INTERFACE s_axilite port=r bundle=AXI_CPU
 #pragma HLS INTERFACE s_axilite port=return bundle=AXI_CPU
-#pragma HLS_INTERFACE ap_none port=counter register
+#pragma HLS_INTERFACE ap_none port=counter
+#pragma HLS pipeline off
+
 
 	static unsigned int counter_sig_old;
 	unsigned int counter_sig_new = counter;
 
 	static bool first_run = true;
+
 	static KF_data_t din_old[N_STATE_VARS];
 	KF_data_t din_new[N_STATE_VARS];
-	KF_data_t dout_[N_STATE_VARS];
+	KF_data_t dout_[N_STATE_VARS] = {0,0,0,0,0,0};
 
 	float DT;
 
@@ -42,7 +45,13 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], ap_uint<32>
 	//cout << "aaaaaaa \n";
 	//cout << "Calculated:" << DT << "\n";
 
+
+	//DT = 0.1; //temp solution!
 	counter_sig_old = counter_sig_new;
+
+
+
+
 
 	// Registers
 
@@ -76,8 +85,6 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], ap_uint<32>
 		0,0,0,0,0,1
 	};
 
-
-	 // Initialization:
 	 KF_data_t Q[N_STATE_VARS*N_STATE_VARS] = {
 		q, 0, 0, 0, 0, 0,
 		0, q, 0, 0, 0, 0,
@@ -94,6 +101,9 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], ap_uint<32>
 	};
 
 
+
+
+
 	static KF_data_t x_hat[N_STATE_VARS];
 	static KF_data_t P_hat[N_STATE_VARS*N_STATE_VARS] = {
 		1, 0, 0, 0, 0, 0,
@@ -104,14 +114,15 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], ap_uint<32>
 		0, 0, 0, 0, 0, 1
 	};
 
-	static KF_data_t y_bar[N_MEAS_VARS];
-	static KF_data_t H_T[N_STATE_VARS*N_MEAS_VARS];
-	static KF_data_t S[N_MEAS_VARS*N_MEAS_VARS];
-	static KF_data_t S_inv[N_MEAS_VARS*N_MEAS_VARS];
-	static KF_data_t K[N_STATE_VARS*N_MEAS_VARS];
+	 KF_data_t y_bar[N_MEAS_VARS];
+	 KF_data_t H_T[N_STATE_VARS*N_MEAS_VARS];
+	 KF_data_t S[N_MEAS_VARS*N_MEAS_VARS];
+	 KF_data_t S_inv[N_MEAS_VARS*N_MEAS_VARS];
+	 KF_data_t K[N_STATE_VARS*N_MEAS_VARS];
 
 
 	if( first_run){
+	#pragma HLS PIPELINE off
 		for (int i = 0; i < N_STATE_VARS; i++) {
 			din_old[i] = (KF_data_t)din[i];
 		}
@@ -127,6 +138,7 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], ap_uint<32>
 
 	}
 	else{
+	#pragma HLS PIPELINE off
 
 		for (int i = 0; i < N_STATE_VARS; i++) {
 		 		din_new[i] = (KF_data_t)din[i];
@@ -168,6 +180,8 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], ap_uint<32>
 		matMultiply<KF_data_t, N_STATE_VARS, N_STATE_VARS, N_STATE_VARS>(tmp_mat_1, tmp_mat_2, tmp_mat_3, N_STATE_VARS, N_STATE_VARS, N_STATE_VARS);
 		matAdd<KF_data_t, N_STATE_VARS, N_STATE_VARS>(tmp_mat_3, Q, P_minus, N_STATE_VARS, N_STATE_VARS);
 
+		//update x_plus and P_plus
+
 		for (int j = 0; j < N_STATE_VARS; j++) x_plus[j] = x_minus[j];
 		for (int j = 0; j < N_STATE_VARS*N_STATE_VARS; j++) P_plus[j] = P_minus[j];
 
@@ -198,13 +212,12 @@ void KalmanFilterKernel(float din[BRAM_SIZE], float dout[BRAM_SIZE], ap_uint<32>
 		for (int j = 0; j < N_STATE_VARS; j++) x_hat[j] = x_plus[j];
 		for (int j = 0; j < N_STATE_VARS*N_STATE_VARS; j++) P_hat[j] = P_plus[j];
 		for (int j = 0; j < N_STATE_VARS; j++) dout_[j] = x_plus[j];
-
-		for (int i = 0; i < N_STATE_VARS; i++) {
-			din_old[i] = din_new[i];
-		}
+		for (int i = 0; i < N_STATE_VARS; i++) din_old[i] = din_new[i];
 	}
 	for (int i = 0; i < N_STATE_VARS; i++) {
 		dout[i] = (float)dout_[i];
+		//dout[i] = din[i] + 1;
+		//dout[0] = DT;
 	}
 	first_run = false;
 }
